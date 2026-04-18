@@ -7,7 +7,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
-const DIR = path.resolve("public/figma/product");
+const DIR = path.resolve(process.argv[2] || "public/figma/product");
 
 const files = (await fs.readdir(DIR)).filter((f) => f.endsWith(".png"));
 
