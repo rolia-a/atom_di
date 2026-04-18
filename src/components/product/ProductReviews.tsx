@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const reviews = [
   {
     title: "Атом это лучший автомобиль России!!!!!!!!",
@@ -20,13 +22,12 @@ const reviews = [
 export default function ProductReviews() {
   return (
     <section className="relative overflow-hidden text-black">
-      {/* Background image */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/figma/product/reviews-bg.webp"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-        loading="lazy"
+        fill
+        sizes="100vw"
+        className="object-cover"
       />
       <div
         aria-hidden
@@ -56,12 +57,12 @@ export default function ProductReviews() {
                   {r.text}
                 </p>
               </div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/figma/product/reviews-logo.webp"
                 alt=""
-                className="mt-6 h-[52px] w-[136px] object-contain"
-                loading="lazy"
+                width={136}
+                height={52}
+                className="mt-6 object-contain"
               />
             </article>
           ))}

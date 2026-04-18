@@ -1,12 +1,15 @@
+import Image from "next/image";
+
 export default function ProductGarage() {
   return (
     <section className="relative bg-black">
       <div className="relative h-[788px] overflow-hidden bg-black">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/figma/product/design-atom.png"
           alt="Распашные двери Атома"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           aria-hidden

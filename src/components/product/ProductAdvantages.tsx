@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const tabs = [
@@ -72,12 +73,12 @@ export default function ProductAdvantages() {
 
           {/* Right: steering wheel render */}
           <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden bg-white">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/figma/product/steering-wheel.webp"
               alt={current.label}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
+              fill
+              sizes="(max-width: 1024px) 100vw, 55vw"
+              className="object-cover"
             />
           </div>
         </div>

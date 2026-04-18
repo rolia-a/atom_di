@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const types = [
   { label: "GB/T DC", desc: "Быстрая зарядка" },
   { label: "GB/T AC", desc: "Медленная AC" },
@@ -24,12 +26,12 @@ export default function ProductCharging() {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16">
           {/* Charging map */}
           <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden bg-[#0b1618]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/figma/product/map.webp"
               alt="Карта зарядных станций"
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
+              fill
+              sizes="(max-width: 1024px) 100vw, 60vw"
+              className="object-cover"
             />
           </div>
 

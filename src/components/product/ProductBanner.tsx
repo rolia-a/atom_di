@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function ProductBanner() {
   return (
     <section
@@ -7,10 +9,12 @@ export default function ProductBanner() {
           "linear-gradient(187.9deg, rgb(195,197,198) 25.7%, rgb(223,224,225) 77%)",
       }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/figma/product/front-atom.webp"
         alt="Atom front view"
+        width={1600}
+        height={900}
+        sizes="100vw"
         className="absolute left-[18%] top-[-10%] h-[120%] w-auto max-w-none object-contain pointer-events-none"
       />
 

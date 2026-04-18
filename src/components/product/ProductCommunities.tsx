@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const items = [
   {
     num: "01",
@@ -45,12 +47,12 @@ export default function ProductCommunities() {
               key={item.num}
               className="relative aspect-[3/4] rounded-[32px] overflow-hidden bg-[#0a1416]"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={item.img}
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
+                alt={item.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.55)_100%)]" />
               <div className="relative z-10 p-6 flex flex-col h-full text-white">

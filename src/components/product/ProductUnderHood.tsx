@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const features = [
   { title: "Платформа", desc: "Модульная, собственной разработки" },
   { title: "Запас хода", desc: "До 500 км на одном заряде" },
@@ -17,12 +19,12 @@ export default function ProductUnderHood() {
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-center">
           <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden bg-black">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/figma/product/platform.webp"
               alt="EV-платформа Атома"
-              className="absolute inset-0 w-full h-full object-contain"
-              loading="lazy"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-contain"
             />
           </div>
 
