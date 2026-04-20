@@ -52,21 +52,17 @@ const cards = [
 export default function PartnersEvents() {
   return (
     <section id="events" className="relative bg-[#0a1a20] overflow-hidden">
-      {/* Background image from Figma macro */}
+      {/* Background image per Figma (Widget Medium) */}
       <Image
-        src="/figma/product/bridge-cam-05.webp"
+        src="/figma/product/team.webp"
         alt=""
         fill
         sizes="100vw"
-        className="object-cover opacity-80"
+        className="object-cover"
       />
       <div
         aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(10,26,32,0.7) 0%, rgba(10,26,32,0.55) 40%, rgba(10,26,32,0.85) 100%)",
-        }}
+        className="absolute inset-0 bg-black/40"
       />
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:py-[60px]">

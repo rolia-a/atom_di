@@ -11,13 +11,24 @@ export default function PartnersStats() {
   return (
     <section className="relative bg-black overflow-hidden">
       <div className="relative w-full min-h-[800px]">
-        {/* Background per Figma — use hero bridge render */}
+        {/* Background per Figma: bridge-cam composite (base + overlay) */}
         <Image
-          src="/figma/partners/hero-bg.png"
+          src="/figma/product/bridge-cam-05.webp"
           alt=""
           fill
           sizes="100vw"
           className="object-cover"
+          priority={false}
+        />
+        <Image
+          src="/figma/product/bridge-cam-06.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          style={{
+            transform: "scale(1.07) translate(-1.6%, -9%)",
+          }}
         />
 
         {/* Smooth gradient fade to black at the bottom (no hard plate) */}

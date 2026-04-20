@@ -4,7 +4,7 @@ export default function PartnersHero() {
   return (
     <section className="relative min-h-[640px] md:min-h-[760px] lg:min-h-[800px] w-full overflow-hidden bg-black">
       <Image
-        src="/figma/partners/hero-bg.png"
+        src="/figma/partners/hero-overlay.webp"
         alt=""
         fill
         sizes="100vw"
@@ -20,15 +20,13 @@ export default function PartnersHero() {
             <br />
             Осталось 6 мест
           </h1>
-          <p className="mt-5 max-w-[361px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
-            Первый серийный электромобиль страны
-            <br />
-            ищет сообщества, с которыми хочется
-            <br />
-            делать историю. Если это
-            <br />
-            про вас — листайте дальше
-          </p>
+          <div className="mt-5 max-w-[440px] text-base md:text-lg lg:text-xl text-white leading-[1.4] space-y-0">
+            <p>
+              Первый серийный электромобиль страны ищет сообщества, с которыми
+              хочется делать историю. Если это
+            </p>
+            <p>про вас — листайте дальше</p>
+          </div>
           <div className="mt-8 md:mt-10 flex flex-wrap gap-3">
             <a
               href="#apply"

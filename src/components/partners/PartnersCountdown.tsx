@@ -26,14 +26,13 @@ export default function PartnersCountdown() {
 
   return (
     <section className="relative overflow-hidden bg-black">
-      {/* Bright gradient shifted toward the timer (right) */}
+      {/* Subtle blue glow behind the timer */}
       <div
         aria-hidden
-        className="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 w-[1200px] h-[700px] translate-x-[10%]"
+        className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(55% 60% at 60% 50%, rgba(0,178,178,0.55) 0%, rgba(0,178,178,0.15) 45%, transparent 75%)",
-          filter: "blur(30px)",
+            "radial-gradient(45% 55% at 78% 50%, rgba(0,120,160,0.45) 0%, rgba(0,60,90,0.18) 45%, transparent 80%)",
         }}
       />
 
