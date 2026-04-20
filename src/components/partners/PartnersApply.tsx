@@ -6,13 +6,27 @@ import { FormEvent, useState } from "react";
 export default function PartnersApply() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError(null);
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 600));
-    setSubmitting(false);
-    setDone(true);
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    try {
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(json.error || "Ошибка отправки");
+      setDone(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Ошибка");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -76,6 +90,9 @@ export default function PartnersApply() {
             >
               {submitting ? "Отправляем…" : "Занять место"}
             </button>
+            {error && (
+              <p className="mt-1 text-sm text-red-400 pl-4">{error}</p>
+            )}
             <p className="mt-1 text-xs text-white/50 pl-4">
               Без спама, без рассылок
             </p>
