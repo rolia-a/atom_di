@@ -53,9 +53,12 @@ export default function ProductAfter() {
                   </p>
                 )}
                 {i === 0 && (
-                  <button className="mt-6 inline-flex items-center justify-center h-14 px-8 rounded-2xl bg-white text-black font-medium hover:bg-black hover:text-white transition">
+                  <a
+                    href="#preorder"
+                    className="mt-6 inline-flex items-center justify-center h-14 px-8 rounded-2xl bg-white text-black font-medium hover:bg-black hover:text-white transition"
+                  >
                     Заказать
-                  </button>
+                  </a>
                 )}
               </li>
             ))}

@@ -31,9 +31,12 @@ export default function ProductBanner() {
         </div>
 
         {/* Button placeholder */}
-        <button className="self-start inline-flex items-center justify-center h-14 px-8 rounded-2xl bg-black text-white font-medium hover:brightness-110 transition">
+        <a
+          href="#preorder"
+          className="self-start inline-flex items-center justify-center h-14 px-8 rounded-2xl bg-black text-white font-medium hover:brightness-110 transition"
+        >
           Записаться на тест-драйв
-        </button>
+        </a>
       </div>
     </section>
   );

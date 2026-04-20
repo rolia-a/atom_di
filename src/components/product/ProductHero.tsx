@@ -30,12 +30,18 @@ export default function ProductHero() {
           </h1>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <button className="inline-flex items-center justify-center h-14 px-10 rounded-2xl bg-black border-2 border-[#9747ff] text-white font-medium hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition">
+            <a
+              href="#preorder"
+              className="inline-flex items-center justify-center h-14 px-10 rounded-2xl bg-black border-2 border-[#9747ff] text-white font-medium hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
+            >
               Хочу Атом
-            </button>
-            <button className="inline-flex items-center justify-center h-14 px-10 rounded-2xl bg-white/85 text-black/85 font-medium hover:bg-white transition">
+            </a>
+            <a
+              href="#preorder"
+              className="inline-flex items-center justify-center h-14 px-10 rounded-2xl bg-white/85 text-black/85 font-medium hover:bg-white transition"
+            >
               Записаться на показ
-            </button>
+            </a>
           </div>
         </div>
       </div>

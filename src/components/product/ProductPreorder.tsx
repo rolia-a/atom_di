@@ -69,9 +69,12 @@ export default function ProductPreorder() {
                 500 000 ₽
               </p>
             </div>
-            <button className="w-full inline-flex items-center justify-center h-14 px-8 rounded-2xl bg-black border-2 border-[#9747ff] text-white font-medium hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition">
+            <a
+              href="/partners#apply"
+              className="w-full inline-flex items-center justify-center h-14 px-8 rounded-2xl bg-black border-2 border-[#9747ff] text-white font-medium hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
+            >
               Заказать
-            </button>
+            </a>
             <p className="text-xs text-[#b8c6d3] leading-snug">
               Сумма бронирования входит в финальную стоимость электромобиля
             </p>
