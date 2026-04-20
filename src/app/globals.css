@@ -64,6 +64,20 @@ body {
   pointer-events: none;
 }
 
+/* Cyan → purple gradient border, black background. Works on <a> and <button>. */
+.btn-grad {
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(90deg, #00ffff 0%, #9747ff 100%) border-box;
+  border: 2px solid transparent;
+  color: #fff;
+  transition: filter 160ms ease, box-shadow 160ms ease;
+}
+.btn-grad:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 24px rgba(151, 71, 255, 0.35);
+}
+
 /* Gradient text utility */
 .text-gradient {
   background: linear-gradient(90deg, #00ffff 0%, #ffffff 100%);

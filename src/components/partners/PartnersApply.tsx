@@ -100,7 +100,7 @@ export default function PartnersApply() {
             <button
               type="submit"
               disabled={submitting}
-              className="mt-4 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-[24px] font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition disabled:opacity-60"
+              className="btn-grad mt-4 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] text-base md:text-[24px] disabled:opacity-60"
             >
               {submitting ? "Отправляем…" : "Занять место"}
             </button>

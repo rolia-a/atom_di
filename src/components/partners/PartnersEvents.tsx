@@ -52,9 +52,9 @@ const cards = [
 export default function PartnersEvents() {
   return (
     <section id="events" className="relative bg-[#0a1a20] overflow-hidden">
-      {/* Background image per Figma (Widget Medium) */}
+      {/* Background: car on bridge at sunset (per Figma mockup) */}
       <Image
-        src="/figma/product/team.webp"
+        src="/figma/product/bridge-cam-05.webp"
         alt=""
         fill
         sizes="100vw"
@@ -62,7 +62,11 @@ export default function PartnersEvents() {
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-black/40"
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.8) 100%)",
+        }}
       />
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:py-[60px]">
@@ -131,7 +135,7 @@ export default function PartnersEvents() {
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 pb-12 md:pb-16 flex justify-center">
         <a
           href="#apply"
-          className="inline-flex items-center justify-center h-12 md:h-[71px] w-full max-w-[442px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-[24px] font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
+          className="btn-grad inline-flex items-center justify-center h-12 md:h-[71px] w-full max-w-[442px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
         >
           Занять место
         </a>

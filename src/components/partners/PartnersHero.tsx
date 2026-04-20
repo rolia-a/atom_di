@@ -20,23 +20,20 @@ export default function PartnersHero() {
             <br />
             Осталось 6 мест
           </h1>
-          <div className="mt-5 max-w-[440px] text-base md:text-lg lg:text-xl text-white leading-[1.4] space-y-0">
-            <p>
-              Первый серийный электромобиль страны ищет сообщества, с которыми
-              хочется делать историю. Если это
-            </p>
-            <p>про вас — листайте дальше</p>
-          </div>
+          <p className="mt-5 max-w-[360px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
+            Первый серийный электромобиль страны ищет сообщества, с которыми
+            хочется делать историю. Если это про вас — листайте дальше
+          </p>
           <div className="mt-8 md:mt-10 flex flex-wrap gap-3">
             <a
               href="#apply"
-              className="inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-[24px] font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
+              className="btn-grad inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
             >
               Занять место
             </a>
             <a
               href="#events"
-              className="inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl bg-white text-black text-base md:text-[24px] font-light hover:bg-white/90 transition"
+              className="inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-white text-black text-base md:text-[24px] hover:bg-white/90 transition"
             >
               Узнать больше
             </a>
