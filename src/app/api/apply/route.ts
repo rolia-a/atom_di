@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
-export const runtime = "edge"; // Fast cold start on Vercel
+// nodejs runtime required for nodemailer (SMTP needs net module)
+export const runtime = "nodejs";
 
 type Body = {
   name?: string;
@@ -10,11 +12,7 @@ type Body = {
 };
 
 function esc(s: string) {
-  // HTML-escape for Telegram parse_mode=HTML
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 function fmtTelegram(b: Body) {
@@ -29,6 +27,61 @@ function fmtTelegram(b: Body) {
   return lines.join("\n");
 }
 
+function fmtEmailText(b: Body) {
+  return [
+    "Новая заявка на партнёрство",
+    "",
+    `Имя: ${b.name || "—"}`,
+    `Сообщество: ${b.community || "—"}`,
+    `Контакт: ${b.contact || "—"}`,
+    "",
+    `О сообществе: ${b.about || "—"}`,
+  ].join("\n");
+}
+
+async function sendTelegram(b: Body) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) return { ok: false, skipped: true };
+  const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: fmtTelegram(b),
+      parse_mode: "HTML",
+      disable_web_page_preview: true,
+    }),
+  });
+  return { ok: res.ok, skipped: false };
+}
+
+async function sendEmail(b: Body) {
+  const host = process.env.SMTP_HOST;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  const to = process.env.SMTP_TO;
+  if (!host || !user || !pass || !to) return { ok: false, skipped: true };
+
+  const port = Number(process.env.SMTP_PORT || 465);
+  const secure = port === 465;
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port,
+    secure,
+    auth: { user, pass },
+  });
+
+  await transporter.sendMail({
+    from: process.env.SMTP_FROM || user,
+    to,
+    subject: `Атом — заявка от ${b.name || "—"} (${b.community || "—"})`,
+    text: fmtEmailText(b),
+  });
+  return { ok: true, skipped: false };
+}
+
 export async function POST(req: Request) {
   let body: Body;
   try {
@@ -37,7 +90,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  // Basic validation
   if (!body.name || !body.community || !body.contact) {
     return NextResponse.json(
       { error: "Заполните имя, сообщество и контакт" },
@@ -45,55 +97,33 @@ export async function POST(req: Request) {
     );
   }
 
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  // Send to both channels in parallel; individual failures don't fail the whole request
+  const [tg, mail] = await Promise.allSettled([sendTelegram(body), sendEmail(body)]);
 
-  if (!token || !chatId) {
-    console.warn("Telegram env vars missing — dropping submission");
+  const channels = {
+    telegram: tg.status === "fulfilled" ? tg.value : { ok: false, error: String(tg.reason) },
+    email: mail.status === "fulfilled" ? mail.value : { ok: false, error: String(mail.reason) },
+  };
+
+  const anyOk =
+    (tg.status === "fulfilled" && tg.value.ok) ||
+    (mail.status === "fulfilled" && mail.value.ok);
+  const anyConfigured =
+    (tg.status === "fulfilled" && !tg.value.skipped) ||
+    (mail.status === "fulfilled" && !mail.value.skipped);
+
+  if (!anyConfigured) {
+    console.warn("No channels configured — dropping submission");
     return NextResponse.json({ ok: true, note: "dev" });
   }
 
-  const url = `https://api.telegram.org/bot${token}/sendMessage`;
-  const tgRes = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: fmtTelegram(body),
-      parse_mode: "HTML",
-      disable_web_page_preview: true,
-    }),
-  });
-
-  if (!tgRes.ok) {
-    const t = await tgRes.text().catch(() => "");
-    console.error("Telegram send failed", tgRes.status, t);
+  if (!anyOk) {
+    console.error("All channels failed:", channels);
     return NextResponse.json(
       { error: "Не удалось отправить. Попробуйте позже." },
       { status: 502 }
     );
   }
-
-  // Mirror submission to Yandex Forms (РФ-хранилище)
-  const yandexFormUrl = "https://forms.yandex.ru/u/69e5ed6b068ff0764f001311/";
-  const yandexFields = new URLSearchParams({
-    answer_short_text_9008975930953544: body.name || "",
-    answer_short_text_9008975930980724: body.community || "",
-    answer_short_text_9008975930997718: body.contact || "",
-    answer_short_text_9008975931006414: body.about || "",
-  });
-  fetch(yandexFormUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "User-Agent": "atom-di-lead-forwarder/1.0",
-    },
-    body: yandexFields.toString(),
-  })
-    .then((r) => {
-      if (!r.ok) console.warn("Yandex Forms mirror non-200:", r.status);
-    })
-    .catch((e) => console.warn("Yandex Forms mirror failed:", e));
 
   return NextResponse.json({ ok: true });
 }
