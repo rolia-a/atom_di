@@ -74,15 +74,26 @@ export async function POST(req: Request) {
     );
   }
 
-  // Optional: forward to Yandex Forms later via YANDEX_FORM_WEBHOOK
-  const yf = process.env.YANDEX_FORM_WEBHOOK;
-  if (yf) {
-    fetch(yf, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    }).catch(() => {});
-  }
+  // Mirror submission to Yandex Forms (РФ-хранилище)
+  const yandexFormUrl = "https://forms.yandex.ru/u/69e5ed6b068ff0764f001311/";
+  const yandexFields = new URLSearchParams({
+    answer_short_text_9008975930953544: body.name || "",
+    answer_short_text_9008975930980724: body.community || "",
+    answer_short_text_9008975930997718: body.contact || "",
+    answer_short_text_9008975931006414: body.about || "",
+  });
+  fetch(yandexFormUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "User-Agent": "atom-di-lead-forwarder/1.0",
+    },
+    body: yandexFields.toString(),
+  })
+    .then((r) => {
+      if (!r.ok) console.warn("Yandex Forms mirror non-200:", r.status);
+    })
+    .catch((e) => console.warn("Yandex Forms mirror failed:", e));
 
   return NextResponse.json({ ok: true });
 }
