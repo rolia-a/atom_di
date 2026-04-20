@@ -96,6 +96,17 @@ export default function PartnersApply() {
             <p className="mt-1 text-xs text-white/50 pl-4">
               Без спама, без рассылок
             </p>
+            <p className="mt-3 text-xs text-white/60 pl-4">
+              Или заполните{" "}
+              <a
+                href="https://forms.yandex.ru/u/69e5ed6b068ff0764f001311"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#00b2b2] underline hover:text-white transition"
+              >
+                форму на Яндексе
+              </a>
+            </p>
           </form>
         )}
       </div>
