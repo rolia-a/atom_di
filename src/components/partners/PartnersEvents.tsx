@@ -52,33 +52,36 @@ const cards = [
 export default function PartnersEvents() {
   return (
     <section id="events" className="relative bg-[#0a1a20] overflow-hidden">
-      {/* Background: Atom on bridge at sunset (per Figma mockup) */}
-      <Image
-        src="/figma/partners/events-bg.webp"
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover object-center"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.85) 100%)",
-        }}
-      />
+      {/* Background: Atom on bridge at sunset. Covers the upper ~728px per Figma mockup */}
+      <div className="relative w-full h-[520px] md:h-[640px] lg:h-[728px]">
+        <Image
+          src="/figma/partners/events-bg.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(10,26,32,1) 100%)",
+          }}
+        />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:py-[60px]">
-        <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white max-w-[615px]">
-          С Атом
-          <br />
-          никогда не скучно
-        </h2>
+        {/* Heading overlaid on the image */}
+        <div className="absolute inset-x-0 top-0 z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:pt-[60px]">
+          <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white max-w-[615px]">
+            С Атом
+            <br />
+            никогда не скучно
+          </h2>
+        </div>
       </div>
 
-      {/* Carousel — bleeds to screen edges, scrollable horizontally */}
-      <div className="relative z-10 pb-12 md:pb-16 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth">
+      {/* Cards carousel — positioned below the image so the car stays visible */}
+      <div className="relative z-10 -mt-[120px] md:-mt-[150px] lg:-mt-[165px] pb-12 md:pb-16 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth">
         <ul className="flex gap-3 md:gap-4 w-max pl-5 md:pl-10 pr-5 md:pr-10">
           {cards.map((c, i) => (
             <li
