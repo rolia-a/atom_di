@@ -1,7 +1,18 @@
 import type { Metadata } from "next";
-import { Unbounded } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+
+// Brand display font — Atom (provided by client)
+const fontDisplay = localFont({
+  src: [
+    { path: "../../public/fonts/atom/Atom-Light.woff2", weight: "300", style: "normal" },
+    { path: "../../public/fonts/atom/Atom-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/atom/Atom-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../../public/fonts/atom/Atom-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-display",
+  display: "swap",
+});
 
 // Brand body font — Atom Interphases (provided by client)
 const fontBody = localFont({
@@ -14,14 +25,6 @@ const fontBody = localFont({
     { path: "../../public/fonts/atom-interphases/Atom_Interphases_Bold.woff", weight: "700", style: "normal" },
   ],
   variable: "--font-body",
-  display: "swap",
-});
-
-// Display font stand-in until client provides real "Atom" font files
-const fontDisplay = Unbounded({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-display",
   display: "swap",
 });
 
