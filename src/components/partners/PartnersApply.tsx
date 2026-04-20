@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useState } from "react";
 
 export default function PartnersApply() {
@@ -30,18 +31,14 @@ export default function PartnersApply() {
 
   return (
     <section id="apply" className="relative bg-black overflow-hidden">
-      {/* Top-down Atom render: rotated -90° so the car points downward, anchored to right edge */}
-      <div className="absolute inset-y-0 right-0 w-[80%] md:w-[65%] pointer-events-none overflow-hidden">
-        <img
+      {/* Top-down Atom render: anchored to right edge, bigger than viewport */}
+      <div className="absolute inset-y-0 right-0 w-[70%] md:w-[65%] pointer-events-none">
+        <Image
           src="/figma/product/top-atom.webp"
           alt=""
-          aria-hidden
-          className="absolute top-1/2 left-1/2 max-w-none"
-          style={{
-            height: "170%",
-            width: "auto",
-            transform: "translate(-50%, -50%) rotate(-90deg)",
-          }}
+          fill
+          sizes="70vw"
+          className="object-contain object-right-top"
         />
       </div>
       <div
@@ -49,7 +46,7 @@ export default function PartnersApply() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0) 88%)",
+            "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 100%)",
         }}
       />
 
