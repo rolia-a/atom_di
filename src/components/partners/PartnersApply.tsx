@@ -31,22 +31,36 @@ export default function PartnersApply() {
 
   return (
     <section id="apply" className="relative bg-black overflow-hidden">
-      <Image
-        src="/figma/product/top-atom.webp"
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover object-right opacity-60 pointer-events-none"
+      {/* Bigger car, positioned right, clipped by left gradient */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/figma/product/top-atom.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-right scale-[1.6] md:scale-[1.8] origin-right"
+        />
+      </div>
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 100%)",
+        }}
       />
-      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0.5)_60%,rgba(0,0,0,0.2)_100%)]" />
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:py-20 min-h-[700px] md:min-h-[821px] flex flex-col">
         <div className="max-w-[701px]">
           <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white">
-            Подайте заявку на отбор
+            Подайте заявку
+            <br />
+            на отбор
           </h2>
           <p className="mt-6 max-w-[615px] text-lg md:text-xl lg:text-2xl text-white/90 leading-[1.3]">
-            Расскажите о сообществе и мы ответим за 24 часа
+            Расскажите о сообществе
+            <br />
+            и мы ответим за 24 часа
           </p>
         </div>
 
@@ -86,7 +100,7 @@ export default function PartnersApply() {
             <button
               type="submit"
               disabled={submitting}
-              className="mt-4 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-xl font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition disabled:opacity-60"
+              className="mt-4 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-[24px] font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition disabled:opacity-60"
             >
               {submitting ? "Отправляем…" : "Занять место"}
             </button>

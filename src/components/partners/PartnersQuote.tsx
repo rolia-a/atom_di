@@ -8,7 +8,7 @@ export default function PartnersQuote() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-center scale-[2.2] md:scale-[2.5]"
       />
       <div
         aria-hidden
@@ -30,7 +30,7 @@ export default function PartnersQuote() {
             Если ваше сообщество тоже привыкло делать то, что до вас никто
             не пробовал — мы открыты к диалогу»
           </p>
-          <footer className="mt-6 text-[13px] md:text-sm tracking-[0.4em] uppercase text-white/70">
+          <footer className="mt-6 text-[13px] md:text-sm tracking-[0.08em] uppercase text-white/70">
             Команда Атом
           </footer>
         </blockquote>

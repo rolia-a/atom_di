@@ -10,35 +10,83 @@ export default function PartnersTimeline() {
   return (
     <section className="relative bg-white text-black">
       <div className="mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16">
-        <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[615px]">
-          От заявки до результата —
+        <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[700px]">
+          От заявки
           <br />
-          6 недель
+          до результата&nbsp;— <span className="text-[#00b2b2]">6 недель</span>
         </h2>
 
-        <div className="mt-12 md:mt-16 relative">
-          {/* dashed line on desktop */}
-          <div
-            aria-hidden
-            className="hidden md:block absolute top-[60px] left-0 right-0 h-0 border-t-2 border-dashed border-black/20"
-          />
-          <ol className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 relative">
+        {/* Titles row (above the line on desktop) */}
+        <div className="mt-12 md:mt-16">
+          <ol className="hidden md:grid md:grid-cols-5 md:gap-6">
             {steps.map((s) => (
-              <li key={s.num} className="relative">
-                {/* dot */}
-                <div
-                  aria-hidden
-                  className="hidden md:block absolute -top-[11px] left-0 w-[22px] h-[22px] rounded-full bg-[#00b2b2]"
-                />
-                <p className="md:hidden text-[13px] tracking-[0.4em] uppercase text-[#00b2b2] font-medium">
-                  {s.num}
-                </p>
-                <h3 className="mt-4 md:mt-16 font-display text-2xl md:text-3xl font-medium leading-tight">
+              <li key={s.num}>
+                <h3 className="font-display text-2xl md:text-3xl font-medium leading-tight">
                   {s.title}
                 </h3>
-                <p className="mt-4 text-sm md:text-base text-black/70 leading-snug">
-                  {s.desc}
-                </p>
+              </li>
+            ))}
+          </ol>
+
+          {/* Dashed line with numbered circles + trailing arrow */}
+          <div className="hidden md:block relative mt-6">
+            <svg
+              aria-hidden
+              viewBox="0 0 1360 24"
+              preserveAspectRatio="none"
+              className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-6"
+            >
+              <line
+                x1="22"
+                y1="12"
+                x2="1330"
+                y2="12"
+                stroke="#00b2b2"
+                strokeWidth="2"
+                strokeDasharray="6 8"
+              />
+              <polyline
+                points="1320,4 1340,12 1320,20"
+                fill="none"
+                stroke="#00b2b2"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <ol className="relative grid grid-cols-5 gap-6">
+              {steps.map((s) => (
+                <li key={s.num} className="flex justify-start">
+                  <div className="h-10 w-10 rounded-full bg-[#00b2b2] text-white font-medium flex items-center justify-center text-sm">
+                    {s.num}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* Descriptions */}
+          <ol className="mt-6 hidden md:grid md:grid-cols-5 md:gap-6">
+            {steps.map((s) => (
+              <li key={s.num} className="text-sm md:text-base text-black/70 leading-snug max-w-[220px]">
+                {s.desc}
+              </li>
+            ))}
+          </ol>
+
+          {/* Mobile: vertical list */}
+          <ol className="md:hidden space-y-6">
+            {steps.map((s) => (
+              <li key={s.num} className="flex gap-4">
+                <div className="shrink-0 h-10 w-10 rounded-full bg-[#00b2b2] text-white font-medium flex items-center justify-center text-sm">
+                  {s.num}
+                </div>
+                <div>
+                  <h3 className="font-display text-2xl font-medium leading-tight">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-black/70 leading-snug">{s.desc}</p>
+                </div>
               </li>
             ))}
           </ol>

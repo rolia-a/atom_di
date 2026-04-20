@@ -58,7 +58,7 @@ export default function PartnersFormats() {
               <div className="absolute inset-0 bg-black/40" />
               <div className="relative z-10 p-5 h-full flex flex-col justify-between text-white">
                 <div className="space-y-2">
-                  <p className="text-[13px] tracking-[0.4em] uppercase font-medium">
+                  <p className="text-[13px] tracking-[0.08em] uppercase font-medium">
                     {c.num}
                   </p>
                   <h3 className="font-display text-xl md:text-2xl font-medium leading-tight">

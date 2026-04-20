@@ -52,67 +52,93 @@ const cards = [
 export default function PartnersEvents() {
   return (
     <section id="events" className="relative bg-[#0a1a20] overflow-hidden">
-      <div className="mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:py-[60px]">
+      {/* Background image from Figma macro */}
+      <Image
+        src="/figma/product/bridge-cam-05.webp"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-80"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(10,26,32,0.7) 0%, rgba(10,26,32,0.55) 40%, rgba(10,26,32,0.85) 100%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:py-[60px]">
         <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white max-w-[615px]">
-          С Атом никогда не скучно
+          С Атом
+          <br />
+          никогда не скучно
         </h2>
+      </div>
 
-        <div className="mt-10 md:mt-12 -mx-5 md:-mx-10 px-5 md:px-10 overflow-x-auto no-scrollbar">
-          <ul className="flex gap-3 md:gap-4 w-max">
-            {cards.map((c, i) => (
-              <li
-                key={i}
-                className={`w-[300px] sm:w-[360px] md:w-[420px] h-[330px] rounded-[32px] p-5 relative overflow-hidden flex flex-col justify-between ${
-                  c.accent ? "bg-[rgba(0,178,178,0.85)] text-white" : "bg-white text-black"
-                }`}
-              >
-                <div className="relative z-10 space-y-3 md:space-y-4">
-                  <h3
-                    className={`font-display text-xl md:text-2xl lg:text-[28px] leading-tight font-medium ${
-                      c.accent ? "text-white" : "text-[#16272d]"
-                    }`}
-                  >
-                    {c.title}
-                  </h3>
-                  <p
-                    className={`text-sm md:text-base lg:text-lg leading-[1.35] ${
-                      c.accent ? "text-white" : "text-black"
-                    }`}
-                  >
-                    {c.text}
-                  </p>
-                </div>
-                {c.logo && (
-                  <Image
-                    src={c.logo.src}
-                    alt=""
-                    width={c.logo.w}
-                    height={c.logo.h}
-                    className="relative z-10 object-contain"
-                  />
-                )}
-                {c.img && (
-                  <Image
-                    src={c.img.src}
-                    alt=""
-                    width={c.img.w}
-                    height={c.img.h}
-                    className="absolute bottom-0 right-0 pointer-events-none"
-                  />
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* Carousel — bleeds to screen edges, scrollable horizontally */}
+      <div className="relative z-10 pb-12 md:pb-16 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth">
+        <ul className="flex gap-3 md:gap-4 w-max pl-5 md:pl-10 pr-5 md:pr-10">
+          {cards.map((c, i) => (
+            <li
+              key={i}
+              className={`w-[300px] sm:w-[360px] md:w-[420px] h-[330px] rounded-[32px] p-5 relative overflow-hidden flex flex-col justify-between ${
+                c.accent
+                  ? "bg-[rgba(0,178,178,0.85)] text-white"
+                  : "bg-white text-black"
+              }`}
+            >
+              <div className="relative z-10 space-y-3 md:space-y-4">
+                <h3
+                  className={`font-display leading-tight font-medium ${
+                    c.accent
+                      ? "text-white text-xl md:text-2xl lg:text-[28px]"
+                      : "text-[#16272d] text-lg md:text-xl lg:text-[24px]"
+                  }`}
+                >
+                  {c.title}
+                </h3>
+                <p
+                  className={`leading-[1.35] ${
+                    c.accent
+                      ? "text-white text-sm md:text-base lg:text-[20px]"
+                      : "text-black text-sm md:text-base lg:text-[18px]"
+                  }`}
+                >
+                  {c.text}
+                </p>
+              </div>
+              {c.logo && (
+                <Image
+                  src={c.logo.src}
+                  alt=""
+                  width={c.logo.w}
+                  height={c.logo.h}
+                  className="relative z-10 object-contain"
+                />
+              )}
+              {c.img && (
+                <Image
+                  src={c.img.src}
+                  alt=""
+                  width={c.img.w}
+                  height={c.img.h}
+                  className="absolute bottom-0 right-0 pointer-events-none"
+                />
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-        <div className="mt-10 md:mt-12 flex justify-center">
-          <a
-            href="#apply"
-            className="inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-xl font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
-          >
-            Занять место
-          </a>
-        </div>
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 pb-12 md:pb-16 flex justify-center">
+        <a
+          href="#apply"
+          className="inline-flex items-center justify-center h-12 md:h-[71px] w-full max-w-[442px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-[24px] font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
+        >
+          Занять место
+        </a>
       </div>
     </section>
   );
