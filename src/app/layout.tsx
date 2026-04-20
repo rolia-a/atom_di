@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
-import { Unbounded, Manrope } from "next/font/google";
+import { Unbounded } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-// Temporary open-source stand-ins for the brand "Atom" / "Atom Interphases".
-// Replace with real .woff2 files when available via next/font/local.
+// Brand body font — Atom Interphases (provided by client)
+const fontBody = localFont({
+  src: [
+    { path: "../../public/fonts/atom-interphases/Atom_Interphases_ExtraLight.woff", weight: "200", style: "normal" },
+    { path: "../../public/fonts/atom-interphases/Atom_Interphases_Light.woff", weight: "300", style: "normal" },
+    { path: "../../public/fonts/atom-interphases/Atom_Interphases_Regular.woff", weight: "400", style: "normal" },
+    { path: "../../public/fonts/atom-interphases/Atom_Interphases_Medium.woff", weight: "500", style: "normal" },
+    { path: "../../public/fonts/atom-interphases/Atom_Interphases_DemiBold.woff", weight: "600", style: "normal" },
+    { path: "../../public/fonts/atom-interphases/Atom_Interphases_Bold.woff", weight: "700", style: "normal" },
+  ],
+  variable: "--font-body",
+  display: "swap",
+});
+
+// Display font stand-in until client provides real "Atom" font files
 const fontDisplay = Unbounded({
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "700"],
   variable: "--font-display",
-  display: "swap",
-});
-
-const fontBody = Manrope({
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600"],
-  variable: "--font-body",
   display: "swap",
 });
 
