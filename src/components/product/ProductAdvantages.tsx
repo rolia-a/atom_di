@@ -37,8 +37,10 @@ export default function ProductAdvantages() {
   return (
     <section className="relative bg-black py-20 lg:py-28">
       <div className="mx-auto max-w-[1408px] px-4">
-        <h2 className="font-display text-3xl md:text-4xl lg:text-[48px] uppercase tracking-tight">
-          Основные преимущества атома
+        <h2 className="font-display text-3xl md:text-4xl lg:text-[40px] uppercase leading-none tracking-tight">
+          Руль-штурвал
+          <br />
+          с сенсорным дисплеем
         </h2>
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-start">
