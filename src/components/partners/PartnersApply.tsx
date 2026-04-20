@@ -53,11 +53,9 @@ export default function PartnersApply() {
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-12 md:py-16 lg:py-20 min-h-[700px] md:min-h-[821px] flex flex-col">
         <div className="max-w-[701px]">
           <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white">
-            Подайте заявку
-            <br />
-            на отбор
+            Подайте заявку на отбор
           </h2>
-          <p className="mt-6 max-w-[615px] text-lg md:text-xl lg:text-2xl text-white/90 leading-[1.3]">
+          <p className="mt-5 max-w-[615px] text-lg md:text-xl lg:text-[24px] text-[#b8c6d3] leading-[32px]">
             Расскажите о сообществе
             <br />
             и мы ответим за 24 часа
@@ -90,24 +88,24 @@ export default function PartnersApply() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="mt-10 md:mt-12 max-w-[444px] flex flex-col gap-3"
+            className="mt-12 md:mt-[102px] max-w-[444px] flex flex-col gap-5"
           >
             <Input name="name" placeholder="Имя" required />
             <Input name="community" placeholder="Сообщество, канал или клуб" required />
             <Input name="contact" placeholder="Telegram или email" required />
-            <Input name="about" placeholder="Коротко о вашей аудитории" />
+            <Input name="about" placeholder="Расскажите о вашей аудитории и идее" />
 
             <button
               type="submit"
               disabled={submitting}
-              className="btn-grad mt-4 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] text-base md:text-[24px] disabled:opacity-60"
+              className="btn-grad mt-5 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] text-base md:text-[24px] disabled:opacity-60"
             >
               {submitting ? "Отправляем…" : "Занять место"}
             </button>
             {error && (
-              <p className="mt-1 text-sm text-red-400 pl-4">{error}</p>
+              <p className="mt-2 text-sm text-red-400 text-center">{error}</p>
             )}
-            <p className="mt-1 text-xs text-white/50 pl-4">
+            <p className="mt-2 text-center text-[12px] text-white/35 font-display font-light">
               Без спама, без рассылок
             </p>
           </form>
@@ -132,7 +130,7 @@ function Input({
       name={name}
       placeholder={placeholder}
       required={required}
-      className="w-full h-[60px] rounded-2xl bg-white/10 border border-white/15 px-5 text-white placeholder:text-white/40 focus:border-[#00b2b2] outline-none transition"
+      className="w-full h-[60px] rounded-[16px] bg-white/10 backdrop-blur-[10px] px-5 text-[16px] text-white placeholder:text-white/85 focus:bg-white/15 outline-none transition"
     />
   );
 }
