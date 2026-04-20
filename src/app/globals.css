@@ -26,6 +26,10 @@
   --font-display: var(--font-display), "Unbounded", -apple-system, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background: var(--background);

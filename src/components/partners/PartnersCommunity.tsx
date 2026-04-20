@@ -49,9 +49,12 @@ export default function PartnersCommunity() {
           </div>
         </div>
 
-        <button className="mt-10 h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-xl font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition">
+        <a
+          href="#apply"
+          className="mt-10 inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-xl font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
+        >
           Занять место
-        </button>
+        </a>
       </div>
     </section>
   );

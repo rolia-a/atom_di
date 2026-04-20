@@ -15,12 +15,12 @@ export default function PartnersHeader() {
             priority
           />
         </Link>
-        <button
-          type="button"
-          className="h-10 md:h-14 px-4 md:px-8 rounded-2xl bg-black border-2 border-[#9747ff] text-white text-sm md:text-base font-medium hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
+        <a
+          href="#apply"
+          className="inline-flex items-center justify-center h-10 md:h-14 px-4 md:px-8 rounded-2xl bg-black border-2 border-[#9747ff] text-white text-sm md:text-base font-medium hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
         >
           Занять место
-        </button>
+        </a>
       </div>
     </header>
   );

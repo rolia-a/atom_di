@@ -33,12 +33,18 @@ export default function PartnersHero() {
             хочется делать историю. Если это про вас — листайте дальше
           </p>
           <div className="mt-8 md:mt-10 flex flex-wrap gap-3">
-            <button className="h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-xl font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition">
+            <a
+              href="#apply"
+              className="inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-black border-2 border-[#9747ff] text-white text-base md:text-xl font-light hover:shadow-[0_0_24px_rgba(151,71,255,0.5)] transition"
+            >
               Занять место
-            </button>
-            <button className="h-12 md:h-[71px] px-6 md:px-10 rounded-2xl bg-white text-black text-base md:text-xl font-light hover:bg-white/90 transition">
+            </a>
+            <a
+              href="#events"
+              className="inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl bg-white text-black text-base md:text-xl font-light hover:bg-white/90 transition"
+            >
               Узнать больше
-            </button>
+            </a>
           </div>
         </div>
       </div>
