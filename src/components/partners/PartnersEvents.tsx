@@ -52,20 +52,20 @@ const cards = [
 export default function PartnersEvents() {
   return (
     <section id="events" className="relative bg-[#0a1a20] overflow-hidden">
-      {/* Background: car on bridge at sunset (per Figma mockup) */}
+      {/* Background: Atom on bridge at sunset (per Figma mockup) */}
       <Image
-        src="/figma/product/bridge-cam-05.webp"
+        src="/figma/partners/events-bg.webp"
         alt=""
         fill
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-center"
       />
       <div
         aria-hidden
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.8) 100%)",
+            "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.85) 100%)",
         }}
       />
 
