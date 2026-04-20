@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { FormEvent, useState } from "react";
 
 export default function PartnersApply() {
@@ -31,14 +30,38 @@ export default function PartnersApply() {
 
   return (
     <section id="apply" className="relative bg-black overflow-hidden">
-      {/* Top-down Atom render: anchored to right edge, bigger than viewport */}
-      <div className="absolute inset-y-0 right-0 w-[70%] md:w-[65%] pointer-events-none">
-        <Image
-          src="/figma/product/top-atom.webp"
-          alt=""
-          fill
-          sizes="70vw"
-          className="object-contain object-right-top"
+      {/*
+        Top-down Atom render. Figma proportions, measured from the dev-mode
+        node 483:188902:
+          • image box (pre-rotate): 1789w × 1360h centered at (1087, 42) in a 1440×821 section
+          • rotated -90° CCW
+          • the image itself is cropped inside the box so only the middle
+            horizontal slice shows after rotation — front & rear of the car
+            extend above/below the section edges
+        We reproduce those proportions as percentages of the live section so
+        the composition scales with the actual rendered section height.
+      */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute"
+          style={{
+            // Position the box center at the same relative spot as in Figma.
+            left: "72.2%",
+            top: "11.8%",
+            // Pre-rotation dimensions as fractions of SECTION HEIGHT so the
+            // car scales with vertical viewport. After the -90° rotation,
+            // pre-rotation WIDTH becomes visual HEIGHT (270% of section) and
+            // pre-rotation HEIGHT becomes visual WIDTH (120% of section).
+            height: "120%",
+            aspectRatio: "2487 / 1105", // pre-rotation aspect (≈ 2.25)
+            transform: "translate(-50%, -50%) rotate(-90deg)",
+            transformOrigin: "center",
+            backgroundImage: "url(/figma/product/top-atom.webp)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
         />
       </div>
       <div
@@ -46,7 +69,7 @@ export default function PartnersApply() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 100%)",
+            "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0) 88%)",
         }}
       />
 
