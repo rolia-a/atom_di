@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
@@ -12,19 +13,15 @@ export default function ProductHeader() {
   return (
     <header className="absolute top-0 left-0 right-0 z-40 py-4">
       <div className="mx-auto max-w-[1408px] px-4 flex items-center justify-between">
-        <Link href="/product" className="flex items-center gap-2" aria-label="Атом">
-          <svg width="24" height="18" viewBox="0 0 24 18" fill="none" aria-hidden>
-            <path
-              d="M2 16 L12 2 L22 16"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <span className="font-display text-[20px] font-medium tracking-[0.18em]">
-            ATOM
-          </span>
+        <Link href="/" className="flex items-center" aria-label="Атом">
+          <Image
+            src="/figma/partners/atom-logo.svg"
+            alt="ATOM"
+            width={223}
+            height={60}
+            className="h-10 md:h-[60px] w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-10 text-sm text-white/80">
