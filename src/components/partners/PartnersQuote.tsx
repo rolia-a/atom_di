@@ -8,7 +8,7 @@ export default function PartnersQuote() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-center scale-[2.2] md:scale-[2.5]"
+        className="object-cover object-center"
       />
       <div
         aria-hidden

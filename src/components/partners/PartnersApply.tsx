@@ -31,14 +31,14 @@ export default function PartnersApply() {
 
   return (
     <section id="apply" className="relative bg-black overflow-hidden">
-      {/* Bigger car, positioned right, clipped by left gradient */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Top-down Atom render: anchored to right edge, bigger than viewport */}
+      <div className="absolute inset-y-0 right-0 w-[70%] md:w-[65%] pointer-events-none">
         <Image
           src="/figma/product/top-atom.webp"
           alt=""
           fill
-          sizes="100vw"
-          className="object-cover object-right scale-[1.6] md:scale-[1.8] origin-right"
+          sizes="70vw"
+          className="object-contain object-right-top"
         />
       </div>
       <div
@@ -46,11 +46,11 @@ export default function PartnersApply() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 100%)",
+            "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 100%)",
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:py-20 min-h-[700px] md:min-h-[821px] flex flex-col">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-12 md:py-16 lg:py-20 min-h-[700px] md:min-h-[821px] flex flex-col">
         <div className="max-w-[701px]">
           <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white">
             Подайте заявку
@@ -109,17 +109,6 @@ export default function PartnersApply() {
             )}
             <p className="mt-1 text-xs text-white/50 pl-4">
               Без спама, без рассылок
-            </p>
-            <p className="mt-3 text-xs text-white/60 pl-4">
-              Или заполните{" "}
-              <a
-                href="https://forms.yandex.ru/u/69e5ed6b068ff0764f001311"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#00b2b2] underline hover:text-white transition"
-              >
-                форму на Яндексе
-              </a>
             </p>
           </form>
         )}

@@ -52,15 +52,15 @@ export default function PartnersReasons() {
           {reasons.map((r) => (
             <article
               key={r.num}
-              className="rounded-[32px] bg-white/30 backdrop-blur-sm p-5 min-h-[280px] md:min-h-[327px] flex flex-col gap-4"
+              className="rounded-[32px] bg-white/85 backdrop-blur-sm p-5 min-h-[280px] md:min-h-[327px] flex flex-col gap-4 text-black"
             >
-              <p className="text-[13px] tracking-[0.08em] uppercase font-medium text-white/90">
+              <p className="text-[13px] tracking-[0.08em] uppercase font-medium text-black/60">
                 {r.num}
               </p>
-              <h3 className="font-display text-xl md:text-2xl font-medium leading-tight">
+              <h3 className="font-display text-xl md:text-2xl font-medium leading-tight text-black">
                 {r.title}
               </h3>
-              <p className="mt-auto text-sm md:text-base lg:text-[20px] text-white/90 leading-[1.4]">
+              <p className="mt-auto text-sm md:text-base lg:text-[20px] text-black/80 leading-[1.4]">
                 {r.desc}
               </p>
             </article>

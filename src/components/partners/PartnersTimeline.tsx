@@ -10,10 +10,12 @@ export default function PartnersTimeline() {
   return (
     <section className="relative bg-white text-black">
       <div className="mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16">
-        <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[700px]">
+        <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[900px]">
           От заявки
           <br />
-          до результата&nbsp;— <span className="text-[#00b2b2]">6 недель</span>
+          до результата&nbsp;— <span className="text-[#00b2b2]">6</span>
+          <br />
+          <span className="text-[#00b2b2]">недель</span>
         </h2>
 
         {/* Titles row (above the line on desktop) */}
@@ -41,14 +43,14 @@ export default function PartnersTimeline() {
                 y1="12"
                 x2="1330"
                 y2="12"
-                stroke="#00b2b2"
+                stroke="#c4c9d0"
                 strokeWidth="2"
                 strokeDasharray="6 8"
               />
               <polyline
                 points="1320,4 1340,12 1320,20"
                 fill="none"
-                stroke="#00b2b2"
+                stroke="#c4c9d0"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
