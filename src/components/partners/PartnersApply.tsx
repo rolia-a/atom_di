@@ -46,15 +46,16 @@ export default function PartnersApply() {
           aria-hidden
           className="absolute"
           style={{
-            // Position the box center at the same relative spot as in Figma.
-            left: "72.2%",
-            top: "11.8%",
-            // Pre-rotation dimensions as fractions of SECTION HEIGHT so the
-            // car scales with vertical viewport. After the -90° rotation,
-            // pre-rotation WIDTH becomes visual HEIGHT (270% of section) and
-            // pre-rotation HEIGHT becomes visual WIDTH (120% of section).
-            height: "120%",
-            aspectRatio: "2487 / 1105", // pre-rotation aspect (≈ 2.25)
+            // Car is anchored to the right side of the section, centered
+            // vertically. After the -90° rotation:
+            //   • pre-rotation width  → visual HEIGHT (long car length)
+            //   • pre-rotation height → visual WIDTH (car body width)
+            // Sized in `vh` so the composition stays consistent regardless of
+            // section width — the car is a vertical strip on the right.
+            left: "72%",
+            top: "50%",
+            height: "min(55vh, 540px)",
+            aspectRatio: "16 / 9", // matches source image (3600×2025), no warp
             transform: "translate(-50%, -50%) rotate(-90deg)",
             transformOrigin: "center",
             backgroundImage: "url(/figma/product/top-atom.webp)",
