@@ -5,84 +5,118 @@ import { useState } from "react";
 
 const tabs = [
   {
-    id: "interfaces",
-    label: "Интерфейсы управления",
-    title: "Руль штурвальной формы со встроенным экраном",
-    desc: "Новый комфортный и цифровой опыт управления автомобилем обеспечивает руль штурвальной формы со встроенным экраном.",
+    id: "wheel",
+    label: "Руль",
+    icon: "/figma/product/wheel/icon-wheel.svg",
+    image: "/figma/product/wheel/wheel.webp",
+    title: (
+      <>
+        Руль-штурвал
+        <br />
+        с&nbsp;сенсорным дисплеем
+      </>
+    ),
+    desc: "Новый комфортный и цифровой опыт взаимодействия с электромобилем обеспечивает руль штурвальной формы со встроенным экраном. Подобных решений ещё нет на массовом рынке.",
+  },
+  {
+    id: "display",
+    label: "Дисплей",
+    icon: "/figma/product/wheel/icon-display.svg",
+    image: "/figma/product/wheel/wheel.webp",
+    title: (
+      <>
+        Экран
+        <br />
+        водителя
+      </>
+    ),
+    desc: "Встроенный сенсорный дисплей на руле выводит всё важное перед глазами водителя — без отвлечения на центральную панель.",
+  },
+  {
+    id: "voice",
+    label: "Голосовой ассистент",
+    icon: "/figma/product/wheel/icon-voice.svg",
+    image: "/figma/product/wheel/wheel.webp",
+    title: (
+      <>
+        Голосовой
+        <br />
+        ассистент
+      </>
+    ),
+    desc: "Управляйте климатом, музыкой и навигацией голосом — ассистент понимает естественную речь и учится вашим привычкам.",
   },
   {
     id: "app",
     label: "Приложение",
-    title: "Управление Атомом в мобильном приложении",
-    desc: "Пользуйтесь умным и выгодным решением каждый день.",
-  },
-  {
-    id: "safety",
-    label: "Безопасность",
-    title: "Забота о пассажире",
-    desc: "Комплекс ассистентов вождения ADAS — помогает и защищает в любой ситуации.",
-  },
-  {
-    id: "interior",
-    label: "Интерьер",
-    title: "Минимализм и распашные двери",
-    desc: "Распашные двери без центральной стойки и максимум свободного пространства в салоне.",
+    icon: "/figma/product/wheel/icon-app.svg",
+    image: "/figma/product/wheel/wheel.webp",
+    title: (
+      <>
+        Мобильное
+        <br />
+        приложение
+      </>
+    ),
+    desc: "Прогрев салона, разблокировка дверей, контроль заряда и маршрутов — всё в пару тапов на смартфоне.",
   },
 ];
 
 export default function ProductAdvantages() {
-  const [active, setActive] = useState(tabs[0].id);
-  const current = tabs.find((t) => t.id === active) ?? tabs[0];
+  const [activeId, setActiveId] = useState(tabs[0].id);
+  const active = tabs.find((t) => t.id === activeId) ?? tabs[0];
 
   return (
-    <section className="relative bg-black py-20 lg:py-28">
-      <div className="mx-auto max-w-[1408px] px-4">
-        <h2 className="font-display text-3xl md:text-4xl lg:text-[40px] uppercase leading-none tracking-tight">
-          Руль-штурвал
-          <br />
-          с сенсорным дисплеем
+    <section className="relative bg-white w-full h-[600px] md:h-[800px] overflow-hidden">
+      {/* Left text block — absolute so it centers vertically like in Figma */}
+      <div className="absolute left-6 md:left-[155px] top-1/2 -translate-y-1/2 z-10 max-w-[442px] md:max-w-[557px]">
+        <h2 className="font-display text-[28px] md:text-[40px] leading-none uppercase text-black">
+          {active.title}
         </h2>
+        <p className="mt-4 font-body text-[14px] md:text-[16px] leading-[1.3] text-[#303134] max-w-[442px]">
+          {active.desc}
+        </p>
+      </div>
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-start">
-          {/* Left: tabs + description */}
-          <div>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {tabs.map((t) => (
-                <button
-                  key={t.id}
-                  onClick={() => setActive(t.id)}
-                  className={`text-[11px] tracking-[0.3em] uppercase px-4 py-2 rounded-full border transition ${
-                    active === t.id
-                      ? "bg-white text-black border-white"
-                      : "border-white/15 text-white/70 hover:text-white hover:border-white/40"
-                  }`}
-                >
-                  {t.label}
-                </button>
-              ))}
-            </div>
-            <h3 className="font-display text-2xl md:text-3xl font-medium leading-tight">
-              {current.title}
-            </h3>
-            <p className="mt-4 text-white/70 leading-relaxed max-w-md">
-              {current.desc}
-            </p>
-            {/* Button placeholder */}
-            <button className="mt-8 text-[11px] tracking-[0.3em] uppercase text-[#00ffff] hover:text-white transition">
-              Подробнее →
-            </button>
-          </div>
+      {/* Right image */}
+      <div className="absolute right-0 md:left-[742px] md:right-auto top-[35px] md:top-[35px] w-full md:w-[698px] h-[400px] md:h-[704px] pointer-events-none">
+        <Image
+          src={active.image}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 100vw, 698px"
+          className="object-contain"
+          priority
+        />
+      </div>
 
-          {/* Right: steering wheel render */}
-          <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden bg-white">
-            <Image
-              src="/figma/product/steering-wheel.webp"
-              alt={current.label}
-              fill
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover"
-            />
-          </div>
+      {/* Bottom center pill of tabs */}
+      <div className="absolute bottom-[39px] left-0 right-0 z-20 flex justify-center px-4">
+        <div className="flex items-center gap-px h-[44px] p-px rounded-full bg-white/50 backdrop-blur-[10px] border border-[rgba(102,102,102,0.1)]">
+          {tabs.map((t) => {
+            const isActive = t.id === activeId;
+            return (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => setActiveId(t.id)}
+                className={`h-full flex items-center gap-2 px-4 rounded-full transition font-body uppercase text-[13px] font-medium tracking-[0.05em] text-black whitespace-nowrap ${
+                  isActive
+                    ? "bg-[#ebeff2]"
+                    : "opacity-30 hover:opacity-60"
+                }`}
+              >
+                <Image
+                  src={t.icon}
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 shrink-0"
+                />
+                <span>{t.label}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
