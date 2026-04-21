@@ -54,12 +54,13 @@ export default function PartnersApply() {
           draggable={false}
           className="absolute max-w-none select-none"
           style={{
-            left: "65%",
+            left: "72%",
             top: "50%",
-            // Pre-rotation HEIGHT (= post-rotation WIDTH = visible car body
-            // width) is locked to the section height. With natural 16:9
-            // aspect, pre-rotation WIDTH = 1.778 × height = post-rotation
-            // HEIGHT — so the car length overflows the section vertically.
+            // Sized & positioned to match Figma node 483:188901:
+            //   pre-rotation HEIGHT == section height → after the +90° rotation
+            //   becomes the visual WIDTH. Combined with center-x at 72%, the
+            //   right edge of the car body slips just past the section edge —
+            //   exactly the framing we measured from Figma (visible/image = 82%).
             height: "100%",
             width: "auto",
             transform: "translate(-50%, -50%) rotate(90deg)",
