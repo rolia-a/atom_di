@@ -42,8 +42,8 @@ export default function PartnersCommunity() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {socials.map(({ value, name, Icon }) => (
               <div key={name} className="flex flex-col items-center gap-3">
-                <div className="h-[120px] md:h-[137px] w-full md:w-[137px] rounded-[24px] bg-white text-black flex items-center justify-center">
-                  <Icon className="w-[58%] h-[58%]" />
+                <div className="h-[120px] md:h-[137px] w-full md:w-[137px] rounded-[32px] bg-[#EBEFF2] text-black flex items-center justify-center">
+                  <Icon className="w-[62%] h-[62%]" />
                 </div>
                 <div className="text-center">
                   <p className="font-display text-3xl md:text-[40px] font-medium text-white leading-none">
