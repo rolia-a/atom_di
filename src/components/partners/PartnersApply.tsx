@@ -54,7 +54,7 @@ export default function PartnersApply() {
           draggable={false}
           className="absolute max-w-none select-none"
           style={{
-            left: "78%",
+            left: "65%",
             top: "50%",
             // Pre-rotation HEIGHT (= post-rotation WIDTH = visible car body
             // width) is locked to the section height. With natural 16:9
