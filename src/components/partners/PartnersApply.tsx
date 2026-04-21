@@ -42,31 +42,28 @@ export default function PartnersApply() {
         the composition scales with the actual rendered section height.
       */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
+        {/*
+          Render the source image at its natural 16:9 aspect (no warp / no crop)
+          and rotate -90° so it becomes a tall vertical card. Anchored centered
+          on the right ~75% of the section, slightly overflowing top & bottom.
+        */}
+        <img
+          src="/figma/product/top-atom.webp"
+          alt=""
           aria-hidden
-          className="absolute"
+          draggable={false}
+          className="absolute max-w-none select-none"
           style={{
-            // Car is anchored to the right side of the section, centered
-            // vertically. After the -90° rotation:
-            //   • pre-rotation width  → visual HEIGHT (long car length)
-            //   • pre-rotation height → visual WIDTH (car body width)
-            // Sized in `vh` so the composition stays consistent regardless of
-            // section width — the car is a vertical strip on the right.
-            left: "65%",
+            left: "78%",
             top: "50%",
-            // Pre-rotation height becomes post-rotation WIDTH (visible car body).
-            // Pre-rotation width  becomes post-rotation HEIGHT (car length).
-            // ~95% of section height for the body width keeps car within frame;
-            // aspectRatio 1.3 gives a tall rotated card so car length crops a
-            // bit past top/bottom edges (matches Figma composition).
-            height: "95%",
-            aspectRatio: "1.3",
+            // Pre-rotation HEIGHT (= post-rotation WIDTH = visible car body
+            // width) is locked to the section height. With natural 16:9
+            // aspect, pre-rotation WIDTH = 1.778 × height = post-rotation
+            // HEIGHT — so the car length overflows the section vertically.
+            height: "100%",
+            width: "auto",
             transform: "translate(-50%, -50%) rotate(-90deg)",
             transformOrigin: "center",
-            backgroundImage: "url(/figma/product/top-atom.webp)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
           }}
         />
       </div>
