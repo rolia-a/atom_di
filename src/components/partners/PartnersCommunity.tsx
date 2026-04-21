@@ -43,7 +43,7 @@ export default function PartnersCommunity() {
             {socials.map(({ value, name, Icon }) => (
               <div key={name} className="flex flex-col items-center gap-3">
                 <div className="h-[120px] md:h-[137px] w-full md:w-[137px] rounded-[32px] bg-[#EBEFF2] text-black flex items-center justify-center">
-                  <Icon className="w-[62%] h-[62%]" />
+                  <Icon className="w-[48%] h-[48%]" />
                 </div>
                 <div className="text-center">
                   <p className="font-display text-3xl md:text-[40px] font-medium text-white leading-none">

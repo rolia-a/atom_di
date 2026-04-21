@@ -13,9 +13,7 @@ export default function PartnersTimeline() {
         <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[900px]">
           От заявки
           <br />
-          до результата&nbsp;— <span className="text-[#00b2b2]">6</span>
-          <br />
-          <span className="text-[#00b2b2]">недель</span>
+          до результата&nbsp;— <span className="text-[#00b2b2]">6&nbsp;недель</span>
         </h2>
 
         {/* Titles row (above the line on desktop) */}
