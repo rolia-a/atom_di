@@ -41,12 +41,17 @@ export default function PartnersApply() {
         We reproduce those proportions as percentages of the live section so
         the composition scales with the actual rendered section height.
       */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/*
-          Render the source image at its natural 16:9 aspect (no warp / no crop)
-          and rotate -90° so it becomes a tall vertical card. Anchored centered
-          on the right ~75% of the section, slightly overflowing top & bottom.
-        */}
+      <div
+        className="absolute inset-0 pointer-events-none overflow-hidden"
+        style={{
+          // Fade the top of the section into pure black so the rear of the car
+          // dissolves out (Figma: only the front half "emerges" from darkness).
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 25%, black 60%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 25%, black 60%)",
+        }}
+      >
         <img
           src="/figma/product/top-atom.webp"
           alt=""
@@ -55,12 +60,12 @@ export default function PartnersApply() {
           className="absolute max-w-none select-none"
           style={{
             left: "72%",
-            top: "50%",
-            // Sized & positioned to match Figma node 483:188901:
-            //   pre-rotation HEIGHT == section height → after the +90° rotation
-            //   becomes the visual WIDTH. Combined with center-x at 72%, the
-            //   right edge of the car body slips just past the section edge —
-            //   exactly the framing we measured from Figma (visible/image = 82%).
+            // Anchor so the BOTTOM of the rotated image (front of the car with
+            // the cyan bumper glow) sits at the bottom edge of the section,
+            // and the top half (rear) extends well above the visible area.
+            // Center-y ≈ 11% of section height puts img bottom at section
+            // bottom (img post-rotation is ~178% of section height tall).
+            top: "11%",
             height: "100%",
             width: "auto",
             transform: "translate(-50%, -50%) rotate(90deg)",
@@ -72,8 +77,10 @@ export default function PartnersApply() {
         aria-hidden
         className="absolute inset-0"
         style={{
+          // Mild horizontal fade for the form side — kept subtle so it doesn't
+          // fight the vertical mask above.
           background:
-            "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0) 88%)",
+            "linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 25%, rgba(0,0,0,0) 55%)",
         }}
       />
 
