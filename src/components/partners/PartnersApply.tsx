@@ -47,9 +47,9 @@ export default function PartnersApply() {
           // Fade the top of the section into pure black so the rear of the car
           // dissolves out (Figma: only the front half "emerges" from darkness).
           maskImage:
-            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 25%, black 60%)",
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 30%, black 80%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 25%, black 60%)",
+            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 30%, black 80%)",
         }}
       >
         <img
@@ -64,7 +64,7 @@ export default function PartnersApply() {
             // car silhouette. We position the IMG so the front bumper (visible
             // car content, not raw image bottom) sits right at the section
             // bottom edge, with the rear extending well above into the mask.
-            top: "38%",
+            top: "25%",
             height: "100%",
             width: "auto",
             transform: "translate(-50%, -50%) rotate(-90deg)",
@@ -83,7 +83,7 @@ export default function PartnersApply() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-12 md:py-16 lg:py-20 min-h-[700px] md:min-h-[821px] flex flex-col">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-10 md:py-12 lg:py-14 min-h-[600px] md:min-h-[720px] flex flex-col">
         <div className="max-w-[701px]">
           <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white">
             Подайте заявку на отбор
