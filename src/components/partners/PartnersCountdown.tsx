@@ -2,25 +2,30 @@
 
 import { useEffect, useState } from "react";
 
-const TARGET =
-  Date.now() + 47 * 24 * 60 * 60 * 1000 + 7 * 60 * 60 * 1000 + 8 * 60 * 1000;
+// Fixed deadline so the countdown actually counts down across page loads
+// (was Date.now() + delta, which reset to ~47d on every reload).
+const TARGET = new Date("2026-06-07T07:08:00+03:00").getTime();
 
 const pad = (n: number) => n.toString().padStart(2, "0");
 
+function compute() {
+  const diff = Math.max(0, TARGET - Date.now());
+  return {
+    d: Math.floor(diff / 86_400_000),
+    h: Math.floor((diff / 3_600_000) % 24),
+    m: Math.floor((diff / 60_000) % 60),
+    s: Math.floor((diff / 1_000) % 60),
+  };
+}
+
 export default function PartnersCountdown() {
-  const [t, setT] = useState({ d: 47, h: 7, m: 8 });
+  // Initial state is static to avoid SSR/CSR hydration mismatch — replaced
+  // with the real value on mount, then ticks every second.
+  const [t, setT] = useState({ d: 47, h: 7, m: 8, s: 0 });
 
   useEffect(() => {
-    const tick = () => {
-      const diff = Math.max(0, TARGET - Date.now());
-      setT({
-        d: Math.floor(diff / 86_400_000),
-        h: Math.floor((diff / 3_600_000) % 24),
-        m: Math.floor((diff / 60_000) % 60),
-      });
-    };
-    tick();
-    const id = setInterval(tick, 30_000);
+    setT(compute());
+    const id = setInterval(() => setT(compute()), 1000);
     return () => clearInterval(id);
   }, []);
 
@@ -51,23 +56,24 @@ export default function PartnersCountdown() {
             </p>
           </div>
 
-          <div className="flex items-start gap-3 md:gap-5 text-white font-display">
+          <div className="flex items-start gap-2 md:gap-4 text-white font-display">
             {[
               { v: pad(t.d), l: "дней" },
               { v: pad(t.h), l: "часов" },
               { v: pad(t.m), l: "минут" },
+              { v: pad(t.s), l: "секунд" },
             ].map((c, i, arr) => (
-              <div key={c.l} className="flex items-start gap-3 md:gap-5">
+              <div key={c.l} className="flex items-start gap-2 md:gap-4">
                 <div className="flex flex-col items-center">
-                  <span className="text-5xl md:text-7xl lg:text-[86px] leading-none font-medium tabular-nums">
+                  <span className="text-4xl md:text-6xl lg:text-[72px] leading-none font-medium tabular-nums">
                     {c.v}
                   </span>
-                  <span className="mt-2 text-xs md:text-sm lg:text-[18px] text-white/75 font-body">
+                  <span className="mt-2 text-xs md:text-sm lg:text-[16px] text-white/75 font-body">
                     {c.l}
                   </span>
                 </div>
                 {i < arr.length - 1 && (
-                  <span className="text-5xl md:text-7xl lg:text-[86px] leading-none text-white/60">
+                  <span className="text-4xl md:text-6xl lg:text-[72px] leading-none text-white/60">
                     :
                   </span>
                 )}
