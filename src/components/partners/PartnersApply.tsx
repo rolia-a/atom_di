@@ -62,7 +62,7 @@ export default function PartnersApply() {
             // HEIGHT — so the car length overflows the section vertically.
             height: "100%",
             width: "auto",
-            transform: "translate(-50%, -50%) rotate(90deg)",
+            transform: "translate(-50%, -50%) rotate(-90deg)",
             transformOrigin: "center",
           }}
         />
