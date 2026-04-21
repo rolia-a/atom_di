@@ -24,7 +24,7 @@ export default function ProductHeader() {
       <div className="absolute right-4 top-4 flex items-center gap-2">
         <a
           href="#preorder"
-          className="inline-flex items-center justify-center h-12 md:h-14 px-5 md:px-6 rounded-[16px] bg-black border-2 border-[#9747ff] text-white text-sm md:text-[18px] font-body hover:shadow-[0_0_24px_rgba(151,71,255,0.35)] transition"
+          className="btn-grad inline-flex items-center justify-center h-12 md:h-14 px-5 md:px-6 rounded-[16px] text-white text-sm md:text-[18px] font-body"
         >
           Хочу Атом
         </a>

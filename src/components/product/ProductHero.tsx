@@ -18,7 +18,7 @@ export default function ProductHero() {
       />
 
       {/* Title absolute bottom-left so it never gets squeezed by the CTA */}
-      <h1 className="absolute z-20 left-4 bottom-[120px] md:bottom-[138px] font-display font-normal text-[28px] md:text-[42px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white max-w-[830px]">
+      <h1 className="absolute z-20 left-4 bottom-6 md:bottom-8 font-display font-normal text-[28px] md:text-[42px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white max-w-[830px]">
         Электромобиль-гаджет
         <br />
         с&nbsp;безграничными ИТ-
