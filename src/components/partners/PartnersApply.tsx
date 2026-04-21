@@ -83,7 +83,7 @@ export default function PartnersApply() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-10 md:py-12 lg:py-14 min-h-[600px] md:min-h-[720px] flex flex-col">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-10 md:py-10 lg:py-10 h-[600px] md:h-[821px] flex flex-col">
         <div className="max-w-[701px]">
           <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white">
             Подайте заявку на отбор
@@ -121,7 +121,7 @@ export default function PartnersApply() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="mt-12 md:mt-[102px] max-w-[444px] flex flex-col gap-5"
+            className="mt-10 md:mt-[80px] max-w-[444px] flex flex-col gap-5"
           >
             <Input name="name" placeholder="Имя" required />
             <Input name="community" placeholder="Сообщество, канал или клуб" required />
