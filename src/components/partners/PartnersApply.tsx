@@ -52,10 +52,15 @@ export default function PartnersApply() {
             //   • pre-rotation height → visual WIDTH (car body width)
             // Sized in `vh` so the composition stays consistent regardless of
             // section width — the car is a vertical strip on the right.
-            left: "72%",
+            left: "65%",
             top: "50%",
-            height: "min(55vh, 540px)",
-            aspectRatio: "16 / 9", // matches source image (3600×2025), no warp
+            // Pre-rotation height becomes post-rotation WIDTH (visible car body).
+            // Pre-rotation width  becomes post-rotation HEIGHT (car length).
+            // ~95% of section height for the body width keeps car within frame;
+            // aspectRatio 1.3 gives a tall rotated card so car length crops a
+            // bit past top/bottom edges (matches Figma composition).
+            height: "95%",
+            aspectRatio: "1.3",
             transform: "translate(-50%, -50%) rotate(-90deg)",
             transformOrigin: "center",
             backgroundImage: "url(/figma/product/top-atom.webp)",
