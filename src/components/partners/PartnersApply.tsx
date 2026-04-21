@@ -60,15 +60,14 @@ export default function PartnersApply() {
           className="absolute max-w-none select-none"
           style={{
             left: "72%",
-            // Anchor so the BOTTOM of the rotated image (front of the car with
-            // the cyan bumper glow) sits at the bottom edge of the section,
-            // and the top half (rear) extends well above the visible area.
-            // Center-y ≈ 11% of section height puts img bottom at section
-            // bottom (img post-rotation is ~178% of section height tall).
-            top: "11%",
+            // The source image has large black padding above/below the actual
+            // car silhouette. We position the IMG so the front bumper (visible
+            // car content, not raw image bottom) sits right at the section
+            // bottom edge, with the rear extending well above into the mask.
+            top: "38%",
             height: "100%",
             width: "auto",
-            transform: "translate(-50%, -50%) rotate(90deg)",
+            transform: "translate(-50%, -50%) rotate(-90deg)",
             transformOrigin: "center",
           }}
         />
