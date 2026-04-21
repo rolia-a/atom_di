@@ -1,47 +1,53 @@
-// Simplified brand marks used in partner landing social widgets & footer.
-// Colors fill via `currentColor`, size controlled by parent container.
+// Simplified brand marks for social widgets. All icons share the same
+// 48×48 viewBox with a filled circle background, so they align identically
+// inside their rounded containers.
 
-export function IconVK({ className }: { className?: string }) {
+type Props = { className?: string };
+
+export function IconVK({ className }: Props) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" className={className} aria-hidden>
-      <circle cx="24" cy="24" r="24" fill="currentColor" />
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <circle cx="24" cy="24" r="20" fill="currentColor" />
       <path
         fill="#fff"
-        d="M25.3 32.2c-9 0-14.4-6.3-14.6-16.8h4.7c.1 7.7 3.6 10.9 6.3 11.6V15.4h4.4v6.7c2.7-.3 5.5-3.5 6.4-6.7h4.4c-.3 1.7-1 3.3-1.9 4.7-1 1.4-2.2 2.6-3.6 3.5 1.5.9 2.9 2 4 3.4 1.2 1.4 2.1 3 2.7 4.7h-4.8c-1.2-3.3-3.6-5.9-6.9-6.3v6.3h-1.1z"
+        d="M25.3 30.9c-8 0-12.7-5.5-12.9-14.6h4c.1 6.7 3.1 9.4 5.5 10V16.3h3.9v5.8c2.3-.2 4.8-3 5.6-5.8h3.9c-.3 1.5-.9 2.9-1.7 4.1-.9 1.2-1.9 2.3-3.2 3 1.3.8 2.5 1.7 3.5 2.9 1 1.2 1.8 2.6 2.3 4.1h-4.2c-1-2.9-3.1-5.1-6-5.5v5.5c-.4 0-.5.5-.7.5z"
       />
     </svg>
   );
 }
 
-export function IconTelegram({ className }: { className?: string }) {
+export function IconTelegram({ className }: Props) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" className={className} aria-hidden>
-      <circle cx="24" cy="24" r="24" fill="currentColor" />
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <circle cx="24" cy="24" r="20" fill="currentColor" />
       <path
         fill="#fff"
-        d="M35.5 14.3c.4-.2.8.1.7.6l-3.1 15.7c-.2.9-.8 1.1-1.6.7l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 9-8.1c.4-.4-.1-.6-.6-.3L22.1 23l-4.8-1.5c-1-.3-1-1 .2-1.5l17.4-6.7z"
+        d="M34.8 15.5c.3-.2.7.1.6.5l-2.7 13.6c-.2.8-.7.9-1.4.6l-4-3-1.9 1.8c-.2.2-.4.4-.9.4l.3-4.2 7.8-7c.3-.3-.1-.5-.5-.3L22.4 23l-4.1-1.3c-.9-.3-.9-.9.2-1.3l15.1-5.8z"
       />
     </svg>
   );
 }
 
-export function IconDzen({ className }: { className?: string }) {
+export function IconDzen({ className }: Props) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" className={className} aria-hidden>
-      <circle cx="24" cy="24" r="24" fill="currentColor" />
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <circle cx="24" cy="24" r="20" fill="currentColor" />
       <path
         fill="#fff"
-        d="M24 10c.3 5.8.6 8.3 2.3 9.9 1.6 1.6 4.1 1.9 9.9 2.2.3 0 .3.7 0 .7-5.8.3-8.3.6-9.9 2.3-1.7 1.6-2 4.1-2.3 9.9 0 .3-.7.3-.7 0-.3-5.8-.6-8.3-2.3-9.9-1.6-1.7-4.1-2-9.9-2.3-.3 0-.3-.7 0-.7 5.8-.3 8.3-.6 9.9-2.2 1.7-1.6 2-4.1 2.3-9.9 0-.3.7-.3.7 0z"
+        d="M24 12c.3 4.8.5 6.9 1.9 8.2 1.3 1.3 3.4 1.6 8.2 1.9.2 0 .2.6 0 .6-4.8.3-6.9.5-8.2 1.9-1.4 1.3-1.6 3.4-1.9 8.2 0 .2-.6.2-.6 0-.3-4.8-.5-6.9-1.9-8.2-1.3-1.4-3.4-1.6-8.2-1.9-.2 0-.2-.6 0-.6 4.8-.3 6.9-.5 8.2-1.9 1.4-1.3 1.6-3.4 1.9-8.2 0-.2.6-.2.6 0z"
       />
     </svg>
   );
 }
 
-export function IconRutube({ className }: { className?: string }) {
+export function IconRutube({ className }: Props) {
   return (
-    <svg viewBox="0 0 48 48" fill="none" className={className} aria-hidden>
-      <rect x="4" y="12" width="40" height="24" rx="8" fill="currentColor" />
-      <path d="M21 19.5v9l8-4.5-8-4.5z" fill="#fff" />
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <circle cx="24" cy="24" r="20" fill="currentColor" />
+      <path
+        fill="#fff"
+        d="M16.5 15h9.3c2.7 0 4.8 2.2 4.8 4.8 0 2.3-1.6 4.3-3.9 4.7l4.4 8.5h-4.4l-4-7.7h-2.6V33h-3.6V15zm3.6 3.3v4.2h5.2c1.2 0 2.1-.9 2.1-2.1 0-1.2-.9-2.1-2.1-2.1h-5.2z"
+      />
     </svg>
   );
 }
