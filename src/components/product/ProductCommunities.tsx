@@ -30,18 +30,24 @@ const items = [
 export default function ProductCommunities() {
   return (
     <section className="relative bg-white text-black">
-      <div className="mx-auto max-w-[1408px] px-4 py-20 lg:py-24">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-3xl">
-            Основные преимущества атома
+      <div className="mx-auto max-w-[1408px] px-4 pt-[46px] pb-4 flex flex-col h-[700px] md:h-[800px]">
+        {/* Heading top-left + helper text aligned to top */}
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-8 pl-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[640px]">
+            Основные
+            <br />
+            преимущества
+            <br />
+            атома
           </h2>
-          <p className="max-w-sm text-black/60 leading-snug">
-            Тут можно какой-нибудь текст, дополняющий заголовок, о том, что Атом
-            крут.
+          <p className="font-display text-[16px] text-black/85 leading-snug max-w-[280px] pt-2">
+            Тут можно какой-нибудь текст, дополняющий заголовок, о&nbsp;том, что
+            Атом крут.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Cards pinned to bottom (16px from edge) */}
+        <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {items.map((item) => (
             <article
               key={item.num}
@@ -54,12 +60,14 @@ export default function ProductCommunities() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.55)_100%)]" />
+              {/* Stronger darkening on the photo */}
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.35)_0%,rgba(0,0,0,0.25)_50%,rgba(0,0,0,0.85)_100%)]" />
               <div className="relative z-10 p-6 flex flex-col h-full text-white">
                 <h3 className="font-display text-2xl font-medium leading-tight">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/75 leading-snug">
+                {/* Description pushed to bottom */}
+                <p className="mt-auto text-sm text-white/85 leading-snug">
                   {item.desc}
                 </p>
               </div>
