@@ -9,29 +9,25 @@ const stats = [
 
 export default function ProductIntro() {
   return (
-    <section className="relative bg-black border-t border-white/5 overflow-hidden">
-      {/* Atom on the wind-tunnel backdrop */}
+    <section className="relative bg-black w-full h-[600px] md:h-[800px] overflow-hidden">
+      {/* Wind-tunnel backdrop — sourced 1:1 from Figma node 600:42914 */}
       <Image
-        src="/figma/product/atom-transparent.webp"
+        src="/figma/product/specs/wind-tunnel.webp"
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-center opacity-90 z-0 pointer-events-none select-none"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0.15)_45%,rgba(0,0,0,0.85)_100%)]"
+        className="object-cover object-center z-0 pointer-events-none select-none"
       />
 
-      <div className="relative z-20 mx-auto max-w-[1408px] px-4 py-20 lg:py-28 min-h-[600px] md:min-h-[800px] flex items-end">
-        {/* Centered key figures: hint on top, body below, 40px gaps */}
-        <div className="w-full flex flex-wrap justify-center gap-x-10 gap-y-8 md:gap-x-[40px]">
+      {/* Stats row pinned to bottom (matches Figma container at y=697, h=71) */}
+      <div className="absolute left-4 right-4 bottom-[32px] md:bottom-[32px] z-20 flex justify-center">
+        <div className="flex flex-wrap justify-center gap-x-[40px] gap-y-6 md:gap-x-[72px]">
           {stats.map((s) => (
             <div key={s.value} className="flex flex-col items-center text-center">
-              <p className="font-display text-[16px] font-medium text-white/85 leading-none tracking-[0.02em]">
+              <p className="font-body text-[14px] md:text-[16px] font-medium text-white/85 leading-none">
                 {s.hint}
               </p>
-              <p className="mt-3 font-display text-[28px] md:text-[40px] font-medium text-white leading-none tracking-tight">
+              <p className="mt-3 font-display text-[32px] md:text-[40px] font-medium text-white leading-none tracking-[-0.02em]">
                 {s.value}
               </p>
             </div>
