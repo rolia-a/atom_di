@@ -1,43 +1,120 @@
-import Image from "next/image";
+"use client";
 
-const features = [
-  { title: "Платформа", desc: "Модульная, собственной разработки" },
-  { title: "Запас хода", desc: "До 500 км на одном заряде" },
-  { title: "Зарядка", desc: "30 мин от 20 до 80%" },
-  { title: "Ассистенты вождения", desc: "Комплекс ADAS в базе" },
+import Image from "next/image";
+import { useState } from "react";
+
+const tabs = [
+  {
+    id: "adas",
+    label: "Ассистенты вождения",
+    icon: "/figma/product/platform/icon-adas.svg",
+    image: "/figma/product/platform/platform.webp",
+    title: (
+      <>
+        Ассистенты
+        <br />
+        вождения
+      </>
+    ),
+    desc: "Комплекс ADAS в базе — адаптивный круиз-контроль, удержание в полосе, распознавание знаков и экстренное торможение. Всё, чтобы водителю было безопаснее и спокойнее за рулём.",
+  },
+  {
+    id: "atom-os",
+    label: "Атом ОС",
+    icon: "/figma/product/platform/icon-atomos.svg",
+    image: "/figma/product/platform/platform.webp",
+    title: (
+      <>
+        Атом
+        <br />
+        ОС
+      </>
+    ),
+    desc: "Собственная операционная система автомобиля, развивающаяся вместе с ним. Обновления «по воздуху», быстрый отклик и бесшовная интеграция со смартфоном.",
+  },
+  {
+    id: "safety",
+    label: "Безопасность",
+    icon: "/figma/product/platform/icon-safety.svg",
+    image: "/figma/product/platform/platform.webp",
+    title: (
+      <>
+        Активная и пассивная
+        <br />
+        безопасность
+      </>
+    ),
+    desc: "Силовая структура кузова, подушки безопасности по периметру и преднапряжённые ремни. Всё соответствует стандартам безопасности и адаптировано к российским дорогам.",
+  },
+  {
+    id: "platform",
+    label: "Платформа",
+    icon: "/figma/product/platform/icon-platform.svg",
+    image: "/figma/product/platform/platform.webp",
+    title: (
+      <>
+        Собственная
+        <br />
+        EV-платформа
+      </>
+    ),
+    desc: "Первая российская платформа электромобиля — собственная разработка Атома. Соответствует стандартам безопасности и адаптирована к российскому климату.",
+  },
 ];
 
 export default function ProductUnderHood() {
+  // Figma screenshot shows "Платформа" as the active/visible tab
+  const [activeId, setActiveId] = useState(tabs[3].id);
+  const active = tabs.find((t) => t.id === activeId) ?? tabs[3];
+
   return (
-    <section className="relative bg-black py-20 lg:py-24 border-t border-white/5">
-      <div className="mx-auto max-w-[1408px] px-4">
-        <h2 className="font-display text-3xl md:text-4xl lg:text-[48px] leading-[1.1] uppercase tracking-tight">
-          Загляните под капот
-          <br />
-          Атома
+    <section className="relative bg-white w-full h-[600px] md:h-[800px] overflow-hidden">
+      {/* Left text block — absolute center-left like in Figma */}
+      <div className="absolute left-6 md:left-[155px] top-1/2 -translate-y-1/2 z-10 max-w-[442px] md:max-w-[557px]">
+        <h2 className="font-display text-[28px] md:text-[40px] leading-none uppercase text-black">
+          {active.title}
         </h2>
+        <p className="mt-4 font-body text-[14px] md:text-[16px] leading-[1.3] text-[#92979b] max-w-[442px]">
+          {active.desc}
+        </p>
+      </div>
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-center">
-          <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden bg-black">
-            <Image
-              src="/figma/product/platform.webp"
-              alt="EV-платформа Атома"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-contain"
-            />
-          </div>
+      {/* Right image */}
+      <div className="absolute right-0 md:left-[628px] md:right-auto top-[120px] md:top-[150px] w-full md:w-[793px] h-[360px] md:h-[501px] pointer-events-none">
+        <Image
+          src={active.image}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 100vw, 793px"
+          className="object-contain"
+        />
+      </div>
 
-          <dl className="space-y-8">
-            {features.map((f) => (
-              <div key={f.title} className="border-t border-white/10 pt-4">
-                <dt className="font-display text-xl md:text-2xl font-medium">
-                  {f.title}
-                </dt>
-                <dd className="mt-2 text-white/70 leading-snug">{f.desc}</dd>
-              </div>
-            ))}
-          </dl>
+      {/* Bottom-centered tabs pill (same style as wheel block) */}
+      <div className="absolute bottom-[39px] left-0 right-0 z-20 flex justify-center px-4">
+        <div className="flex items-center gap-px h-[44px] p-px rounded-full bg-white/50 backdrop-blur-[10px] border border-[rgba(102,102,102,0.1)]">
+          {tabs.map((t) => {
+            const isActive = t.id === activeId;
+            return (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => setActiveId(t.id)}
+                className={`h-full flex items-center gap-2 px-4 rounded-full transition font-body uppercase text-[13px] font-medium tracking-[0.05em] text-black whitespace-nowrap ${
+                  isActive ? "bg-[#ebeff2]" : "opacity-30 hover:opacity-60"
+                }`}
+              >
+                <Image
+                  src={t.icon}
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 shrink-0"
+                />
+                <span>{t.label}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
