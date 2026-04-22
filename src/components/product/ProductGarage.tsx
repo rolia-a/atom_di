@@ -31,15 +31,15 @@ const tabs = [
 ];
 
 // Same hero photo is cropped for thumbnails via object-position.
-const THUMBS = [
+const THUMBS: { id: string; pos: string }[] = [
   { id: "t1", pos: "50% 55%" },
   { id: "t2", pos: "30% 40%" },
   { id: "t3", pos: "70% 40%" },
-] as const;
+];
 
 export default function ProductGarage() {
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
-  const [activeThumb, setActiveThumb] = useState(THUMBS[0].id);
+  const [activeTab, setActiveTab] = useState<string>(tabs[0].id);
+  const [activeThumb, setActiveThumb] = useState<string>(THUMBS[0].id);
   const current = tabs.find((t) => t.id === activeTab) ?? tabs[0];
 
   return (
