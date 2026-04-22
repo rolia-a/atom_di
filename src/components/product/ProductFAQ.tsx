@@ -2,22 +2,31 @@
 
 import { useState } from "react";
 
+// Order matches Figma node 600:43443
 const faqs = [
   {
     q: "Зачем бронировать Атом",
     a: "Бронирование позволяет вам получить Атом одним из первых по фиксированной цене, не дожидаясь старта продаж.",
   },
   {
+    q: "Чем отличается специальная серия Атом",
+    a: "Специальная серия — это автомобили первых партий с расширенной комплектацией и уникальным оформлением.",
+  },
+  {
     q: "Как забронировать Атом",
     a: "Заполните форму на сайте и внесите стоимость бронирования — 500 000 ₽. Сумма будет зачтена в финальную стоимость.",
   },
   {
-    q: "Когда я получу свой Атом",
-    a: "Срок поставки автомобиля — с мая по сентябрь 2026 года. Ближайший доступный срок будет определён в зависимости от вашего места в очереди.",
+    q: "Будет ли учтен мой ранее оформленный предзаказ",
+    a: "Да. Мы свяжемся со всеми, кто оформлял предзаказ, и предложим условия перехода в бронирование.",
   },
   {
     q: "Что означает фиксированная стоимость",
     a: "Цена Атома, зафиксированная в момент бронирования, не изменится до момента передачи автомобиля.",
+  },
+  {
+    q: "Когда я получу свой Атом",
+    a: "Срок поставки автомобиля — с мая по сентябрь 2026 года. Ближайший доступный срок будет определён в зависимости от вашего места в очереди.",
   },
   {
     q: "Можно ли будет купить Атом в кредит",
@@ -31,64 +40,73 @@ const faqs = [
     q: "Как получить субсидию на покупку электромобиля в 2026 году",
     a: "Субсидия оформляется в банке-партнёре на этапе покупки — поможем с документами.",
   },
-  {
-    q: "Будет ли учтён мой ранее оформленный предзаказ",
-    a: "Да. Мы свяжемся со всеми, кто оформлял предзаказ, и предложим условия перехода в бронирование.",
-  },
-  {
-    q: "Чем отличается специальная серия Атом",
-    a: "Специальная серия — это автомобили первых партий с расширенной комплектацией и уникальным оформлением.",
-  },
 ];
 
 export default function ProductFAQ() {
   const [open, setOpen] = useState<string | null>(faqs[0].q);
 
   return (
-    <section className="relative bg-black py-20 lg:py-24 border-t border-white/5">
-      <div className="mx-auto max-w-[1408px] px-4">
-        <h2 className="font-display text-3xl md:text-4xl lg:text-[48px] leading-[1.1] uppercase tracking-tight">
-          Ответы на вопросы
-        </h2>
+    <section className="relative bg-white text-[#05080a]">
+      <div className="mx-auto max-w-[1408px] flex gap-[181px] items-start pt-6 pb-14 pl-4 pr-10">
+        {/* Left column: heading top + order button bottom */}
+        <div className="self-stretch flex flex-col justify-between shrink-0">
+          <h2 className="font-display text-[40px] md:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-[#05080a] whitespace-nowrap">
+            <span className="block">Ответы</span>
+            <span className="block">на вопросы</span>
+          </h2>
+          <a
+            href="/partners#apply"
+            className="inline-flex items-center justify-center bg-black border-2 border-[#9747ff] rounded-[20px] px-10 py-6 font-display text-[24px] md:text-[32px] leading-[1.2] tracking-[-0.02em] text-white"
+          >
+            Заказать
+          </a>
+        </div>
 
-        <ul className="mt-12 divide-y divide-white/10 border-t border-b border-white/10">
-          {faqs.map((item) => {
+        {/* Right column: FAQ list */}
+        <div className="flex-1 min-w-0 flex flex-col gap-9 pt-[60px]">
+          {faqs.map((item, i) => {
             const isOpen = open === item.q;
             return (
-              <li key={item.q}>
+              <div key={item.q} className="flex flex-col gap-9">
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : item.q)}
-                  className="w-full flex items-center justify-between py-6 text-left"
+                  className="w-full flex gap-6 items-start text-left"
                 >
-                  <span className="font-display text-lg md:text-xl font-medium pr-6">
-                    {item.q}
-                  </span>
+                  <div className="flex-1 min-w-0 flex flex-col gap-[26px] text-[#05080a]">
+                    <span className="block font-display text-[24px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
+                      {item.q}
+                    </span>
+                    {isOpen && (
+                      <p className="font-display text-[16px] md:text-[20px] leading-[28px] text-[#05080a]">
+                        {item.a}
+                      </p>
+                    )}
+                  </div>
                   <span
                     aria-hidden
-                    className={`shrink-0 h-8 w-8 rounded-full border border-white/20 flex items-center justify-center transition ${
-                      isOpen ? "rotate-45" : ""
+                    className={`shrink-0 w-6 h-6 flex items-center justify-center transition-transform ${
+                      isOpen ? "rotate-180" : ""
                     }`}
                   >
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
                       <path
-                        d="M6 1v10M1 6h10"
-                        stroke="currentColor"
+                        d="M1 1l6 6 6-6"
+                        stroke="#05080a"
                         strokeWidth="1.5"
                         strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>
                 </button>
-                {isOpen && (
-                  <p className="pb-6 text-white/70 leading-relaxed max-w-3xl">
-                    {item.a}
-                  </p>
+                {i < faqs.length - 1 && (
+                  <div className="h-px w-full bg-[#05080a]/10" />
                 )}
-              </li>
+              </div>
             );
           })}
-        </ul>
+        </div>
       </div>
     </section>
   );
