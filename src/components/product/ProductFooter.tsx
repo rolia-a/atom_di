@@ -47,11 +47,14 @@ const TelegramIcon = () => (
   </svg>
 );
 
+// Dzen logo — 4 lens-petals meeting at centre (the official Dzen mark).
 const DzenIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fill="#000"
-      d="M12.68 12.67c1.89-1.88 2.02-4.28 2.17-9.52-1.9.15-4.3.28-6.19 2.17-1.9 1.89-2.02 4.29-2.18 9.52 1.9-.15 4.3-.28 6.2-2.17zm-.01-2.51c-1.89 1.89-4.28 2.02-9.52 2.17.16 1.9.28 4.3 2.18 6.19 1.89 1.9 4.28 2.02 9.52 2.18-.16-1.91-.28-4.31-2.17-6.2-1.9-1.88-4.31-2.01-9.53-2.17h9.52zm9.79 0h-9.52c1.89 1.9 4.28 2.02 9.52 2.18-.15 1.9-.28 4.3-2.17 6.19-1.9 1.9-4.29 2.02-9.52 2.18.15-1.91.28-4.31 2.17-6.2 1.89-1.88 4.28-2.01 9.52-2.17v-2.18zm-9.52 0c5.24-.15 7.63-.28 9.52-2.17 1.9-1.89 2.03-4.29 2.18-9.52-5.23.15-7.63.28-9.52 2.17-1.9 1.89-2.03 4.29-2.18 9.52z"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M12 2c0 5.52-.5 7.5-2 9s-3.48 2-9 2c0-5.52.5-7.5 2-9s3.48-2 9-2zm0 20c0-5.52-.5-7.5-2-9s-3.48-2-9-2c0 5.52.5 7.5 2 9s3.48 2 9 2zm0-20c0 5.52.5 7.5 2 9s3.48 2 9 2c0-5.52-.5-7.5-2-9s-3.48-2-9-2zm0 20c0-5.52.5-7.5 2-9s3.48-2 9-2c0 5.52-.5 7.5-2 9s-3.48 2-9 2z"
     />
   </svg>
 );
@@ -179,25 +182,23 @@ export default function ProductFooter() {
           className="absolute top-[326px] w-[346px] h-[458px] rounded-[32px] overflow-hidden flex flex-col justify-between px-6 py-8"
           style={{ left: "calc(75% - 2px)" }}
         >
-          {/* Background — Figma uses a video loop of dark Atom car body with
-              cyan ambient lighting. We layer: a dark navy base, a cyan radial
-              glow (bottom-left), and a subtle vignette — matching the mood
-              without relying on an aspect-ratio-mismatched photo. */}
-          <div
+          {/* Background: Atom car front (with cyan LED), cropped so the
+              bumper/grille anchors the lower half of the card. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/figma/product/specs-block/atom-front.webp"
+            alt=""
             aria-hidden
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(110% 60% at 15% 95%, rgba(0,220,220,0.35) 0%, rgba(0,120,140,0.2) 25%, rgba(10,25,35,0) 60%), linear-gradient(180deg, #091218 0%, #0c1a22 45%, #050b10 100%)",
-            }}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "50% 75%" }}
           />
-          {/* Soft highlight curve to suggest a car body edge */}
+          {/* Dark overlay so white text on top stays legible */}
           <div
             aria-hidden
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(90% 40% at 85% 50%, rgba(120,200,220,0.12) 0%, rgba(0,0,0,0) 70%)",
+                "linear-gradient(180deg, rgba(5,10,15,0.75) 0%, rgba(5,10,15,0.35) 45%, rgba(5,10,15,0.55) 100%)",
             }}
           />
 
