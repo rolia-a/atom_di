@@ -140,13 +140,15 @@ export default function ProductFooter() {
           className="absolute top-[326px] w-[346px] h-[458px] rounded-[32px] overflow-hidden flex flex-col justify-between px-6 py-8"
           style={{ left: "calc(75% - 2px)" }}
         >
-          {/* Background car image (Figma uses a video; we use a still frame) */}
+          {/* Background — dark car body with cyan ambient lighting, matching
+              the mood of the Figma video (charging port closeup, shifted so
+              the cyan glow sits near the bottom-left). */}
           <Image
-            src="/figma/product/atomid/ecosystem-bg.webp"
+            src="/figma/product/charging/port.webp"
             alt=""
             fill
             sizes="346px"
-            className="object-cover"
+            className="object-cover object-[40%_60%] scale-[1.15]"
             priority={false}
           />
           <div
@@ -154,7 +156,7 @@ export default function ProductFooter() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.55) 100%)",
+                "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.3) 100%)",
             }}
           />
 
