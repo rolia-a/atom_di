@@ -105,16 +105,45 @@ export default function ProductSpecs() {
             </SpecRow>
             <SpecRow label="Интерфейсы управления">
               <div className="flex items-center gap-2 pt-1">
-                {INTERFACE_ICONS.map((src) => (
-                  <Image
-                    key={src}
-                    src={src}
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="w-6 h-6"
-                  />
-                ))}
+                {/*
+                  Each icon is placed inside a 24×24 brand-icon box at the
+                  exact insets used by Figma (node 600:43206). That positioning
+                  is what makes the middle (speech-bubble) glyph read as a
+                  side-mirror, and the third one as a framed photo.
+                */}
+                <div className="relative w-6 h-6 overflow-hidden">
+                  <div className="absolute inset-[17.86%_7.14%]">
+                    <Image
+                      src={INTERFACE_ICONS[0]}
+                      alt=""
+                      fill
+                      sizes="24px"
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="relative w-6 h-6 overflow-hidden">
+                  <div className="absolute top-1/4 right-[5.36%] bottom-[10.71%] left-[16.07%]">
+                    <Image
+                      src={INTERFACE_ICONS[1]}
+                      alt=""
+                      fill
+                      sizes="24px"
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="relative w-6 h-6 overflow-hidden">
+                  <div className="absolute inset-[6.37%_6.5%_11.24%_11.12%]">
+                    <Image
+                      src={INTERFACE_ICONS[2]}
+                      alt=""
+                      fill
+                      sizes="24px"
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
               </div>
             </SpecRow>
           </div>
