@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const widgets = [
   { title: "Габариты", desc: "Описание в пару строк об Атоме" },
   { title: "Что-то еще", desc: "Описание в пару строк об Атоме" },
@@ -10,87 +8,132 @@ export default function ProductPreorder() {
   return (
     <section
       id="preorder"
-      className="relative bg-black w-full h-[800px] overflow-hidden"
+      className="relative bg-black w-full h-[800px] overflow-clip"
     >
       {/*
-        Top-down Atom render, rotated -90° so the car points downward.
-        Anchored to the right edge so only the upper half of the car (rear
-        roof → front bumper w/ cyan glow) occupies the right ~40% of the
-        section, matching Figma node 600:43393.
+        Top-down Atom render inside a rotated wrapper — matches Figma 600:43393.
+        The wrapper is 1360×1789 centered at (50%+367px, 50%-675.5px), then its
+        inner child is -rotate-90, so on screen the car points downward and the
+        bumper/cyan glow sits in the upper-right quadrant.
       */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <img
-          src="/figma/product/top-atom.webp"
-          alt=""
-          aria-hidden
-          draggable={false}
-          className="absolute max-w-none select-none"
-          style={{
-            top: "50%",
-            left: "calc(50% + 367px)",
-            transform: "translate(-50%, -50%) rotate(-90deg)",
-            transformOrigin: "center",
-            height: "1789px",
-            width: "1360px",
-            objectFit: "cover",
-          }}
-        />
-      </div>
-      {/* Left-to-right fade: black on left → transparent on right, so the car
-          emerges out of darkness on the right side */}
       <div
         aria-hidden
-        className="absolute inset-0"
+        className="absolute flex items-center justify-center pointer-events-none"
         style={{
-          background:
-            "linear-gradient(269.947deg, rgb(0, 0, 0) 66.019%, rgba(0, 0, 0, 0) 87.926%)",
+          left: "calc(50% + 367px)",
+          top: "calc(50% - 675.5px)",
+          transform: "translate(-50%, -50%)",
+          width: "1360px",
+          height: "1789px",
         }}
-      />
+      >
+        <div className="-rotate-90 flex-none">
+          <div className="relative" style={{ width: "1789px", height: "1360px" }}>
+            <div className="absolute inset-0 overflow-hidden">
+              <img
+                src="/figma/product/top-atom.webp"
+                alt=""
+                aria-hidden
+                draggable={false}
+                className="absolute max-w-none select-none"
+                style={{
+                  left: "-18.73%",
+                  top: "-1.15%",
+                  width: "135.04%",
+                  height: "100%",
+                }}
+              />
+            </div>
+            {/* Gradient lives INSIDE the rotated wrapper — after -90° this fades
+                black into transparent along the reveal axis in the final frame. */}
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "linear-gradient(269.947deg, rgb(0, 0, 0) 66.019%, rgba(0, 0, 0, 0) 87.926%)",
+              }}
+            />
+          </div>
+        </div>
+      </div>
 
-      {/* Top-left heading + description */}
-      <h2 className="absolute z-10 left-4 top-[46px] font-display text-[36px] md:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white max-w-[701px]">
-        Станьте владельцем Атома в&nbsp;числе первых
+      {/* Heading — bottom-anchored (flex-col justify-end) so baseline lands on
+          y=164px, width 701px, left edge at (50% - 704px) like Figma. */}
+      <h2
+        className="absolute z-10 flex flex-col justify-end font-display text-[36px] md:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white"
+        style={{
+          left: "max(16px, calc(50% - 704px))",
+          top: "164px",
+          transform: "translateY(-100%)",
+          width: "min(701px, calc(100vw - 32px))",
+        }}
+      >
+        Станьте&nbsp;владельцем Атома в&nbsp;числе первых
       </h2>
-      <p className="absolute z-10 left-4 top-[184px] max-w-[366px] font-body text-[14px] md:text-[16px] leading-[1.3] text-white/65">
+
+      {/* Description — 16px from frame-left, top 184px, width 366px */}
+      <p
+        className="absolute z-10 font-body text-[14px] md:text-[16px] leading-[1.3] text-white/65"
+        style={{
+          left: "max(16px, calc(50% - 688px))",
+          top: "184px",
+          width: "min(366px, calc(100vw - 32px))",
+        }}
+      >
         Возможно пару строк о продаже ещё. Возможно пару строк о продаже ещё.
         Возможно пару строк о продаже ещё.
       </p>
 
-      {/* Bottom-left: 3 frosted-glass feature cards (Figma w=815 @ left≈30%) */}
-      <div className="absolute z-10 left-4 md:left-[calc(50%-407.5px+124px)] top-[519px] h-[249px] flex gap-4 md:w-[815px] max-md:right-[48%] max-md:max-w-[calc(52%-16px)]">
+      {/* 3 frosted feature cards — Figma: left calc(50%-283.5px), top 519,
+          width 815, translate-x-1/2. So card row is centered at x=(50%-283.5). */}
+      <div
+        className="absolute z-10 flex gap-4 items-center h-[249px]"
+        style={{
+          left: "calc(50% - 283.5px)",
+          top: "519px",
+          transform: "translateX(-50%)",
+          width: "815px",
+        }}
+      >
         {widgets.map((w, i) => (
           <div
             key={i}
             className="flex-1 min-w-0 h-full rounded-[32px] bg-[rgba(102,102,102,0.41)] backdrop-blur-[10px] p-6 flex flex-col justify-between overflow-clip text-white"
           >
-            <h3 className="font-display text-[22px] md:text-[28px] font-medium leading-none">
+            <h3 className="font-display text-[28px] font-medium leading-none">
               {w.title}
             </h3>
-            <p className="font-body text-[14px] md:text-[16px] leading-[1.3]">
-              {w.desc}
-            </p>
+            <p className="font-body text-[16px] leading-[1.3]">{w.desc}</p>
           </div>
         ))}
       </div>
 
-      {/* Bottom-right: price + gradient button (Figma w=424 @ left≈67%) */}
-      <div className="absolute z-10 right-4 md:left-[calc(50%+241px)] md:right-auto top-[519px] w-[90%] md:w-[424px] max-w-[424px] flex flex-col gap-[26px]">
-        <div className="flex flex-col gap-[39px] items-start">
-          <p className="font-display text-[28px] md:text-[32px] leading-[1.2] tracking-[-0.02em] text-[#00ffff] whitespace-nowrap">
+      {/* Price + CTA — Figma: left calc(50%+453px), top 519, width 424,
+          translate-x-1/2. Column center sits at x=(50%+453). */}
+      <div
+        className="absolute z-10 flex flex-col gap-[26px] w-[424px]"
+        style={{
+          left: "calc(50% + 453px)",
+          top: "519px",
+          transform: "translateX(-50%)",
+        }}
+      >
+        <div className="flex flex-col gap-[39px] items-start w-full">
+          <p className="w-full font-display text-[32px] leading-[1.2] tracking-[-0.02em] text-[#00ffff] whitespace-nowrap">
             3 900 000&nbsp;₽
           </p>
           <div className="flex flex-col gap-1 items-start">
-            <p className="font-display text-[18px] md:text-[20px] leading-[28px] text-[#b8c6d3]">
+            <p className="font-display text-[20px] leading-[28px] text-[#b8c6d3]">
               Стоимость бронирования
             </p>
-            <p className="font-display text-[48px] md:text-[70px] leading-[1.05] uppercase tracking-[-0.01em] text-[#b365ff] whitespace-nowrap">
+            <p className="font-display text-[70px] leading-[1.05] tracking-[-0.01em] uppercase text-[#b365ff] whitespace-nowrap">
               500 000&nbsp;₽
             </p>
           </div>
         </div>
         <a
           href="/partners#apply"
-          className="btn-grad w-full inline-flex items-center justify-center h-[56px] md:h-[60px] rounded-2xl font-body text-[16px] md:text-[18px] tracking-[-0.01em]"
+          className="btn-grad w-full inline-flex items-center justify-center h-[60px] rounded-2xl font-body text-[18px] tracking-[-0.01em]"
         >
           Заказать
         </a>
