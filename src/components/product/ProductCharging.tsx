@@ -18,8 +18,12 @@ export default function ProductCharging() {
         />
       </div>
 
-      {/* Right column: icon + heading + description, vertically centered above the cards */}
-      <div className="absolute left-[66.67%] top-[calc(50%-89px)] -translate-y-1/2 flex flex-col gap-6 w-[419px] max-w-[90%] z-10">
+      {/*
+        Right column text — vertically centered in the white area ABOVE the
+        cards (cards sit at the bottom ~y=544 of the 788 section; centering
+        between 0 and 544 → ~35%).
+      */}
+      <div className="absolute left-[66.67%] top-[35%] -translate-y-1/2 flex flex-col gap-6 w-[419px] max-w-[90%] z-10">
         <Image
           src="/figma/product/charging/icon-station.svg"
           alt=""
