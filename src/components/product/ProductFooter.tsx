@@ -26,11 +26,32 @@ const contacts = [
   { email: "compliance@atom.auto", label: "Линия доверия Комплаенса", copy: false },
 ];
 
+// Each icon has specific Figma inset percentages inside its 40×40 tile
 const socials = [
-  { href: "https://vk.com/atomauto", label: "VK", icon: "/figma/product/footer/vk.svg" },
-  { href: "https://t.me/atomauto", label: "Telegram", icon: "/figma/product/footer/telegram.svg" },
-  { href: "https://dzen.ru/atomauto", label: "Dzen", icon: "/figma/product/footer/dzen-1.svg" },
-  { href: "https://rutube.ru/atomauto", label: "Rutube", icon: "/figma/product/footer/youtube.svg" },
+  {
+    href: "https://vk.com/atomauto",
+    label: "VK",
+    icon: "/figma/product/footer/vk.svg",
+    inset: { top: "28.56%", right: "12.39%", bottom: "27.22%", left: "9.38%" },
+  },
+  {
+    href: "https://t.me/atomauto",
+    label: "Telegram",
+    icon: "/figma/product/footer/telegram.svg",
+    inset: { top: "20.58%", right: "21.88%", bottom: "22.13%", left: "9.38%" },
+  },
+  {
+    href: "https://dzen.ru/atomauto",
+    label: "Dzen",
+    icon: "/figma/product/footer/dzen-1.svg",
+    inset: { top: "18.75%", right: "18.75%", bottom: "18.75%", left: "18.75%" },
+  },
+  {
+    href: "https://rutube.ru/atomauto",
+    label: "Rutube",
+    icon: "/figma/product/footer/youtube.svg",
+    inset: { top: "23.75%", right: "12.5%", bottom: "23.75%", left: "12.5%" },
+  },
 ];
 
 export default function ProductFooter() {
@@ -140,23 +161,25 @@ export default function ProductFooter() {
           className="absolute top-[326px] w-[346px] h-[458px] rounded-[32px] overflow-hidden flex flex-col justify-between px-6 py-8"
           style={{ left: "calc(75% - 2px)" }}
         >
-          {/* Background — dark car body with cyan ambient lighting, matching
-              the mood of the Figma video (charging port closeup, shifted so
-              the cyan glow sits near the bottom-left). */}
-          <Image
-            src="/figma/product/charging/port.webp"
-            alt=""
-            fill
-            sizes="346px"
-            className="object-cover object-[40%_60%] scale-[1.15]"
-            priority={false}
-          />
+          {/* Background — Figma uses a video loop of dark Atom car body with
+              cyan ambient lighting. We layer: a dark navy base, a cyan radial
+              glow (bottom-left), and a subtle vignette — matching the mood
+              without relying on an aspect-ratio-mismatched photo. */}
           <div
             aria-hidden
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.3) 100%)",
+                "radial-gradient(110% 60% at 15% 95%, rgba(0,220,220,0.35) 0%, rgba(0,120,140,0.2) 25%, rgba(10,25,35,0) 60%), linear-gradient(180deg, #091218 0%, #0c1a22 45%, #050b10 100%)",
+            }}
+          />
+          {/* Soft highlight curve to suggest a car body edge */}
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(90% 40% at 85% 50%, rgba(120,200,220,0.12) 0%, rgba(0,0,0,0) 70%)",
             }}
           />
 
@@ -171,7 +194,8 @@ export default function ProductFooter() {
             </p>
           </div>
 
-          {/* Bottom: 4 social icons */}
+          {/* Bottom: 4 social icon tiles — 40×40 equivalents with precise
+              Figma inset positioning for each SVG */}
           <div className="relative z-10 flex gap-[10px] items-end w-full">
             {socials.map((s) => (
               <a
@@ -180,16 +204,15 @@ export default function ProductFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="flex-1 aspect-square bg-[#ebeff2] rounded-2xl flex items-center justify-center p-1 hover:brightness-110 transition"
+                className="relative flex-1 aspect-square bg-[#ebeff2] rounded-2xl hover:brightness-110 transition overflow-hidden"
               >
-                <span className="relative block w-8 h-8">
-                  <Image
-                    src={s.icon}
-                    alt=""
-                    fill
-                    className="object-contain"
-                  />
-                </span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.icon}
+                  alt=""
+                  className="absolute block max-w-none"
+                  style={s.inset}
+                />
               </a>
             ))}
           </div>
