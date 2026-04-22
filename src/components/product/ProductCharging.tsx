@@ -1,56 +1,117 @@
 import Image from "next/image";
 
-const types = [
-  { label: "GB/T DC", desc: "Быстрая зарядка" },
-  { label: "GB/T AC", desc: "Медленная AC" },
-  { label: "CHAdeMO", desc: "Поддержка старых станций" },
-  { label: "× 5", desc: "Одновременная зарядка" },
-];
-
 export default function ProductCharging() {
   return (
-    <section id="charging" className="relative bg-black border-t border-white/5">
-      <div className="mx-auto max-w-[1408px] px-4 py-20 lg:py-24">
-        <h2 className="font-display text-3xl md:text-4xl lg:text-[48px] leading-[1.1] uppercase tracking-tight">
-          Заряжайте Атом
-          <br />
-          дома и в городе
+    <section
+      id="charging"
+      className="relative bg-white w-full h-[700px] md:h-[788px] overflow-hidden"
+    >
+      {/* Map covers the left 2/3 of the section, slightly overflowing the left edge */}
+      <div className="absolute left-[-122px] top-0 w-[1028px] h-full">
+        <Image
+          src="/figma/product/charging/map.webp"
+          alt="Карта зарядных станций"
+          fill
+          sizes="1028px"
+          className="object-cover"
+          priority={false}
+        />
+      </div>
+
+      {/* Right column: icon + heading + description, vertically centered above the cards */}
+      <div className="absolute left-[66.67%] top-[calc(50%-89px)] -translate-y-1/2 flex flex-col gap-6 w-[419px] max-w-[90%] z-10">
+        <Image
+          src="/figma/product/charging/icon-station.svg"
+          alt=""
+          width={32}
+          height={32}
+          className="w-8 h-8"
+        />
+        <h2 className="font-display text-[32px] md:text-[40px] leading-none uppercase text-black">
+          Заряжайте Атом дома и&nbsp;в&nbsp;городе
         </h2>
-        <p className="mt-4 max-w-2xl text-white/70 leading-relaxed">
-          Мы создали сеть зарядных станций, включающую наши собственные зарядки и
-          станции партнёров. Выбирайте и бронируйте станции, оплачивайте и
-          заряжайтесь через приложение «Я — Атом». Для домашней зарядки поможем
-          установить необходимое оборудование.
-        </p>
-
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16">
-          {/* Charging map */}
-          <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden bg-[#0b1618]">
-            <Image
-              src="/figma/product/map.webp"
-              alt="Карта зарядных станций"
-              fill
-              sizes="(max-width: 1024px) 100vw, 60vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div>
-            <p className="text-white/70 leading-relaxed max-w-md">
-              Наши партнёры ЭЗС готовы установить DC-станции с единой системой
-              управления, предназначенной для одновременной зарядки 5 и более
-              электромобилей.
-            </p>
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              {types.map((t) => (
-                <div key={t.label} className="rounded-2xl border border-white/10 p-5">
-                  <p className="font-display text-2xl font-medium">{t.label}</p>
-                  <p className="mt-1 text-sm text-white/60">{t.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="font-body text-[16px] leading-[1.3] text-black flex flex-col gap-[1em]">
+          <p>
+            Мы создали сеть зарядных станций, включающую наши собственные
+            зарядки и станции партнёров. Выбирайте и бронируйте станции,
+            оплачивайте и заряжайтесь через приложение «Я&nbsp;–&nbsp;Атом».
+          </p>
+          <p>
+            Для домашней зарядки поможем установить необходимое оборудование
+          </p>
         </div>
+      </div>
+
+      {/* Two small cards anchored to the bottom-right */}
+      <div className="absolute left-[66.67%] top-[544px] w-[464px] max-w-[90%] flex gap-2 z-10">
+        {/* 1) QR — download app */}
+        <a
+          href="#app"
+          className="relative flex-1 h-[228px] rounded-[32px] overflow-hidden bg-black hover:brightness-110 transition"
+        >
+          {/* Cyan glow behind the QR */}
+          <Image
+            src="/figma/product/charging/glow.svg"
+            alt=""
+            aria-hidden
+            width={600}
+            height={600}
+            className="absolute -left-[70px] -bottom-[70px] w-[298px] h-[307px] pointer-events-none select-none"
+          />
+          {/* QR code */}
+          <Image
+            src="/figma/product/charging/qr.webp"
+            alt=""
+            width={122}
+            height={121}
+            className="absolute left-[21px] top-[90px] w-[122px] h-[121px] object-cover"
+          />
+          <div className="absolute left-[82px] top-[24px] flex flex-col items-start gap-[2px]">
+            <span className="font-body text-[13px] font-medium tracking-[0.05em] uppercase text-white leading-[1.2]">
+              Скачать
+            </span>
+            <span className="flex items-center gap-1 font-body text-[13px] font-medium tracking-[0.05em] uppercase text-white leading-[1.2]">
+              Приложение
+              <Image
+                src="/figma/product/specs-block/arrow-right.svg"
+                alt=""
+                width={10}
+                height={10}
+                className="inline-block"
+              />
+            </span>
+          </div>
+        </a>
+
+        {/* 2) Charging port closeup — home stations */}
+        <a
+          href="#home-charge"
+          className="relative flex-1 h-[228px] rounded-[32px] overflow-hidden bg-[#1c2023] hover:brightness-110 transition"
+        >
+          {/* Zoomed charging port photo, positioned to show the cable/port detail */}
+          <Image
+            src="/figma/product/charging/port.webp"
+            alt=""
+            fill
+            sizes="230px"
+            className="object-cover object-[30%_50%] scale-[1.4]"
+          />
+          <div className="absolute left-[24px] top-[24px] flex flex-col items-start gap-[2px]">
+            <span className="font-body text-[13px] font-medium tracking-[0.05em] uppercase text-white leading-[1.2]">
+              Станции
+            </span>
+            <span className="flex items-center gap-1 font-body text-[13px] font-medium tracking-[0.05em] uppercase text-white leading-[1.2]">
+              для дома
+              <Image
+                src="/figma/product/specs-block/arrow-right.svg"
+                alt=""
+                width={10}
+                height={10}
+                className="inline-block"
+              />
+            </span>
+          </div>
+        </a>
       </div>
     </section>
   );
