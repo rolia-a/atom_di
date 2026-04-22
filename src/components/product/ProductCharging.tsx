@@ -1,4 +1,5 @@
 import Image from "next/image";
+import YandexChargingMap from "./YandexChargingMap";
 
 export default function ProductCharging() {
   return (
@@ -7,19 +8,12 @@ export default function ProductCharging() {
       className="relative bg-white w-full h-[700px] md:h-[788px] overflow-hidden"
     >
       {/*
-        Map covers the left 2/3 of the section. Fills the container with
-        object-cover so it scales to any viewport width (was fixed 1028px
-        which created an ugly gap on wide screens).
+        Interactive Yandex Maps (v3 API, dark theme) covering the left 62%.
+        Falls back to the static map PNG when NEXT_PUBLIC_YMAPS_API_KEY
+        isn't configured, so the layout still looks right in preview/local.
       */}
       <div className="absolute left-0 top-0 w-[62%] h-full">
-        <Image
-          src="/figma/product/charging/map.webp"
-          alt="Карта зарядных станций"
-          fill
-          sizes="62vw"
-          className="object-cover object-right"
-          priority={false}
-        />
+        <YandexChargingMap />
       </div>
 
       {/*
