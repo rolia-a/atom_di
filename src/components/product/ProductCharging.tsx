@@ -6,14 +6,18 @@ export default function ProductCharging() {
       id="charging"
       className="relative bg-white w-full h-[700px] md:h-[788px] overflow-hidden"
     >
-      {/* Map covers the left 2/3 of the section, slightly overflowing the left edge */}
-      <div className="absolute left-[-122px] top-0 w-[1028px] h-full">
+      {/*
+        Map covers the left 2/3 of the section. Fills the container with
+        object-cover so it scales to any viewport width (was fixed 1028px
+        which created an ugly gap on wide screens).
+      */}
+      <div className="absolute left-0 top-0 w-[62%] h-full">
         <Image
           src="/figma/product/charging/map.webp"
           alt="Карта зарядных станций"
           fill
-          sizes="1028px"
-          className="object-cover"
+          sizes="62vw"
+          className="object-cover object-right"
           priority={false}
         />
       </div>
