@@ -163,12 +163,16 @@ export default function ProductSpecs() {
               href="#b2b"
               className="relative aspect-[16/10] rounded-[12px] overflow-hidden bg-black hover:brightness-110 transition"
             >
+              {/* Source is a wide landscape (front bumper + motion lines on
+                  left, rest of car off-frame). Anchor to LEFT so we show that
+                  hero portion — matches Figma 600:43232 (450×164 image
+                  positioned at left=10 inside 201px container). */}
               <Image
                 src="/figma/product/specs-block/tile-corp.webp"
                 alt=""
                 fill
                 sizes="200px"
-                className="object-cover"
+                className="object-cover object-left"
               />
               <span className="absolute z-10 left-3 top-3 font-body text-[11px] font-medium tracking-[0.08em] uppercase text-white leading-[1.2] inline-flex items-start gap-1">
                 Корпоративным
