@@ -26,32 +26,50 @@ const contacts = [
   { email: "compliance@atom.auto", label: "Линия доверия Комплаенса", copy: false },
 ];
 
-// Each icon has specific Figma inset percentages inside its 40×40 tile
+// Inline SVG icons — hand-coded, 24×24 viewBox, drawn to match the Figma
+// design (VK, Telegram, Dzen, YouTube/Rutube). Fills are black; the tile
+// background is #ebeff2 so they read correctly.
+const VkIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill="#000"
+      d="M13.162 17.584c-5.354 0-8.407-3.672-8.534-9.779h2.683c.089 4.482 2.067 6.382 3.634 6.774V7.805h2.528v3.87c1.547-.165 3.173-1.929 3.72-3.87h2.528c-.42 2.39-2.185 4.154-3.439 4.88 1.254.587 3.264 2.125 4.031 4.899h-2.784c-.6-1.867-2.09-3.31-4.056-3.503v3.503h-.311z"
+    />
+  </svg>
+);
+
+const TelegramIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill="#000"
+      d="M21.57 3.2c-.31-.25-.78-.29-1.28-.11L2.77 9.81c-.56.23-.93.68-.95 1.17-.02.5.32.96.87 1.23l4.25 1.86 1.64 5.25c.06.2.18.37.34.5.04.03.08.06.12.08.05.03.1.05.16.06.11.03.22.04.34.04.25 0 .49-.09.68-.24l2.41-2.1 4.26 3.13c.24.17.52.26.8.26.6 0 1.14-.38 1.29-.95l3.04-14.9c.13-.65-.1-1.25-.46-1.56zm-12.1 11.3l-.37 2.81-.95-2.99 8.76-7.38-7.44 7.56z"
+    />
+  </svg>
+);
+
+const DzenIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill="#000"
+      d="M12.68 12.67c1.89-1.88 2.02-4.28 2.17-9.52-1.9.15-4.3.28-6.19 2.17-1.9 1.89-2.02 4.29-2.18 9.52 1.9-.15 4.3-.28 6.2-2.17zm-.01-2.51c-1.89 1.89-4.28 2.02-9.52 2.17.16 1.9.28 4.3 2.18 6.19 1.89 1.9 4.28 2.02 9.52 2.18-.16-1.91-.28-4.31-2.17-6.2-1.9-1.88-4.31-2.01-9.53-2.17h9.52zm9.79 0h-9.52c1.89 1.9 4.28 2.02 9.52 2.18-.15 1.9-.28 4.3-2.17 6.19-1.9 1.9-4.29 2.02-9.52 2.18.15-1.91.28-4.31 2.17-6.2 1.89-1.88 4.28-2.01 9.52-2.17v-2.18zm-9.52 0c5.24-.15 7.63-.28 9.52-2.17 1.9-1.89 2.03-4.29 2.18-9.52-5.23.15-7.63.28-9.52 2.17-1.9 1.89-2.03 4.29-2.18 9.52z"
+    />
+  </svg>
+);
+
+const PlayIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill="#000"
+      d="M11.76 3.14c-2.68.01-5.85.05-8.3.35C.9 3.8.25 5.35.12 7.9.05 9.29 0 10.36 0 11.53c0 1.17.05 2.24.12 3.63.13 2.55.78 4.1 3.33 4.41 2.46.3 5.64.34 8.32.35h.01c2.68-.01 5.85-.04 8.31-.35 2.55-.31 3.2-1.86 3.33-4.41.07-1.39.13-2.46.12-3.63 0-1.17-.05-2.24-.12-3.63-.13-2.55-.78-4.1-3.33-4.41-2.46-.3-5.63-.34-8.31-.35zm-2.19 4.71l6.2 3.57-6.2 3.57V7.85z"
+    />
+  </svg>
+);
+
 const socials = [
-  {
-    href: "https://vk.com/atomauto",
-    label: "VK",
-    icon: "/figma/product/footer/vk.svg",
-    inset: { top: "28.56%", right: "12.39%", bottom: "27.22%", left: "9.38%" },
-  },
-  {
-    href: "https://t.me/atomauto",
-    label: "Telegram",
-    icon: "/figma/product/footer/telegram.svg",
-    inset: { top: "20.58%", right: "21.88%", bottom: "22.13%", left: "9.38%" },
-  },
-  {
-    href: "https://dzen.ru/atomauto",
-    label: "Dzen",
-    icon: "/figma/product/footer/dzen-1.svg",
-    inset: { top: "18.75%", right: "18.75%", bottom: "18.75%", left: "18.75%" },
-  },
-  {
-    href: "https://rutube.ru/atomauto",
-    label: "Rutube",
-    icon: "/figma/product/footer/youtube.svg",
-    inset: { top: "23.75%", right: "12.5%", bottom: "23.75%", left: "12.5%" },
-  },
+  { href: "https://vk.com/atomauto", label: "VK", Icon: VkIcon },
+  { href: "https://t.me/atomauto", label: "Telegram", Icon: TelegramIcon },
+  { href: "https://dzen.ru/atomauto", label: "Dzen", Icon: DzenIcon },
+  { href: "https://rutube.ru/atomauto", label: "Rutube", Icon: PlayIcon },
 ];
 
 export default function ProductFooter() {
@@ -194,25 +212,18 @@ export default function ProductFooter() {
             </p>
           </div>
 
-          {/* Bottom: 4 social icon tiles — 40×40 equivalents with precise
-              Figma inset positioning for each SVG */}
+          {/* Bottom: 4 social icon tiles */}
           <div className="relative z-10 flex gap-[10px] items-end w-full">
-            {socials.map((s) => (
+            {socials.map(({ href, label, Icon }) => (
               <a
-                key={s.label}
-                href={s.href}
+                key={label}
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={s.label}
-                className="relative flex-1 aspect-square bg-[#ebeff2] rounded-2xl hover:brightness-110 transition overflow-hidden"
+                aria-label={label}
+                className="relative flex-1 aspect-square bg-[#ebeff2] rounded-2xl flex items-center justify-center hover:brightness-110 transition text-black"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={s.icon}
-                  alt=""
-                  className="absolute block max-w-none"
-                  style={s.inset}
-                />
+                <Icon />
               </a>
             ))}
           </div>
