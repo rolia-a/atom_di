@@ -17,9 +17,21 @@ const variants: Variant[] = [
   { id: "fleet", label: "Госавтопарки", image: "/figma/product/atom-transparent.webp" },
 ];
 
-const COLOR_SWATCHES = ["#0a8b8e", "#cfd6da", "#151a20", "#5b3ea3", "#a4c8e4"];
+const COLOR_SWATCHES = [
+  "/figma/product/specs-block/color-1.webp",
+  "/figma/product/specs-block/color-2.webp",
+  "/figma/product/specs-block/color-3.webp",
+  "/figma/product/specs-block/color-4.webp",
+  "/figma/product/specs-block/color-5.webp",
+];
 
-const SpecRow = ({ label, children }: { label: string; children: React.ReactNode }) => (
+const INTERFACE_ICONS = [
+  "/figma/product/specs-block/icon-iface-1.svg",
+  "/figma/product/specs-block/icon-iface-2.svg",
+  "/figma/product/specs-block/icon-iface-3.svg",
+];
+
+const SpecRow = ({ label, children }: { label: React.ReactNode; children: React.ReactNode }) => (
   <div className="flex flex-col gap-1">
     <p className="font-body text-[11px] font-medium tracking-[0.08em] uppercase text-[#92979b]">
       {label}
@@ -47,20 +59,27 @@ export default function ProductSpecs() {
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-5">
             <SpecRow label="Цвет кузова">
-              <div className="flex items-center gap-1 pt-1">
-                {COLOR_SWATCHES.map((c) => (
+              <div className="flex items-center gap-1.5 pt-1">
+                {COLOR_SWATCHES.map((src) => (
                   <span
-                    key={c}
-                    className="inline-block w-[14px] h-[14px] rounded-full border border-black/10"
-                    style={{ background: c }}
-                  />
+                    key={src}
+                    className="relative inline-block w-6 h-6 rounded-full overflow-hidden ring-1 ring-black/10"
+                  >
+                    <Image src={src} alt="" fill sizes="24px" className="object-cover" />
+                  </span>
                 ))}
               </div>
             </SpecRow>
             <SpecRow label="Исполнение">
               <div className="flex items-center gap-1 pt-1">
-                <span className="inline-block w-4 h-4 rounded-sm bg-black" />
-                <span className="text-[13px] text-black/70">× 5</span>
+                <Image
+                  src="/figma/product/specs-block/icon-seat.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                />
+                <span className="text-[16px] text-black">× 5</span>
               </div>
             </SpecRow>
 
@@ -85,15 +104,35 @@ export default function ProductSpecs() {
               </div>
             </SpecRow>
             <SpecRow label="Интерфейсы управления">
-              <div className="flex items-center gap-1.5 pt-1">
-                <span className="inline-block w-4 h-4 rounded-full bg-black" />
-                <span className="inline-block w-4 h-4 rounded-full bg-black" />
-                <span className="inline-block w-4 h-4 rounded-full bg-black" />
+              <div className="flex items-center gap-2 pt-1">
+                {INTERFACE_ICONS.map((src) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="w-6 h-6"
+                  />
+                ))}
               </div>
             </SpecRow>
           </div>
 
-          <SpecRow label="Гарантия ⓘ">
+          <SpecRow
+            label={
+              <span className="inline-flex items-center gap-1.5">
+                Гарантия
+                <Image
+                  src="/figma/product/specs-block/icon-info.svg"
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 inline-block"
+                />
+              </span>
+            }
+          >
             5 лет с момента покупки или 150 000 км пробега
           </SpecRow>
 
@@ -122,17 +161,26 @@ export default function ProductSpecs() {
 
             <a
               href="#b2b"
-              className="relative aspect-[16/10] rounded-[12px] overflow-hidden flex items-end p-3 hover:brightness-110 transition"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 80% 60%, #064852 0%, #031a21 70%), linear-gradient(135deg, #031018 0%, #042930 100%)",
-              }}
+              className="relative aspect-[16/10] rounded-[12px] overflow-hidden bg-black hover:brightness-110 transition"
             >
-              <span className="relative z-10 font-body text-[11px] font-medium tracking-[0.08em] uppercase text-white leading-[1.2] flex items-center gap-1">
+              <Image
+                src="/figma/product/specs-block/tile-corp.webp"
+                alt=""
+                fill
+                sizes="200px"
+                className="object-cover"
+              />
+              <span className="absolute z-10 left-3 top-3 font-body text-[11px] font-medium tracking-[0.08em] uppercase text-white leading-[1.2] inline-flex items-start gap-1">
                 Корпоративным
                 <br />
                 клиентам
-                <Image src="/figma/product/specs-block/arrow-right.svg" alt="" width={10} height={10} className="inline-block opacity-90 ml-1" />
+                <Image
+                  src="/figma/product/specs-block/arrow-right.svg"
+                  alt=""
+                  width={10}
+                  height={10}
+                  className="inline-block opacity-90 ml-0.5 mt-0.5"
+                />
               </span>
             </a>
           </div>
