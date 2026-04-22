@@ -30,10 +30,12 @@ const contacts = [
 // design (VK, Telegram, Dzen, YouTube/Rutube). Fills are black; the tile
 // background is #ebeff2 so they read correctly.
 const VkIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="32" height="32" viewBox="0 0 25 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fill="#000"
-      d="M13.162 17.584c-5.354 0-8.407-3.672-8.534-9.779h2.683c.089 4.482 2.067 6.382 3.634 6.774V7.805h2.528v3.87c1.547-.165 3.173-1.929 3.72-3.87h2.528c-.42 2.39-2.185 4.154-3.439 4.88 1.254.587 3.264 2.125 4.031 4.899h-2.784c-.6-1.867-2.09-3.31-4.056-3.503v3.503h-.311z"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M24.46.95c.18-.56 0-.95-.82-.95H20.9c-.7 0-1.02.35-1.2.74 0 0-1.39 3.24-3.36 5.33-.65.61-.92.8-1.27.8-.18 0-.45-.19-.45-.75V.95c0-.67-.2-.95-.78-.95H9.55c-.43 0-.7.32-.7.6 0 .63.98.78 1.1 2.53v3.83c0 .84-.16.99-.51.99-.92 0-3.19-3.24-4.52-6.96C4.64.3 4.38 0 3.68 0H.94C.16 0 0 .35 0 .74c0 .69.92 4.12 4.32 8.65 2.27 3.09 5.46 4.76 8.36 4.76 1.74 0 1.96-.37 1.96-1.01v-2.34c0-.74.16-.9.73-.9.41 0 1.1.19 2.72 1.69 1.86 1.77 2.17 2.56 3.21 2.56h2.74c.78 0 1.17-.37.94-1.1-.26-.72-1.14-1.78-2.31-3.05-.65-.72-1.6-1.49-1.88-1.88-.41-.5-.29-.72 0-1.15 0-.02 3.34-4.49 3.67-6.02z"
     />
   </svg>
 );
@@ -184,24 +186,13 @@ export default function ProductFooter() {
           className="absolute top-[326px] w-[346px] h-[458px] rounded-[32px] overflow-hidden flex flex-col justify-between px-6 py-8"
           style={{ left: "calc(75% - 2px)" }}
         >
-          {/* Background: Atom car front (with cyan LED), cropped so the
-              bumper/grille anchors the lower half of the card. */}
+          {/* Background: Atom car body (692×916, exact 346×458 aspect ratio) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/figma/product/specs-block/atom-front.webp"
+            src="/figma/product/footer/newsletter-bg.webp"
             alt=""
             aria-hidden
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "50% 75%" }}
-          />
-          {/* Dark overlay so white text on top stays legible */}
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(5,10,15,0.75) 0%, rgba(5,10,15,0.35) 45%, rgba(5,10,15,0.55) 100%)",
-            }}
           />
 
           {/* Top: title + description */}
