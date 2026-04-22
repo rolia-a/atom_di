@@ -56,7 +56,7 @@ export default function ProductFAQ() {
           </h2>
           <a
             href="/partners#apply"
-            className="inline-flex items-center justify-center bg-black border-2 border-[#9747ff] rounded-[20px] px-10 py-6 font-display text-[24px] md:text-[32px] leading-[1.2] tracking-[-0.02em] text-white"
+            className="btn-grad inline-flex items-center justify-center rounded-[20px] px-10 py-6 font-display text-[24px] md:text-[32px] leading-[1.2] tracking-[-0.02em]"
           >
             Заказать
           </a>
