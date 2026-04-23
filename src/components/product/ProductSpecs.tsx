@@ -244,7 +244,7 @@ export default function ProductSpecs() {
                 onClick={() => setActiveId(v.id)}
                 className={`h-full flex items-center px-4 rounded-full transition font-body uppercase text-[13px] font-medium tracking-[0.05em] whitespace-nowrap ${
                   isActive
-                    ? "bg-[#ebeff2] text-black"
+                    ? "bg-gray-0 text-black"
                     : "text-black opacity-40 hover:opacity-70"
                 }`}
               >

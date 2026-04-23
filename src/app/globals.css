@@ -18,6 +18,12 @@
   --color-foreground: var(--foreground);
   --color-atom: #00ffff;
   --color-purple: #9747ff;
+  --color-purple-soft: #b365ff;
+  --color-teal: #00b2b2;
+  --color-gray-0: #ebeff2;
+  --color-gray-4: #7f7f7f;
+  --color-ink: #05080a;
+  --color-ink-soft: #b8c6d3;
   --color-dark-1: #191817;
   --color-white-85: rgba(255, 255, 255, 0.85);
 }

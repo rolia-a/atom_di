@@ -97,7 +97,7 @@ export default function ProductFooter() {
           <h3 className="font-display text-[24px] font-medium leading-[1.2] text-white whitespace-nowrap">
             Продукт
           </h3>
-          <ul className="flex flex-col gap-3 font-body text-[16px] leading-[1.3] text-[#7f7f7f]">
+          <ul className="flex flex-col gap-3 font-body text-[16px] leading-[1.3] text-gray-4">
             {productLinks.map((l) => (
               <li key={l}><a href="#">{l}</a></li>
             ))}
@@ -115,7 +115,7 @@ export default function ProductFooter() {
           <ul className="flex flex-col gap-3 font-body text-[16px] leading-[1.3] w-[116px]">
             {companyLinks.map((l) => (
               <li key={l.label}>
-                <a href="#" className={l.active ? "text-white" : "text-[#7f7f7f]"}>
+                <a href="#" className={l.active ? "text-white" : "text-gray-4"}>
                   {l.label}
                 </a>
               </li>
@@ -131,7 +131,7 @@ export default function ProductFooter() {
           <h3 className="font-display text-[24px] font-medium leading-[1.2] text-white whitespace-nowrap">
             Сообщество
           </h3>
-          <ul className="flex flex-col gap-3 font-body text-[16px] leading-[1.3] text-[#7f7f7f] w-[116px]">
+          <ul className="flex flex-col gap-3 font-body text-[16px] leading-[1.3] text-gray-4 w-[116px]">
             {communityLinks.map((l) => (
               <li key={l}><a href="#">{l}</a></li>
             ))}
@@ -155,7 +155,7 @@ export default function ProductFooter() {
                 >
                   {c.address}
                 </a>
-                <span className="font-body text-[12px] leading-[1.4] tracking-[-0.02em] text-[#7f7f7f] whitespace-nowrap">
+                <span className="font-body text-[12px] leading-[1.4] tracking-[-0.02em] text-gray-4 whitespace-nowrap">
                   {c.department}
                 </span>
                 {c.copy && (
@@ -212,7 +212,7 @@ export default function ProductFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="relative flex-1 aspect-square bg-[#ebeff2] rounded-2xl flex items-center justify-center hover:brightness-110 transition text-black"
+                className="relative flex-1 aspect-square bg-gray-0 rounded-2xl flex items-center justify-center hover:brightness-110 transition text-black"
               >
                 <Icon />
               </a>
@@ -222,7 +222,7 @@ export default function ProductFooter() {
 
         {/* Bottom: Аэро credit — left:16 top:660 */}
         <div className="absolute left-4 top-[660px] flex flex-col gap-6">
-          <p className="font-body text-[16px] leading-[1.3] text-[#7f7f7f] whitespace-nowrap">
+          <p className="font-body text-[16px] leading-[1.3] text-gray-4 whitespace-nowrap">
             Разработано в Аэро
           </p>
           <div className="relative h-[14px] w-[155px]">
@@ -237,7 +237,7 @@ export default function ProductFooter() {
 
         {/* Bottom: Кама copyright — centered at left:calc(29.17%+13px), w:362, top:660 */}
         <div
-          className="absolute top-[660px] w-[362px] flex flex-col gap-6 text-[#7f7f7f]"
+          className="absolute top-[660px] w-[362px] flex flex-col gap-6 text-gray-4"
           style={{
             left: "calc(29.17% + 13px)",
             transform: "translateX(-50%)",
@@ -256,7 +256,7 @@ export default function ProductFooter() {
 
         {/* Bottom: Legal links — left:calc(50%+4px) top:660 */}
         <ul
-          className="absolute top-[660px] flex flex-col gap-3 font-body text-[16px] leading-[1.3] text-[#7f7f7f]"
+          className="absolute top-[660px] flex flex-col gap-3 font-body text-[16px] leading-[1.3] text-gray-4"
           style={{ left: "calc(50% + 4px)" }}
         >
           <li><a href="#" className="whitespace-nowrap">Политика конфиденциальности</a></li>

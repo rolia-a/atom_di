@@ -42,7 +42,7 @@ export default function PartnersReasons() {
           <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[700px]">
             4 причины
             <br />
-            сказать&nbsp;— <span className="text-[#00b2b2]">да</span>
+            сказать&nbsp;— <span className="text-teal">да</span>
           </SectionHeading>
           <p className="max-w-[328px] text-base md:text-lg lg:text-[20px] leading-[1.4]">
             Каждая интеграция с Атом — это готовый инфоповод, который

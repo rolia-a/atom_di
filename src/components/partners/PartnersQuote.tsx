@@ -24,7 +24,7 @@ export default function PartnersQuote() {
           <p className="font-body text-lg md:text-xl lg:text-2xl leading-[1.3] text-white">
             «Мы встроили экран в руль, убрали центральную стойку, отвезли
             машину на Северный полюс и создали{" "}
-            <span className="text-[#00b2b2]">
+            <span className="text-teal">
               первый серийный электромобиль в стране.
             </span>{" "}
             Если ваше сообщество тоже привыкло делать то, что до вас никто

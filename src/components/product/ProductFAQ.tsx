@@ -50,11 +50,11 @@ export default function ProductFAQ() {
   const [open, setOpen] = useState<string | null>(faqs[0].q);
 
   return (
-    <section className="relative bg-white text-[#05080a]">
+    <section className="relative bg-white text-ink">
       <div className="mx-auto max-w-[1408px] flex gap-[181px] items-start pt-6 pb-14 pl-4 pr-10">
         {/* Left column: heading top + order button bottom */}
         <div className="self-stretch flex flex-col justify-between shrink-0">
-          <SectionHeading className="text-[40px] md:text-[56px] text-[#05080a] whitespace-nowrap">
+          <SectionHeading className="text-[40px] md:text-[56px] text-ink whitespace-nowrap">
             <span className="block">Ответы</span>
             <span className="block">на вопросы</span>
           </SectionHeading>
@@ -77,12 +77,12 @@ export default function ProductFAQ() {
                   onClick={() => setOpen(isOpen ? null : item.q)}
                   className="w-full flex gap-6 items-start text-left"
                 >
-                  <div className="flex-1 min-w-0 flex flex-col gap-[26px] text-[#05080a]">
+                  <div className="flex-1 min-w-0 flex flex-col gap-[26px] text-ink">
                     <span className="block font-display text-[24px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
                       {item.q}
                     </span>
                     {isOpen && (
-                      <p className="font-display text-[16px] md:text-[20px] leading-[28px] text-[#05080a]">
+                      <p className="font-display text-[16px] md:text-[20px] leading-[28px] text-ink">
                         {item.a}
                       </p>
                     )}
@@ -105,7 +105,7 @@ export default function ProductFAQ() {
                   </span>
                 </button>
                 {i < faqs.length - 1 && (
-                  <div className="h-px w-full bg-[#05080a]/10" />
+                  <div className="h-px w-full bg-ink/10" />
                 )}
               </div>
             );

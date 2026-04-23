@@ -29,7 +29,7 @@ export default function PartnersFooter() {
 
         <div className="mt-12 md:mt-20 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end">
           <div className="space-y-4 max-w-[735px]">
-            <p className="font-body text-lg md:text-xl text-[#7f7f7f] leading-snug">
+            <p className="font-body text-lg md:text-xl text-gray-4 leading-snug">
               2023, АО «Кама» образовано 5 августа 2021
             </p>
             <p className="text-xs md:text-[13px] tracking-normal uppercase text-[#7b7473] leading-relaxed">

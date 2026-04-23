@@ -34,7 +34,7 @@ export default function PartnersFormats() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[657px]">
-            <span className="text-[#00b2b2]">Всё за наш счёт. </span>
+            <span className="text-teal">Всё за наш счёт. </span>
             Серьёзно
           </SectionHeading>
           <p className="max-w-[328px] text-base md:text-lg lg:text-xl leading-[1.4]">

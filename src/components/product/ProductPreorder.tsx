@@ -124,14 +124,14 @@ export default function ProductPreorder() {
         }}
       >
         <div className="flex flex-col gap-[39px] items-start w-full">
-          <p className="w-full font-display text-[32px] leading-[1.2] tracking-[-0.02em] text-[#00ffff] whitespace-nowrap">
+          <p className="w-full font-display text-[32px] leading-[1.2] tracking-[-0.02em] text-atom whitespace-nowrap">
             {formatRubles(PRICES.full)}
           </p>
           <div className="flex flex-col gap-1 items-start">
-            <p className="font-display text-[20px] leading-[28px] text-[#b8c6d3]">
+            <p className="font-display text-[20px] leading-[28px] text-ink-soft">
               Стоимость бронирования
             </p>
-            <p className="font-display text-[70px] leading-[1.05] tracking-[-0.01em] uppercase text-[#b365ff] whitespace-nowrap">
+            <p className="font-display text-[70px] leading-[1.05] tracking-[-0.01em] uppercase text-purple-soft whitespace-nowrap">
               {formatRubles(PRICES.reservation)}
             </p>
           </div>

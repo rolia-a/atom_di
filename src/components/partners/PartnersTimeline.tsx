@@ -15,7 +15,7 @@ export default function PartnersTimeline() {
         <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[900px]">
           От заявки
           <br />
-          до результата&nbsp;— <span className="text-[#00b2b2]">6&nbsp;недель</span>
+          до результата&nbsp;— <span className="text-teal">6&nbsp;недель</span>
         </SectionHeading>
 
         {/* Titles row (above the line on desktop) */}
@@ -59,7 +59,7 @@ export default function PartnersTimeline() {
             <ol className="relative grid grid-cols-5 gap-6">
               {steps.map((s) => (
                 <li key={s.num} className="flex justify-start">
-                  <div className="h-10 w-10 rounded-full bg-[#00b2b2] text-white font-medium flex items-center justify-center text-sm">
+                  <div className="h-10 w-10 rounded-full bg-teal text-white font-medium flex items-center justify-center text-sm">
                     {s.num}
                   </div>
                 </li>
@@ -80,7 +80,7 @@ export default function PartnersTimeline() {
           <ol className="md:hidden space-y-6">
             {steps.map((s) => (
               <li key={s.num} className="flex gap-4">
-                <div className="shrink-0 h-10 w-10 rounded-full bg-[#00b2b2] text-white font-medium flex items-center justify-center text-sm">
+                <div className="shrink-0 h-10 w-10 rounded-full bg-teal text-white font-medium flex items-center justify-center text-sm">
                   {s.num}
                 </div>
                 <div>

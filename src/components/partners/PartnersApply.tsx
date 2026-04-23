@@ -90,7 +90,7 @@ export default function PartnersApply() {
           <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white">
             Подайте заявку на отбор
           </SectionHeading>
-          <p className="mt-5 max-w-[615px] text-lg md:text-xl lg:text-[24px] text-[#b8c6d3] leading-[32px]">
+          <p className="mt-5 max-w-[615px] text-lg md:text-xl lg:text-[24px] text-ink-soft leading-[32px]">
             Расскажите о сообществе
             <br />
             и мы ответим за 24 часа
@@ -100,7 +100,7 @@ export default function PartnersApply() {
         {done ? (
           <div className="mt-12 max-w-[444px] rounded-[32px] bg-white p-8 text-black">
             <div className="flex flex-col items-center gap-6 text-center">
-              <div className="h-[72px] w-[72px] rounded-full bg-[#00b2b2]/15 flex items-center justify-center">
+              <div className="h-[72px] w-[72px] rounded-full bg-teal/15 flex items-center justify-center">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                   <path d="M8 16l5 5 11-11" stroke="#00b2b2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

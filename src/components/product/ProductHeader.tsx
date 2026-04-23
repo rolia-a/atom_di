@@ -32,7 +32,7 @@ export default function ProductHeader() {
         <button
           type="button"
           aria-label="Профиль"
-          className="h-12 w-12 md:h-14 md:w-14 rounded-[16px] bg-[#ebeff2] text-black flex items-center justify-center hover:brightness-95 transition"
+          className="h-12 w-12 md:h-14 md:w-14 rounded-[16px] bg-gray-0 text-black flex items-center justify-center hover:brightness-95 transition"
         >
           <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden>
             <circle cx="16" cy="11" r="5" stroke="currentColor" strokeWidth="2" />
@@ -47,7 +47,7 @@ export default function ProductHeader() {
         <button
           type="button"
           aria-label="Меню"
-          className="h-12 w-12 md:h-14 md:w-14 rounded-[16px] bg-[#ebeff2] text-black flex items-center justify-center hover:brightness-95 transition"
+          className="h-12 w-12 md:h-14 md:w-14 rounded-[16px] bg-gray-0 text-black flex items-center justify-center hover:brightness-95 transition"
         >
           <svg width="22" height="14" viewBox="0 0 32 14" fill="none" aria-hidden>
             <path d="M2 2h28M2 12h28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

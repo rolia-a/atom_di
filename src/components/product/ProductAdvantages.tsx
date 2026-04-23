@@ -102,7 +102,7 @@ export default function ProductAdvantages() {
                 onClick={() => setActiveId(t.id)}
                 className={`h-full flex items-center gap-2 px-4 rounded-full transition font-body uppercase text-[13px] font-medium tracking-[0.05em] text-black whitespace-nowrap ${
                   isActive
-                    ? "bg-[#ebeff2]"
+                    ? "bg-gray-0"
                     : "opacity-30 hover:opacity-60"
                 }`}
               >
