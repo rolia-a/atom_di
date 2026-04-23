@@ -227,7 +227,7 @@ export default function ProductSpecs() {
             fill
             sizes="(max-width: 1024px) 100vw, 60vw"
             className="object-contain object-center"
-            priority={false}
+
           />
         </div>
       </div>

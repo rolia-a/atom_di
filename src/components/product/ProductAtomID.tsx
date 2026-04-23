@@ -38,7 +38,7 @@ export default function ProductAtomID() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 700px"
                 className="object-cover"
-                priority={false}
+
               />
               {c.overlay && (
                 <Image

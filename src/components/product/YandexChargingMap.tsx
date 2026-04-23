@@ -122,7 +122,7 @@ function StaticMapFallback() {
       fill
       sizes="62vw"
       className="object-cover object-right"
-      priority={false}
+
     />
   );
 }

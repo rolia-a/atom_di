@@ -18,7 +18,7 @@ export default function PartnersStats() {
           fill
           sizes="100vw"
           className="object-cover"
-          priority={false}
+
         />
         <Image
           src="/figma/product/bridge-cam-06.webp"

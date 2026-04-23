@@ -88,7 +88,7 @@ export default function ProductFooter() {
             alt="ATOM"
             fill
             className="object-contain object-left"
-            priority={false}
+
           />
         </div>
 

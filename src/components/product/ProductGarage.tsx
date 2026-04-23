@@ -51,7 +51,7 @@ export default function ProductGarage() {
         fill
         sizes="100vw"
         className="object-cover object-center z-0"
-        priority={false}
+
       />
       <div
         aria-hidden
