@@ -5,12 +5,13 @@ import {
   IconVK,
 } from "./SocialIcons";
 import { GradientButton } from "@/components/ui/GradientButton";
+import { formatCompactRu } from "@/lib/format";
 
 const socials = [
-  { value: "120К", name: "Вконтакте", Icon: IconVK },
-  { value: "24К", name: "Телеграм", Icon: IconTelegram },
-  { value: "2 734", name: "Дзен", Icon: IconDzen },
-  { value: "230", name: "Rutube", Icon: IconRutube },
+  { count: 120_000, name: "Вконтакте", Icon: IconVK },
+  { count: 24_000, name: "Телеграм", Icon: IconTelegram },
+  { count: 2_734, name: "Дзен", Icon: IconDzen },
+  { count: 230, name: "Rutube", Icon: IconRutube },
 ];
 
 export default function PartnersCommunity() {
@@ -41,14 +42,14 @@ export default function PartnersCommunity() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {socials.map(({ value, name, Icon }) => (
+            {socials.map(({ count, name, Icon }) => (
               <div key={name} className="flex flex-col items-center gap-3">
-                <div className="h-[120px] md:h-[137px] w-full md:w-[137px] rounded-[32px] bg-[#EBEFF2] text-black flex items-center justify-center">
+                <div className="h-[120px] md:h-[137px] w-full md:w-[137px] rounded-[32px] bg-gray-0 text-black flex items-center justify-center">
                   <Icon className="w-[48%] h-[48%]" />
                 </div>
                 <div className="text-center">
                   <p className="font-display text-3xl md:text-[40px] font-medium text-white leading-none">
-                    {value}
+                    {formatCompactRu(count)}
                   </p>
                   <p className="text-[13px] tracking-[0.05em] uppercase text-white/70 mt-2">
                     {name}

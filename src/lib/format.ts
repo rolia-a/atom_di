@@ -30,3 +30,21 @@ export function formatNumber(n: number): string {
 export function formatRubles(n: number): string {
   return RU_RUB.format(n);
 }
+
+/**
+ * Marketing-style compact form used for follower counts.
+ * For values ≥ 10_000 collapses to thousands with the Cyrillic «К» suffix
+ * (matches Figma copy); smaller values use the regular grouped form.
+ *
+ * @example
+ *   formatCompactRu(120_000) // "120К"
+ *   formatCompactRu(24_000)  // "24К"
+ *   formatCompactRu(2_734)   // "2 734"
+ *   formatCompactRu(230)     // "230"
+ */
+export function formatCompactRu(n: number): string {
+  if (n >= 10_000) {
+    return `${Math.round(n / 1000)}К`;
+  }
+  return formatNumber(n);
+}
