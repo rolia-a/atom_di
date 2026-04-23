@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CopyEmailButton from "./CopyEmailButton";
 import { CONTACTS, SOCIALS } from "@/content/site";
 
 // Figma node 600:43490 — desktop frame 1440×820
@@ -158,21 +159,7 @@ export default function ProductFooter() {
                 <span className="font-body text-[12px] leading-[1.4] tracking-[-0.02em] text-gray-4 whitespace-nowrap">
                   {c.department}
                 </span>
-                {c.copy && (
-                  <button
-                    type="button"
-                    aria-label="Скопировать адрес"
-                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/10 rounded-full p-2 flex items-center"
-                  >
-                    <Image
-                      src="/figma/product/footer/copy.svg"
-                      alt=""
-                      width={16}
-                      height={16}
-                      className="w-4 h-4"
-                    />
-                  </button>
-                )}
+                {c.copy && <CopyEmailButton address={c.address} />}
               </li>
             ))}
           </ul>
