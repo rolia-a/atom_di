@@ -5,12 +5,13 @@ import {
   IconTelegram,
   IconVK,
 } from "./SocialIcons";
+import { SOCIALS } from "@/content/site";
 
 const socials = [
-  { label: "VK", href: "https://vk.com/atom_auto", Icon: IconVK },
-  { label: "Telegram", href: "https://t.me/atom_auto", Icon: IconTelegram },
-  { label: "Дзен", href: "https://dzen.ru/atom_auto", Icon: IconDzen },
-  { label: "Rutube", href: "https://rutube.ru/channel/atom_auto", Icon: IconRutube },
+  { ...SOCIALS.vk, Icon: IconVK },
+  { ...SOCIALS.telegram, Icon: IconTelegram },
+  { ...SOCIALS.dzen, Icon: IconDzen },
+  { ...SOCIALS.rutube, Icon: IconRutube },
 ];
 
 export default function PartnersFooter() {

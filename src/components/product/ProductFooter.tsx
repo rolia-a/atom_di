@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CONTACTS, SOCIALS } from "@/content/site";
 
 // Figma node 600:43490 — desktop frame 1440×820
 // All positions are absolute pixel coordinates from the design, matched 1:1.
@@ -20,11 +21,7 @@ const companyLinks = [
 
 const communityLinks = ["Наши ценности", "Вакансии"];
 
-const contacts = [
-  { email: "support@atom.auto", label: "Отдел поддержки", copy: false },
-  { email: "hr@atom.auto", label: "Отдел персонала", copy: true },
-  { email: "compliance@atom.auto", label: "Линия доверия Комплаенса", copy: false },
-];
+const contacts = CONTACTS.emails;
 
 // Inline SVG icons — hand-coded, 24×24 viewBox, drawn to match the Figma
 // design (VK, Telegram, Dzen, YouTube/Rutube). Fills are black; the tile
@@ -73,10 +70,10 @@ const PlayIcon = () => (
 );
 
 const socials = [
-  { href: "https://vk.com/atomauto", label: "VK", Icon: VkIcon },
-  { href: "https://t.me/atomauto", label: "Telegram", Icon: TelegramIcon },
-  { href: "https://dzen.ru/atomauto", label: "Dzen", Icon: DzenIcon },
-  { href: "https://rutube.ru/atomauto", label: "Rutube", Icon: PlayIcon },
+  { ...SOCIALS.vk, Icon: VkIcon },
+  { ...SOCIALS.telegram, Icon: TelegramIcon },
+  { ...SOCIALS.dzen, Icon: DzenIcon },
+  { ...SOCIALS.rutube, Icon: PlayIcon },
 ];
 
 export default function ProductFooter() {
@@ -147,19 +144,19 @@ export default function ProductFooter() {
           style={{ left: "calc(50% + 4px)" }}
         >
           <p className="font-display text-[24px] font-medium leading-[1.2] text-white whitespace-nowrap">
-            8 (800) 301-93-95
+            {CONTACTS.phone.display}
           </p>
           <ul className="flex flex-col gap-3">
             {contacts.map((c) => (
-              <li key={c.email} className="relative flex flex-col gap-[2px]">
+              <li key={c.address} className="relative flex flex-col gap-[2px]">
                 <a
-                  href={`mailto:${c.email}`}
+                  href={`mailto:${c.address}`}
                   className="font-body text-[16px] leading-[1.3] text-white"
                 >
-                  {c.email}
+                  {c.address}
                 </a>
                 <span className="font-body text-[12px] leading-[1.4] tracking-[-0.02em] text-[#7f7f7f] whitespace-nowrap">
-                  {c.label}
+                  {c.department}
                 </span>
                 {c.copy && (
                   <button
