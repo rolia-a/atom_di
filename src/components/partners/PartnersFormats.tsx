@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const cards = [
   {
@@ -32,10 +33,10 @@ export default function PartnersFormats() {
     <section className="relative bg-white text-black">
       <div className="mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-          <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[657px]">
+          <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[657px]">
             <span className="text-[#00b2b2]">Всё за наш счёт. </span>
             Серьёзно
-          </h2>
+          </SectionHeading>
           <p className="max-w-[328px] text-base md:text-lg lg:text-xl leading-[1.4]">
             Четыре формата сотрудничества. Мы подберём подходящий — или
             придумаем новый для вас

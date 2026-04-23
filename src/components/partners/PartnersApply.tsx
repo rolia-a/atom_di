@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { GradientButton } from "@/components/ui/GradientButton";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export default function PartnersApply() {
   const [submitting, setSubmitting] = useState(false);
@@ -86,9 +87,9 @@ export default function PartnersApply() {
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-10 md:py-10 lg:py-10 h-[600px] md:h-[821px] flex flex-col">
         <div className="max-w-[701px]">
-          <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white">
+          <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white">
             Подайте заявку на отбор
-          </h2>
+          </SectionHeading>
           <p className="mt-5 max-w-[615px] text-lg md:text-xl lg:text-[24px] text-[#b8c6d3] leading-[32px]">
             Расскажите о сообществе
             <br />

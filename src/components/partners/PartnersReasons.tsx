@@ -1,3 +1,5 @@
+import { SectionHeading } from "@/components/ui/SectionHeading";
+
 const reasons = [
   {
     num: "01",
@@ -37,11 +39,11 @@ export default function PartnersReasons() {
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-          <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[700px]">
+          <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[700px]">
             4 причины
             <br />
             сказать&nbsp;— <span className="text-[#00b2b2]">да</span>
-          </h2>
+          </SectionHeading>
           <p className="max-w-[328px] text-base md:text-lg lg:text-[20px] leading-[1.4]">
             Каждая интеграция с Атом — это готовый инфоповод, который
             работает на вас

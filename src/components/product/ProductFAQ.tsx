@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { GradientButton } from "@/components/ui/GradientButton";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { URLS } from "@/content/site";
 
 // Order matches Figma node 600:43443
@@ -52,10 +53,10 @@ export default function ProductFAQ() {
       <div className="mx-auto max-w-[1408px] flex gap-[181px] items-start pt-6 pb-14 pl-4 pr-10">
         {/* Left column: heading top + order button bottom */}
         <div className="self-stretch flex flex-col justify-between shrink-0">
-          <h2 className="font-display text-[40px] md:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-[#05080a] whitespace-nowrap">
+          <SectionHeading className="text-[40px] md:text-[56px] text-[#05080a] whitespace-nowrap">
             <span className="block">Ответы</span>
             <span className="block">на вопросы</span>
-          </h2>
+          </SectionHeading>
           <GradientButton
             href={URLS.order}
             className="rounded-[20px] px-10 py-6 font-display text-[24px] md:text-[32px] leading-[1.2] tracking-[-0.02em]"

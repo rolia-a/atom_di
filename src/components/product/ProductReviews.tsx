@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const reviews = [
   {
@@ -40,9 +41,9 @@ export default function ProductReviews() {
         }}
       />
 
-      <h2 className="absolute z-20 left-4 top-[46px] font-display text-[32px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-[#020303] max-w-[676px]">
+      <SectionHeading className="absolute z-20 left-4 top-[46px] text-[32px] md:text-[48px] lg:text-[56px] text-[#020303] max-w-[676px]">
         Отзывы реальных пользователей
-      </h2>
+      </SectionHeading>
 
       {/* Horizontal scrolling cards row, anchored to the bottom */}
       <div className="absolute z-20 left-0 right-0 top-[454px] overflow-x-auto pb-6">

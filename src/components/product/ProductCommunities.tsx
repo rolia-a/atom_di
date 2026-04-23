@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const items = [
   {
@@ -33,13 +34,13 @@ export default function ProductCommunities() {
       <div className="mx-auto max-w-[1408px] px-4 pt-[46px] pb-4 flex flex-col h-[700px] md:h-[800px]">
         {/* Heading top-left + helper text aligned to top */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-8 pl-4">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[640px]">
+          <SectionHeading className="text-4xl md:text-5xl lg:text-[56px] max-w-[640px]">
             Основные
             <br />
             преимущества
             <br />
             атома
-          </h2>
+          </SectionHeading>
           <p className="font-display text-[16px] text-black/85 leading-snug max-w-[280px] pt-2">
             Тут можно какой-нибудь текст, дополняющий заголовок, о&nbsp;том, что
             Атом крут.

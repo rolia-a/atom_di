@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { GradientButton } from "@/components/ui/GradientButton";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export default function PartnersHero() {
   return (
@@ -16,11 +17,11 @@ export default function PartnersHero() {
 
       <div className="relative z-20 mx-auto max-w-[1440px] px-5 md:px-10 pt-[120px] md:pt-[150px] lg:pt-[379px] pb-10 flex flex-col justify-end min-h-[640px] md:min-h-[760px] lg:min-h-[800px]">
         <div className="max-w-[615px]">
-          <h1 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white">
+          <SectionHeading as="h1" className="text-[36px] md:text-[48px] lg:text-[56px] text-white">
             Запуск года.
             <br />
             Осталось 6 мест
-          </h1>
+          </SectionHeading>
           <p className="mt-5 max-w-[360px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
             Первый серийный электромобиль страны ищет сообщества, с которыми
             хочется делать историю. Если это про вас — листайте дальше

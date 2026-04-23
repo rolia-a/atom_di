@@ -1,3 +1,5 @@
+import { SectionHeading } from "@/components/ui/SectionHeading";
+
 const steps = [
   {
     title: "Вносите стоимость предзаказа",
@@ -26,9 +28,9 @@ export default function ProductAfter() {
       }}
     >
       <div className="mx-auto max-w-[1408px] px-4 py-20 lg:py-24">
-        <h2 className="font-display text-3xl md:text-4xl lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-3xl">
+        <SectionHeading className="text-3xl md:text-4xl lg:text-[56px] max-w-3xl">
           Что будет после покупки атом?
-        </h2>
+        </SectionHeading>
 
         {/* Timeline line with dots */}
         <div className="relative mt-24">

@@ -1,4 +1,5 @@
 import { GradientButton } from "@/components/ui/GradientButton";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { formatRubles } from "@/lib/format";
 import { PRICES, URLS } from "@/content/site";
 
@@ -63,8 +64,8 @@ export default function ProductPreorder() {
 
       {/* Heading — bottom-anchored (flex-col justify-end) so baseline lands on
           y=164px, width 701px, left edge at (50% - 704px) like Figma. */}
-      <h2
-        className="absolute z-10 flex flex-col justify-end font-display text-[36px] md:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white"
+      <SectionHeading
+        className="absolute z-10 flex flex-col justify-end text-[36px] md:text-[56px] text-white"
         style={{
           left: "max(16px, calc(50% - 704px))",
           top: "164px",
@@ -73,7 +74,7 @@ export default function ProductPreorder() {
         }}
       >
         Станьте&nbsp;владельцем Атома в&nbsp;числе первых
-      </h2>
+      </SectionHeading>
 
       {/* Description — 16px from frame-left, top 184px, width 366px */}
       <p

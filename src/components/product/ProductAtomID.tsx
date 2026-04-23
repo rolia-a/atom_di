@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const cards = [
   {
@@ -17,11 +18,11 @@ export default function ProductAtomID() {
   return (
     <section className="relative bg-white text-black">
       <div className="mx-auto max-w-[1408px] px-4 pt-16 pb-12">
-        <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-3xl">
+        <SectionHeading className="text-4xl md:text-5xl lg:text-[56px] max-w-3xl">
           Atom ID.
           <br />
           Любой Атом — ваш Атом
-        </h2>
+        </SectionHeading>
 
         {/* Two cards side by side — Figma 600:43352 */}
         <div className="mt-12 flex flex-col lg:flex-row gap-2">

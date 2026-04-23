@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { GradientButton } from "@/components/ui/GradientButton";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const cards = [
   {
@@ -73,11 +74,11 @@ export default function PartnersEvents() {
 
         {/* Heading overlaid on the image */}
         <div className="absolute inset-x-0 top-0 z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:pt-[60px]">
-          <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-white max-w-[615px]">
+          <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white max-w-[615px]">
             С Атом
             <br />
             никогда не скучно
-          </h2>
+          </SectionHeading>
         </div>
       </div>
 

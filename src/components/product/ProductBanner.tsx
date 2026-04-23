@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export default function ProductBanner() {
   return (
@@ -20,11 +21,11 @@ export default function ProductBanner() {
 
       <div className="relative z-10 mx-auto max-w-[1408px] h-full px-4 flex flex-col justify-between py-12">
         <div className="max-w-[480px]">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] text-black">
+          <SectionHeading className="text-3xl md:text-4xl lg:text-[56px] text-black">
             Записаться
             <br />
             на показ Атома
-          </h2>
+          </SectionHeading>
           <p className="mt-4 text-2xl md:text-3xl text-[#5d7183] leading-[1.2] max-w-md">
             Почувствуйте весь комфорт Атома перед покупкой
           </p>

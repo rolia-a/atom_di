@@ -1,3 +1,5 @@
+import { SectionHeading } from "@/components/ui/SectionHeading";
+
 const steps = [
   { num: "01", title: "Заявка", desc: "Расскажите о своём сообществе и целях. Мы вернёмся с обратной связью в течение 24 часов" },
   { num: "02", title: "Стратегия", desc: "Вместе определяем, какой результат важен для вашей аудитории" },
@@ -10,11 +12,11 @@ export default function PartnersTimeline() {
   return (
     <section className="relative bg-white text-black">
       <div className="mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16">
-        <h2 className="font-display text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] uppercase tracking-[-0.01em] max-w-[900px]">
+        <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[900px]">
           От заявки
           <br />
           до результата&nbsp;— <span className="text-[#00b2b2]">6&nbsp;недель</span>
-        </h2>
+        </SectionHeading>
 
         {/* Titles row (above the line on desktop) */}
         <div className="mt-12 md:mt-16">
