@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { GradientButton } from "@/components/ui/GradientButton";
+import { URLS } from "@/content/site";
 
 // Order matches Figma node 600:43443
 const faqs = [
@@ -54,12 +56,12 @@ export default function ProductFAQ() {
             <span className="block">Ответы</span>
             <span className="block">на вопросы</span>
           </h2>
-          <a
-            href="/partners#apply"
-            className="btn-grad inline-flex items-center justify-center rounded-[20px] px-10 py-6 font-display text-[24px] md:text-[32px] leading-[1.2] tracking-[-0.02em]"
+          <GradientButton
+            href={URLS.order}
+            className="rounded-[20px] px-10 py-6 font-display text-[24px] md:text-[32px] leading-[1.2] tracking-[-0.02em]"
           >
             Заказать
-          </a>
+          </GradientButton>
         </div>
 
         {/* Right column: FAQ list */}
