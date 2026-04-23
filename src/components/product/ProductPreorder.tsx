@@ -1,3 +1,4 @@
+import { FrostedCard } from "@/components/ui/FrostedCard";
 import { GradientButton } from "@/components/ui/GradientButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { formatRubles } from "@/lib/format";
@@ -101,15 +102,15 @@ export default function ProductPreorder() {
         }}
       >
         {widgets.map((w, i) => (
-          <div
+          <FrostedCard
             key={i}
-            className="flex-1 min-w-0 h-full rounded-[32px] bg-[rgba(102,102,102,0.41)] backdrop-blur-[10px] p-6 flex flex-col justify-between overflow-clip text-white"
+            className="flex-1 min-w-0 h-full p-6 flex flex-col justify-between"
           >
             <h3 className="font-display text-[28px] font-medium leading-none">
               {w.title}
             </h3>
             <p className="font-body text-[16px] leading-[1.3]">{w.desc}</p>
-          </div>
+          </FrostedCard>
         ))}
       </div>
 

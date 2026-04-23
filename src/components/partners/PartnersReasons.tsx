@@ -1,3 +1,4 @@
+import { FrostedCard } from "@/components/ui/FrostedCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const reasons = [
@@ -52,9 +53,11 @@ export default function PartnersReasons() {
 
         <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {reasons.map((r) => (
-            <article
+            <FrostedCard
               key={r.num}
-              className="rounded-[32px] bg-white/85 backdrop-blur-sm p-5 min-h-[280px] md:min-h-[327px] flex flex-col gap-4 text-black"
+              as="article"
+              variant="light"
+              className="p-5 min-h-[280px] md:min-h-[327px] flex flex-col gap-4"
             >
               <p className="text-[13px] tracking-[0.08em] uppercase font-medium text-black/60">
                 {r.num}
@@ -65,7 +68,7 @@ export default function PartnersReasons() {
               <p className="mt-auto text-sm md:text-base lg:text-[20px] text-black/80 leading-[1.4]">
                 {r.desc}
               </p>
-            </article>
+            </FrostedCard>
           ))}
         </div>
       </div>
