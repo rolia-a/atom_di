@@ -75,6 +75,7 @@ export default function ProductFAQ() {
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : item.q)}
+                  aria-expanded={isOpen}
                   className="w-full flex gap-6 items-start text-left"
                 >
                   <div className="flex-1 min-w-0 flex flex-col gap-[26px] text-ink">
