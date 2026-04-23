@@ -4,6 +4,7 @@ import {
   IconTelegram,
   IconVK,
 } from "./SocialIcons";
+import { GradientButton } from "@/components/ui/GradientButton";
 
 const socials = [
   { value: "120К", name: "Вконтакте", Icon: IconVK },
@@ -58,12 +59,12 @@ export default function PartnersCommunity() {
           </div>
         </div>
 
-        <a
+        <GradientButton
           href="#apply"
-          className="btn-grad mt-10 inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
+          className="mt-10 h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
         >
           Занять место
-        </a>
+        </GradientButton>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { GradientButton } from "@/components/ui/GradientButton";
 
 export default function ProductHeader() {
   return (
@@ -22,12 +23,12 @@ export default function ProductHeader() {
 
       {/* Top-right cluster: 'Хочу Атом' + profile + burger */}
       <div className="absolute right-4 top-4 flex items-center gap-2">
-        <a
+        <GradientButton
           href="#preorder"
-          className="btn-grad inline-flex items-center justify-center h-12 md:h-14 px-5 md:px-6 rounded-[16px] text-white text-sm md:text-[18px] font-body"
+          className="h-12 md:h-14 px-5 md:px-6 rounded-[16px] text-white text-sm md:text-[18px] font-body"
         >
           Хочу Атом
-        </a>
+        </GradientButton>
         <button
           type="button"
           aria-label="Профиль"

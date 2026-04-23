@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { GradientButton } from "@/components/ui/GradientButton";
 
 export default function PartnersApply() {
   const [submitting, setSubmitting] = useState(false);
@@ -128,13 +129,13 @@ export default function PartnersApply() {
             <Input name="contact" placeholder="Telegram или email" required />
             <Input name="about" placeholder="Расскажите о вашей аудитории и идее" />
 
-            <button
+            <GradientButton
               type="submit"
               disabled={submitting}
-              className="btn-grad mt-5 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] text-base md:text-[24px] disabled:opacity-60"
+              className="mt-5 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] text-base md:text-[24px] disabled:opacity-60"
             >
               {submitting ? "Отправляем…" : "Занять место"}
-            </button>
+            </GradientButton>
             {error && (
               <p className="mt-2 text-sm text-red-400 text-center">{error}</p>
             )}

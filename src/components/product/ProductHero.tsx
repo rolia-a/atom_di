@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { GradientButton } from "@/components/ui/GradientButton";
 
 export default function ProductHero() {
   return (
@@ -27,12 +28,12 @@ export default function ProductHero() {
       </h1>
 
       {/* CTA absolute bottom-right with cyan→purple gradient border */}
-      <a
+      <GradientButton
         href="#preorder"
-        className="btn-grad absolute z-20 right-4 bottom-6 md:bottom-8 inline-flex items-center justify-center h-[60px] md:h-[80px] w-[200px] md:w-[257px] rounded-2xl md:rounded-[20px] font-display text-xl md:text-[32px] font-normal tracking-[-0.02em]"
+        className="absolute z-20 right-4 bottom-6 md:bottom-8 h-[60px] md:h-[80px] w-[200px] md:w-[257px] rounded-2xl md:rounded-[20px] font-display text-xl md:text-[32px] font-normal tracking-[-0.02em]"
       >
         Заказать
-      </a>
+      </GradientButton>
     </section>
   );
 }

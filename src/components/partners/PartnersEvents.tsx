@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { GradientButton } from "@/components/ui/GradientButton";
 
 const cards = [
   {
@@ -136,12 +137,12 @@ export default function PartnersEvents() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 pb-12 md:pb-16 flex justify-center">
-        <a
+        <GradientButton
           href="#apply"
-          className="btn-grad inline-flex items-center justify-center h-12 md:h-[71px] w-full max-w-[442px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
+          className="h-12 md:h-[71px] w-full max-w-[442px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
         >
           Занять место
-        </a>
+        </GradientButton>
       </div>
     </section>
   );

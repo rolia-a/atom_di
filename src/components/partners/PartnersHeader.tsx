@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { GradientButton } from "@/components/ui/GradientButton";
 
 export default function PartnersHeader() {
   return (
@@ -15,12 +16,12 @@ export default function PartnersHeader() {
             priority
           />
         </Link>
-        <a
+        <GradientButton
           href="#apply"
-          className="btn-grad inline-flex items-center justify-center h-10 md:h-14 px-4 md:px-8 rounded-2xl text-sm md:text-[18px]"
+          className="h-10 md:h-14 px-4 md:px-8 rounded-2xl text-sm md:text-[18px]"
         >
           Занять место
-        </a>
+        </GradientButton>
       </div>
     </header>
   );

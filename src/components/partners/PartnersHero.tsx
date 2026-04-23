@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { GradientButton } from "@/components/ui/GradientButton";
 
 export default function PartnersHero() {
   return (
@@ -25,12 +26,12 @@ export default function PartnersHero() {
             хочется делать историю. Если это про вас — листайте дальше
           </p>
           <div className="mt-8 md:mt-10 flex flex-wrap gap-3">
-            <a
+            <GradientButton
               href="#apply"
-              className="btn-grad inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
+              className="h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
             >
               Занять место
-            </a>
+            </GradientButton>
             <a
               href="#events"
               className="inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-white text-black text-base md:text-[24px] hover:bg-white/90 transition"

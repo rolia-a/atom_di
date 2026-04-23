@@ -1,3 +1,4 @@
+import { GradientButton } from "@/components/ui/GradientButton";
 import { formatRubles } from "@/lib/format";
 import { PRICES, URLS } from "@/content/site";
 
@@ -134,12 +135,12 @@ export default function ProductPreorder() {
             </p>
           </div>
         </div>
-        <a
+        <GradientButton
           href={URLS.order}
-          className="btn-grad w-full inline-flex items-center justify-center h-[60px] rounded-2xl font-body text-[18px] tracking-[-0.01em]"
+          className="w-full h-[60px] rounded-2xl font-body text-[18px] tracking-[-0.01em]"
         >
           Заказать
-        </a>
+        </GradientButton>
       </div>
     </section>
   );
