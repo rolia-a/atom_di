@@ -24,6 +24,9 @@ export const SLOTS = {
 } as const;
 export const SLOTS_REMAINING = SLOTS.total - SLOTS.taken;
 
+/** Application deadline shown by the countdown timer. */
+export const APPLICATION_DEADLINE = "2026-06-07T07:08:00+03:00";
+
 /** Contact details shown in the site footer. */
 export const CONTACTS = {
   phone: {

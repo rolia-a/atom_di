@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import { GradientButton } from "@/components/ui/GradientButton";
 import { pluralizeRu } from "@/lib/i18n/pluralize";
-import { SLOTS, SLOTS_REMAINING } from "@/content/site";
+import { APPLICATION_DEADLINE, SLOTS, SLOTS_REMAINING } from "@/content/site";
 
 // Fixed deadline so the countdown actually counts down across page loads
 // (was Date.now() + delta, which reset to ~47d on every reload).
-const TARGET = new Date("2026-06-07T07:08:00+03:00").getTime();
+const TARGET = new Date(APPLICATION_DEADLINE).getTime();
 
 const pad = (n: number) => n.toString().padStart(2, "0");
 
