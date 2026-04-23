@@ -2,12 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { GradientButton } from "@/components/ui/GradientButton";
+import { pluralizeRu } from "@/lib/i18n/pluralize";
+import { SLOTS, SLOTS_REMAINING } from "@/content/site";
 
 // Fixed deadline so the countdown actually counts down across page loads
 // (was Date.now() + delta, which reset to ~47d on every reload).
 const TARGET = new Date("2026-06-07T07:08:00+03:00").getTime();
 
 const pad = (n: number) => n.toString().padStart(2, "0");
+
+const labelDays = (n: number) => pluralizeRu(n, ["день", "дня", "дней"]);
+const labelHours = (n: number) => pluralizeRu(n, ["час", "часа", "часов"]);
+const labelMinutes = (n: number) => pluralizeRu(n, ["минута", "минуты", "минут"]);
+const labelSeconds = (n: number) => pluralizeRu(n, ["секунда", "секунды", "секунд"]);
 
 function compute() {
   const diff = Math.max(0, TARGET - Date.now());
@@ -46,9 +53,9 @@ export default function PartnersCountdown() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-start">
           <div className="max-w-[672px]">
             <h2 className="font-display text-2xl md:text-[32px] lg:text-[36px] leading-[1.15] font-medium text-white">
-              12 партнёрских слотов на 2026&nbsp;год.
+              {SLOTS.total} партнёрских {pluralizeRu(SLOTS.total, ["слот", "слота", "слотов"])} на 2026&nbsp;год.
               <br />
-              6&nbsp;уже заняты
+              {SLOTS.taken}&nbsp;уже {pluralizeRu(SLOTS.taken, ["занят", "заняты", "заняты"])}
             </h2>
             <p className="mt-4 text-base md:text-lg lg:text-[18px] text-white/85 leading-snug">
               Оставь заявку и стань участником.
@@ -59,12 +66,12 @@ export default function PartnersCountdown() {
 
           <div className="flex items-start gap-2 md:gap-4 text-white font-display">
             {[
-              { v: pad(t.d), l: "дней" },
-              { v: pad(t.h), l: "часов" },
-              { v: pad(t.m), l: "минут" },
-              { v: pad(t.s), l: "секунд" },
+              { unit: "d", v: pad(t.d), l: labelDays(t.d) },
+              { unit: "h", v: pad(t.h), l: labelHours(t.h) },
+              { unit: "m", v: pad(t.m), l: labelMinutes(t.m) },
+              { unit: "s", v: pad(t.s), l: labelSeconds(t.s) },
             ].map((c, i, arr) => (
-              <div key={c.l} className="flex items-start gap-2 md:gap-4">
+              <div key={c.unit} className="flex items-start gap-2 md:gap-4">
                 <div className="flex flex-col items-center">
                   <span className="text-4xl md:text-6xl lg:text-[72px] leading-none font-medium tabular-nums">
                     {c.v}

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { GradientButton } from "@/components/ui/GradientButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { pluralizeRu } from "@/lib/i18n/pluralize";
+import { SLOTS_REMAINING } from "@/content/site";
 
 export default function PartnersHero() {
   return (
@@ -20,7 +22,7 @@ export default function PartnersHero() {
           <SectionHeading as="h1" className="text-[36px] md:text-[48px] lg:text-[56px] text-white">
             Запуск года.
             <br />
-            Осталось 6 мест
+            Осталось {SLOTS_REMAINING}&nbsp;{pluralizeRu(SLOTS_REMAINING, ["место", "места", "мест"])}
           </SectionHeading>
           <p className="mt-5 max-w-[360px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
             Первый серийный электромобиль страны ищет сообщества, с которыми
