@@ -43,17 +43,27 @@ async function sendTelegram(b: Body) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) return { ok: false, skipped: true };
-  const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: fmtTelegram(b),
-      parse_mode: "HTML",
-      disable_web_page_preview: true,
-    }),
-  });
-  return { ok: res.ok, skipped: false };
+
+  // Hard-cap so a hung Telegram API doesn't keep the function alive for
+  // the full 5-minute Node default (and burn Vercel function quota).
+  const ctrl = new AbortController();
+  const timeout = setTimeout(() => ctrl.abort(), 8000);
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: fmtTelegram(b),
+        parse_mode: "HTML",
+        disable_web_page_preview: true,
+      }),
+      signal: ctrl.signal,
+    });
+    return { ok: res.ok, skipped: false };
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 async function sendEmail(b: Body) {
