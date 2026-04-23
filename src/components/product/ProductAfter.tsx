@@ -1,9 +1,11 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { formatRubles } from "@/lib/format";
+import { PRICES } from "@/content/site";
 
 const steps = [
   {
     title: "Вносите стоимость предзаказа",
-    big: "500 000 ₽",
+    big: formatRubles(PRICES.reservation),
     note: null,
   },
   {

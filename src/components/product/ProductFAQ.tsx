@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { GradientButton } from "@/components/ui/GradientButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { URLS } from "@/content/site";
+import { formatRubles } from "@/lib/format";
+import { PRICES, URLS } from "@/content/site";
 
 // Order matches Figma node 600:43443
 const faqs = [
@@ -17,7 +18,7 @@ const faqs = [
   },
   {
     q: "Как забронировать Атом",
-    a: "Заполните форму на сайте и внесите стоимость бронирования — 500 000 ₽. Сумма будет зачтена в финальную стоимость.",
+    a: `Заполните форму на сайте и внесите стоимость бронирования — ${formatRubles(PRICES.reservation)}. Сумма будет зачтена в финальную стоимость.`,
   },
   {
     q: "Будет ли учтен мой ранее оформленный предзаказ",
