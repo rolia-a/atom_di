@@ -1,3 +1,6 @@
+import { formatRubles } from "@/lib/format";
+import { PRICES, URLS } from "@/content/site";
+
 const widgets = [
   { title: "Габариты", desc: "Описание в пару строк об Атоме" },
   { title: "Что-то еще", desc: "Описание в пару строк об Атоме" },
@@ -120,19 +123,19 @@ export default function ProductPreorder() {
       >
         <div className="flex flex-col gap-[39px] items-start w-full">
           <p className="w-full font-display text-[32px] leading-[1.2] tracking-[-0.02em] text-[#00ffff] whitespace-nowrap">
-            3 900 000&nbsp;₽
+            {formatRubles(PRICES.full)}
           </p>
           <div className="flex flex-col gap-1 items-start">
             <p className="font-display text-[20px] leading-[28px] text-[#b8c6d3]">
               Стоимость бронирования
             </p>
             <p className="font-display text-[70px] leading-[1.05] tracking-[-0.01em] uppercase text-[#b365ff] whitespace-nowrap">
-              500 000&nbsp;₽
+              {formatRubles(PRICES.reservation)}
             </p>
           </div>
         </div>
         <a
-          href="/partners#apply"
+          href={URLS.order}
           className="btn-grad w-full inline-flex items-center justify-center h-[60px] rounded-2xl font-body text-[18px] tracking-[-0.01em]"
         >
           Заказать
