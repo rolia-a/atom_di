@@ -52,9 +52,9 @@ export default function PartnersCountdown() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-start">
           <div className="max-w-[672px]">
             <h2 className="font-display text-2xl md:text-[32px] lg:text-[36px] leading-[1.15] font-medium text-white">
-              {SLOTS.total} партнёрских {pluralizeRu(SLOTS.total, ["слот", "слота", "слотов"])} на 2026&nbsp;год.
+              {`${SLOTS.total} партнёрских ${pluralizeRu(SLOTS.total, ["слот", "слота", "слотов"])} на 2026\u00A0год.`}
               <br />
-              {SLOTS.taken}&nbsp;уже {pluralizeRu(SLOTS.taken, ["занят", "заняты", "заняты"])}
+              {`${SLOTS.taken}\u00A0уже ${pluralizeRu(SLOTS.taken, ["занят", "заняты", "заняты"])}`}
             </h2>
             <p className="mt-4 text-base md:text-lg lg:text-[18px] text-white/85 leading-snug">
               Оставь заявку и стань участником.
