@@ -20,7 +20,7 @@ export default function PartnersHeader() {
           href="#apply"
           className="h-10 md:h-14 px-4 md:px-8 rounded-2xl text-sm md:text-[18px]"
         >
-          Занять место
+          Подать заявку
         </GradientButton>
       </div>
     </header>

@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { GradientButton } from "@/components/ui/GradientButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { pluralizeRu } from "@/lib/i18n/pluralize";
-import { SLOTS_REMAINING } from "@/content/site";
 
 export default function PartnersHero() {
   return (
@@ -18,22 +16,24 @@ export default function PartnersHero() {
       <div aria-hidden className="absolute inset-0 bg-black/40 z-10" />
 
       <div className="relative z-20 mx-auto max-w-[1440px] px-5 md:px-10 pt-[120px] md:pt-[150px] lg:pt-[379px] pb-10 flex flex-col justify-end min-h-[640px] md:min-h-[760px] lg:min-h-[800px]">
-        <div className="max-w-[615px]">
+        <div className="max-w-[720px]">
           <SectionHeading as="h1" className="text-[36px] md:text-[48px] lg:text-[56px] text-white">
-            Запуск года.
+            Первый российский
             <br />
-            Осталось {SLOTS_REMAINING}&nbsp;{pluralizeRu(SLOTS_REMAINING, ["место", "места", "мест"])}
+            электромобиль.
           </SectionHeading>
-          <p className="mt-5 max-w-[360px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
-            Первый серийный электромобиль страны ищет сообщества, с которыми
-            хочется делать историю. Если это про вас — листайте дальше
+          <p className="mt-4 md:mt-5 font-display text-[20px] md:text-[24px] lg:text-[28px] font-medium leading-[1.2] text-white">
+            До&nbsp;официальных продаж. В&nbsp;вашем сообществе.
+          </p>
+          <p className="mt-4 md:mt-5 max-w-[500px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
+            Закрытые мероприятия с&nbsp;ранним доступом к&nbsp;электромобилю Атом&nbsp;— для сообществ, формирующих культуру нового. Если это о&nbsp;вас&nbsp;— листайте дальше.
           </p>
           <div className="mt-8 md:mt-10 flex flex-wrap gap-3">
             <GradientButton
               href="#apply"
               className="h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
             >
-              Занять место
+              Подать заявку
             </GradientButton>
             <a
               href="#events"
