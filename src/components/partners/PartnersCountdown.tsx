@@ -79,9 +79,15 @@ export default function PartnersCountdown() {
                   </span>
                 </div>
                 {i < arr.length - 1 && (
-                  <span className="font-display font-light text-5xl md:text-7xl lg:text-[86px] leading-[1.05] tracking-[-0.01em] text-white/60">
-                    :
-                  </span>
+                  // Two small rounded-square dots stacked vertically
+                  // (per Figma 445:117185 — not the font's default ":").
+                  <div
+                    aria-hidden
+                    className="flex flex-col justify-center gap-3 md:gap-4 lg:gap-[22px] h-[56px] md:h-[80px] lg:h-[90px]"
+                  >
+                    <span className="block w-[6px] h-[6px] md:w-2 md:h-2 lg:w-[10px] lg:h-[10px] rounded-[2px] bg-white/75" />
+                    <span className="block w-[6px] h-[6px] md:w-2 md:h-2 lg:w-[10px] lg:h-[10px] rounded-[2px] bg-white/75" />
+                  </div>
                 )}
               </div>
             ))}
