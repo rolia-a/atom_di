@@ -43,16 +43,20 @@ export default function PartnersTimeline() {
               <line
                 x1="22"
                 y1="12"
-                x2="1322"
+                x2="1320"
                 y2="12"
                 stroke="#c4c9d0"
                 strokeWidth="2"
                 strokeDasharray="6 8"
               />
-              {/* Chunky filled triangle (less "pointy" than the old chevron) */}
-              <polygon
-                points="1322,2 1344,12 1322,22"
-                fill="#c4c9d0"
+              {/* Softer chevron — thick strokes with rounded caps/joins */}
+              <polyline
+                points="1322,3 1340,12 1322,21"
+                fill="none"
+                stroke="#c4c9d0"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
             <ol className="relative grid grid-cols-5 gap-6">
