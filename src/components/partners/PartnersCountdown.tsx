@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { GradientButton } from "@/components/ui/GradientButton";
 import { pluralizeRu } from "@/lib/i18n/pluralize";
-import { APPLICATION_DEADLINE, SLOTS, SLOTS_REMAINING } from "@/content/site";
+import { APPLICATION_DEADLINE, SLOTS } from "@/content/site";
 
 // Fixed deadline so the countdown actually counts down across page loads
 // (was Date.now() + delta, which reset to ~47d on every reload).
@@ -14,7 +14,6 @@ const pad = (n: number) => n.toString().padStart(2, "0");
 const labelDays = (n: number) => pluralizeRu(n, ["день", "дня", "дней"]);
 const labelHours = (n: number) => pluralizeRu(n, ["час", "часа", "часов"]);
 const labelMinutes = (n: number) => pluralizeRu(n, ["минута", "минуты", "минут"]);
-const labelSeconds = (n: number) => pluralizeRu(n, ["секунда", "секунды", "секунд"]);
 
 function compute() {
   const diff = Math.max(0, TARGET - Date.now());
@@ -22,14 +21,13 @@ function compute() {
     d: Math.floor(diff / 86_400_000),
     h: Math.floor((diff / 3_600_000) % 24),
     m: Math.floor((diff / 60_000) % 60),
-    s: Math.floor((diff / 1_000) % 60),
   };
 }
 
 export default function PartnersCountdown() {
   // Initial state is static to avoid SSR/CSR hydration mismatch — replaced
   // with the real value on mount, then ticks every second.
-  const [t, setT] = useState({ d: 47, h: 7, m: 8, s: 0 });
+  const [t, setT] = useState({ d: 47, h: 7, m: 8 });
 
   useEffect(() => {
     setT(compute());
@@ -39,13 +37,13 @@ export default function PartnersCountdown() {
 
   return (
     <section className="relative overflow-hidden bg-black">
-      {/* Subtle blue glow behind the timer */}
+      {/* Brighter teal glow shifted toward the timer (right side) */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(45% 55% at 78% 50%, rgba(0,120,160,0.45) 0%, rgba(0,60,90,0.18) 45%, transparent 80%)",
+            "radial-gradient(55% 70% at 85% 50%, rgba(0,200,180,0.7) 0%, rgba(0,120,130,0.35) 40%, transparent 75%)",
         }}
       />
 
@@ -60,7 +58,7 @@ export default function PartnersCountdown() {
             <p className="mt-4 text-base md:text-lg lg:text-[18px] text-white/85 leading-snug">
               Оставь заявку и стань участником.
               <br />
-              Заявки рассматриваются в порядке поступления
+              Заявки рассматриваются в порядке поступления.
             </p>
           </div>
 
@@ -69,11 +67,10 @@ export default function PartnersCountdown() {
               { unit: "d", v: pad(t.d), l: labelDays(t.d) },
               { unit: "h", v: pad(t.h), l: labelHours(t.h) },
               { unit: "m", v: pad(t.m), l: labelMinutes(t.m) },
-              { unit: "s", v: pad(t.s), l: labelSeconds(t.s) },
             ].map((c, i, arr) => (
               <div key={c.unit} className="flex items-start gap-2 md:gap-4">
                 <div className="flex flex-col items-center">
-                  <span className="text-4xl md:text-6xl lg:text-[72px] leading-none font-medium tabular-nums">
+                  <span className="text-5xl md:text-7xl lg:text-[86px] leading-none font-medium tabular-nums">
                     {c.v}
                   </span>
                   <span className="mt-2 text-xs md:text-sm lg:text-[16px] text-white/75 font-body">
@@ -81,7 +78,7 @@ export default function PartnersCountdown() {
                   </span>
                 </div>
                 {i < arr.length - 1 && (
-                  <span className="text-4xl md:text-6xl lg:text-[72px] leading-none text-white/60">
+                  <span className="text-5xl md:text-7xl lg:text-[86px] leading-none text-white/60">
                     :
                   </span>
                 )}
@@ -94,7 +91,7 @@ export default function PartnersCountdown() {
           href="#apply"
           className="mt-10 h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
         >
-          Занять место
+          Подать заявку
         </GradientButton>
       </div>
     </section>
