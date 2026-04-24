@@ -1,11 +1,11 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const steps = [
-  { num: "01", title: "Заявка", desc: "Расскажите о своём сообществе и целях. Мы вернёмся с обратной связью в течение 24 часов" },
-  { num: "02", title: "Стратегия", desc: "Вместе определяем, какой результат важен для вашей аудитории" },
-  { num: "03", title: "Формат", desc: "Предлагаем конкретные идеи и механику — адаптированные под ваше сообщество" },
-  { num: "04", title: "Продакшн", desc: "Воплощаем проект. Вы занимаетесь аудиторией — всё остальное на нас" },
-  { num: "05", title: "Результат", desc: "Фиксируем итоги. Вы получаете контент и историю для своего комьюнити" },
+  { num: "01", title: "Заявка", desc: "Расскажите о своём сообществе и целях. Мы вернёмся с обратной связью в течение 24 часов." },
+  { num: "02", title: "Стратегия", desc: "Вместе определяем, какой результат важен для вашей аудитории." },
+  { num: "03", title: "Формат", desc: "Предлагаем конкретные идеи и механику — адаптированные под ваше сообщество." },
+  { num: "04", title: "Продакшн", desc: "Воплощаем проект. Вы занимаетесь аудиторией — всё остальное на нас." },
+  { num: "05", title: "Результат", desc: "Фиксируем итоги. Вы получаете контент и историю для своего комьюнити." },
 ];
 
 export default function PartnersTimeline() {
@@ -15,7 +15,9 @@ export default function PartnersTimeline() {
         <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[900px]">
           От заявки
           <br />
-          до результата&nbsp;— <span className="text-teal">6&nbsp;недель</span>
+          до результата&nbsp;—
+          <br />
+          <span className="text-teal">5&nbsp;недель</span>
         </SectionHeading>
 
         {/* Titles row (above the line on desktop) */}
@@ -41,19 +43,16 @@ export default function PartnersTimeline() {
               <line
                 x1="22"
                 y1="12"
-                x2="1330"
+                x2="1322"
                 y2="12"
                 stroke="#c4c9d0"
                 strokeWidth="2"
                 strokeDasharray="6 8"
               />
-              <polyline
-                points="1320,4 1340,12 1320,20"
-                fill="none"
-                stroke="#c4c9d0"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+              {/* Chunky filled triangle (less "pointy" than the old chevron) */}
+              <polygon
+                points="1322,2 1344,12 1322,22"
+                fill="#c4c9d0"
               />
             </svg>
             <ol className="relative grid grid-cols-5 gap-6">
