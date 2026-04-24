@@ -1,6 +1,6 @@
 import {
   IconDzen,
-  IconRutube,
+  IconMax,
   IconTelegram,
   IconVK,
 } from "./SocialIcons";
@@ -11,7 +11,7 @@ const socials = [
   { count: 120_000, name: "Вконтакте", Icon: IconVK },
   { count: 24_000, name: "Телеграм", Icon: IconTelegram },
   { count: 2_734, name: "Дзен", Icon: IconDzen },
-  { count: 230, name: "Rutube", Icon: IconRutube },
+  { count: 1_433, name: "MAX", Icon: IconMax },
 ];
 
 export default function PartnersCommunity() {
@@ -20,11 +20,10 @@ export default function PartnersCommunity() {
       {/* Brighter gradient shifted toward the socials on the right */}
       <div
         aria-hidden
-        className="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 w-[1400px] h-[700px] translate-x-[15%]"
+        className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(55% 60% at 65% 50%, rgba(0,178,178,0.55) 0%, rgba(0,178,178,0.18) 45%, transparent 75%)",
-          filter: "blur(40px)",
+            "radial-gradient(ellipse 120% 180% at 95% 50%, rgba(0,210,200,0.75) 0%, rgba(0,160,170,0.45) 30%, rgba(0,90,110,0.2) 60%, transparent 85%)",
         }}
       />
 
@@ -32,12 +31,14 @@ export default function PartnersCommunity() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center">
           <div className="max-w-[672px]">
             <h2 className="font-display text-2xl md:text-[32px] lg:text-[36px] leading-[1.15] font-medium text-white">
-              Объединяем людей, способных изменить мир
+              Объединяем людей,
+              <br />
+              способных изменить мир
             </h2>
             <p className="mt-4 text-base md:text-lg lg:text-[18px] text-white/85 leading-snug">
               В наших соцсетях уже более 150 000 единомышленников,
               <br />
-              и это число продолжает расти
+              и это число продолжает расти.
             </p>
           </div>
 
@@ -64,7 +65,7 @@ export default function PartnersCommunity() {
           href="#apply"
           className="mt-10 h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
         >
-          Занять место
+          Подать заявку
         </GradientButton>
       </div>
     </section>

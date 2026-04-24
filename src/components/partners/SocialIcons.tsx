@@ -79,3 +79,23 @@ export function IconRutube({ className }: Props) {
     </svg>
   );
 }
+
+export function IconMax({ className }: Props) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      fill="none"
+      className={className}
+      aria-hidden
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Rounded speech-bubble body with tail pointing down-right */}
+      <path
+        d="M32 4C16.536 4 4 16.536 4 32c0 5.036 1.33 9.764 3.66 13.848L4.77 57.29c-.53 1.94 1.29 3.76 3.23 3.23l11.44-2.89A27.867 27.867 0 0 0 32 60c15.464 0 28-12.536 28-28S47.464 4 32 4Z"
+        fill="currentColor"
+      />
+      {/* White dot inside bubble */}
+      <circle cx="42.5" cy="22" r="3.5" fill="#fff" />
+    </svg>
+  );
+}
