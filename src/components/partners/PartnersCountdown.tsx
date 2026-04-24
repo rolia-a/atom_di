@@ -27,7 +27,7 @@ function compute() {
 export default function PartnersCountdown() {
   // Initial state is static to avoid SSR/CSR hydration mismatch — replaced
   // with the real value on mount, then ticks every second.
-  const [t, setT] = useState({ d: 47, h: 7, m: 8 });
+  const [t, setT] = useState({ d: 100, h: 5, m: 0 });
 
   useEffect(() => {
     setT(compute());
