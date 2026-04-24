@@ -1,24 +1,33 @@
 import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const cards = [
+type Card = {
+  num: string;
+  title: string;
+  desc: string;
+  img: string;
+  imgPosition?: "left" | "center" | "right";
+};
+
+const cards: Card[] = [
   {
     num: "01",
     title: "Аренда Атома",
-    // Non-breaking space before "нас" removes the orphan preposition.
-    desc: "Автомобиль под вашу активность: ивент, промо, контент. Брендирование и логистика — на\u00A0нас.",
+    // Non-breaking space ties "и" to "логистика" (no orphan on a new line).
+    desc: "Автомобиль под вашу активность: ивент, промо, контент. Брендирование и\u00A0логистика — на\u00A0нас.",
     img: "/figma/partners/comm-rent.webp",
   },
   {
     num: "02",
     title: "Интеграция продукта",
-    desc: "Мы придумываем механику под ваше сообщество, создаём контент и обеспечиваем\u00A0PR.",
+    desc: "Мы придумываем механику под ваше сообщество, создаём контент и\u00A0обеспечиваем\u00A0PR.",
     img: "/figma/partners/comm-integration.webp",
+    imgPosition: "left",
   },
   {
     num: "03",
     title: "Брендированный автопробег",
-    desc: "Авто становятся мобильными медиа-носителями — по городу или между точками вашего комьюнити.",
+    desc: "Авто становятся мобильными медиа-носителями — по\u00A0городу или между точками вашего комьюнити.",
     img: "/figma/partners/comm-autorun.webp",
   },
   {
@@ -55,7 +64,13 @@ export default function PartnersFormats() {
                 alt=""
                 fill
                 sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
-                className="object-cover"
+                className={`object-cover ${
+                  c.imgPosition === "left"
+                    ? "object-left"
+                    : c.imgPosition === "right"
+                    ? "object-right"
+                    : "object-center"
+                }`}
               />
               <div className="absolute inset-0 bg-black/40" />
               <div className="relative z-10 p-5 h-full flex flex-col justify-between text-white">
