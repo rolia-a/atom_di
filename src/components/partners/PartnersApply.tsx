@@ -111,6 +111,16 @@ export default function PartnersApply() {
                 <p className="mt-2 text-sm text-black/60">
                   Мы получили вашу заявку и ответим в течение 24 часов.
                 </p>
+                <p className="mt-4 text-sm text-black/60">
+                  По срочным вопросам:
+                  <br />
+                  <a
+                    href="mailto:partners@atom.team"
+                    className="text-black underline hover:text-teal transition"
+                  >
+                    partners@atom.team
+                  </a>
+                </p>
               </div>
               <button
                 type="button"
