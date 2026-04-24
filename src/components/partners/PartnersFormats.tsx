@@ -6,7 +6,8 @@ type Card = {
   title: string;
   desc: string;
   img: string;
-  imgPosition?: "left" | "center" | "right";
+  /** CSS `object-position` value (e.g. "30% center"). */
+  imgPosition?: string;
 };
 
 const cards: Card[] = [
@@ -22,7 +23,8 @@ const cards: Card[] = [
     title: "Интеграция продукта",
     desc: "Мы придумываем механику под ваше сообщество, создаём контент и\u00A0обеспечиваем\u00A0PR.",
     img: "/figma/partners/comm-integration.webp",
-    imgPosition: "right",
+    // Show the woman-and-car area — not fully left, not fully right.
+    imgPosition: "35% center",
   },
   {
     num: "03",
@@ -64,13 +66,12 @@ export default function PartnersFormats() {
                 alt=""
                 fill
                 sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
-                className={`object-cover ${
-                  c.imgPosition === "left"
-                    ? "object-left"
-                    : c.imgPosition === "right"
-                    ? "object-right"
-                    : "object-center"
-                }`}
+                className="object-cover"
+                style={
+                  c.imgPosition
+                    ? { objectPosition: c.imgPosition }
+                    : undefined
+                }
               />
               <div className="absolute inset-0 bg-black/40" />
               <div className="relative z-10 p-5 h-full flex flex-col justify-between text-white">
