@@ -65,7 +65,7 @@ export default function PartnersApply() {
             left: "72%",
             // Larger (2×) per Figma — car fills most of the right half.
             // Shifted up so the hood aligns vertically with the consent disclaimer.
-            top: "30%",
+            top: "-10%",
             height: "200%",
             width: "auto",
             transform: "translate(-50%, -50%) rotate(-90deg)",
