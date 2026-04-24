@@ -81,6 +81,8 @@ export function IconRutube({ className }: Props) {
 }
 
 export function IconMax({ className }: Props) {
+  // Approximation of the MAX messenger glyph from Figma node 483:189361:
+  // round speech-bubble body, small curled tail at bottom-left, dot upper-right.
   return (
     <svg
       viewBox="0 0 64 64"
@@ -89,13 +91,11 @@ export function IconMax({ className }: Props) {
       aria-hidden
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Rounded speech-bubble body with tail pointing down-right */}
       <path
-        d="M32 4C16.536 4 4 16.536 4 32c0 5.036 1.33 9.764 3.66 13.848L4.77 57.29c-.53 1.94 1.29 3.76 3.23 3.23l11.44-2.89A27.867 27.867 0 0 0 32 60c15.464 0 28-12.536 28-28S47.464 4 32 4Z"
+        d="M34 6C19.088 6 7 18.088 7 33c0 4.76 1.232 9.232 3.392 13.12C10.12 50.448 8.64 54.52 6.24 57.76c-.72.96.128 2.272 1.312 2.032 3.744-.752 7.952-2.416 11.648-4.8A26.86 26.86 0 0 0 34 60c14.912 0 27-12.088 27-27S48.912 6 34 6Z"
         fill="currentColor"
       />
-      {/* White dot inside bubble */}
-      <circle cx="42.5" cy="22" r="3.5" fill="#fff" />
+      <circle cx="44.5" cy="22.5" r="4" fill="#fff" />
     </svg>
   );
 }
