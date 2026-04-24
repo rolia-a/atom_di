@@ -49,9 +49,10 @@ export default function PartnersTimeline() {
                 strokeWidth="2"
                 strokeDasharray="6 8"
               />
-              {/* Softer chevron — thick strokes with rounded caps/joins */}
+              {/* Softer chevron — thick strokes with rounded caps/joins,
+                  wider opening angle (~110°) */}
               <polyline
-                points="1322,3 1340,12 1322,21"
+                points="1326,1 1334,12 1326,23"
                 fill="none"
                 stroke="#c4c9d0"
                 strokeWidth="4"
