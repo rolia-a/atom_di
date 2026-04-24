@@ -143,7 +143,7 @@ export default function PartnersEvents() {
                   alt=""
                   width={c.img.w}
                   height={c.img.h}
-                  className="absolute bottom-0 right-0 pointer-events-none"
+                  className="absolute bottom-0 right-[-40px] pointer-events-none"
                 />
               )}
             </li>
