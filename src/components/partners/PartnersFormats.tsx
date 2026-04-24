@@ -22,7 +22,7 @@ const cards: Card[] = [
     title: "Интеграция продукта",
     desc: "Мы придумываем механику под ваше сообщество, создаём контент и\u00A0обеспечиваем\u00A0PR.",
     img: "/figma/partners/comm-integration.webp",
-    imgPosition: "left",
+    imgPosition: "right",
   },
   {
     num: "03",
