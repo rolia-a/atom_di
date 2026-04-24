@@ -3,12 +3,14 @@ import Image from "next/image";
 export default function PartnersQuote() {
   return (
     <section className="relative min-h-[500px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden bg-black">
+      {/* Zoom 2× into the wheel area (bottom-centre of the source image). */}
       <Image
         src="/figma/partners/quote-bg.webp"
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-center"
+        className="object-cover"
+        style={{ transform: "scale(2)", transformOrigin: "center 70%" }}
       />
       <div
         aria-hidden
@@ -31,7 +33,7 @@ export default function PartnersQuote() {
             не пробовал — мы открыты к диалогу»
           </p>
           <footer className="mt-6 text-[13px] md:text-sm tracking-[0.08em] uppercase text-white/70">
-            Команда Атом
+            Команда Атома
           </footer>
         </blockquote>
       </div>
