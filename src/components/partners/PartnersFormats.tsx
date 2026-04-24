@@ -24,7 +24,7 @@ const cards: Card[] = [
     desc: "Мы придумываем механику под ваше сообщество, создаём контент и\u00A0обеспечиваем\u00A0PR.",
     img: "/figma/partners/comm-integration.webp",
     // Show the woman-and-car area — not fully left, not fully right.
-    imgPosition: "65% center",
+    imgPosition: "72% center",
   },
   {
     num: "03",
