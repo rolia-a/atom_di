@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const stats = [
   { value: "100+", label: "млн человек узнали\nоб Атом через СМИ" },
-  { value: "105К", label: "предзаказов до начала\nсерийного производства" },
+  { value: ">105К", label: "предзаказов до начала\nсерийного производства" },
   { value: "1 600", label: "инженеров и специалистов\nв команде" },
   { value: "8", label: "партнёрских проектов\nза 2024-2025" },
 ];
@@ -31,19 +31,19 @@ export default function PartnersStats() {
           }}
         />
 
-        {/* Smooth gradient fade to black at the bottom (no hard plate) */}
+        {/* Brownish gradient fade from #292929 at the bottom to transparent */}
         <div
           aria-hidden
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0.95) 100%)",
+              "linear-gradient(180deg, rgba(41,41,41,0) 35%, rgba(41,41,41,0.6) 65%, rgba(41,41,41,0.95) 100%)",
           }}
         />
 
-        {/* Centered stats strip */}
+        {/* Left-aligned stats strip */}
         <div className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-[1440px] px-5 md:px-10 pb-10 md:pb-14">
-          <dl className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 justify-items-center text-center">
+          <dl className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 justify-items-start text-left">
             {stats.map((s) => (
               <div key={s.value} className="max-w-[240px]">
                 <dt className="font-display text-4xl md:text-5xl lg:text-[56px] font-light leading-none tracking-[-0.01em] text-white">
