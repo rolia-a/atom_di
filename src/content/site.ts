@@ -15,6 +15,10 @@ export const PRICES = {
 export const URLS = {
   /** Order / pre-order CTA destination */
   order: "/partners#apply",
+  /** Privacy / personal-data policy (официальный сайт atom.auto) */
+  privacyPolicy: "https://atom.auto/services/privacy",
+  /** Consent for processing of personal data */
+  consent: "https://atom.auto/services/soglasie-pdn",
 } as const;
 
 /** Partner-programme slot accounting (shown in Hero + Countdown). */

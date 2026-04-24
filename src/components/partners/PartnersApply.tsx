@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { GradientButton } from "@/components/ui/GradientButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { URLS } from "@/content/site";
 
 export default function PartnersApply() {
   const [submitting, setSubmitting] = useState(false);
@@ -62,12 +63,9 @@ export default function PartnersApply() {
           className="absolute max-w-none select-none"
           style={{
             left: "72%",
-            // The source image has large black padding above/below the actual
-            // car silhouette. We position the IMG so the front bumper (visible
-            // car content, not raw image bottom) sits right at the section
-            // bottom edge, with the rear extending well above into the mask.
-            top: "25%",
-            height: "100%",
+            // Larger (2×) per Figma — car fills most of the right half.
+            top: "50%",
+            height: "200%",
             width: "auto",
             transform: "translate(-50%, -50%) rotate(-90deg)",
             transformOrigin: "center",
@@ -88,7 +86,9 @@ export default function PartnersApply() {
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-10 md:py-10 lg:py-10 h-[600px] md:h-[821px] flex flex-col">
         <div className="max-w-[701px]">
           <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white">
-            Подайте заявку на отбор
+            Подайте заявку
+            <br />
+            на&nbsp;отбор
           </SectionHeading>
           <p className="mt-5 max-w-[615px] text-lg md:text-xl lg:text-[24px] text-ink-soft leading-[32px]">
             Расскажите о сообществе
@@ -130,12 +130,32 @@ export default function PartnersApply() {
             <Input name="contact" placeholder="Telegram или email" required />
             <Input name="about" placeholder="Расскажите о вашей аудитории и идее" />
 
+            <p className="text-[13px] text-white/70 leading-snug">
+              Нажимая кнопку «Подать заявку», я даю{" "}
+              <a
+                href={URLS.consent}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white"
+              >
+                Согласие на обработку персональных данных
+              </a>
+              {" "}в соответствии с{" "}
+              <a
+                href={URLS.privacyPolicy}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white"
+              >
+                политикой конфиденциальности
+              </a>
+            </p>
             <GradientButton
               type="submit"
               disabled={submitting}
-              className="mt-5 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] text-base md:text-[24px] disabled:opacity-60"
+              className="mt-2 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] text-base md:text-[24px] disabled:opacity-60"
             >
-              {submitting ? "Отправляем…" : "Занять место"}
+              {submitting ? "Отправляем…" : "Подать заявку"}
             </GradientButton>
             {error && (
               <p className="mt-2 text-sm text-red-400 text-center">{error}</p>
