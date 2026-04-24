@@ -9,7 +9,7 @@ const cards = [
     // the trailing "с" from becoming an orphan on a new line.
     text: "Девятый слот ждёт сообщество, готовое написать следующую главу вместе\u00A0с\u00A0нами.",
     accent: true,
-    img: { src: "/figma/product/atom-transparent.webp", w: 298, h: 217 },
+    img: { src: "/figma/product/atom-transparent.webp", w: 340, h: 248 },
     button: "Подать заявку",
   },
   {
@@ -123,7 +123,7 @@ export default function PartnersEvents() {
               {c.button && (
                 <a
                   href="#apply"
-                  className="relative z-10 inline-flex items-center justify-center self-start h-10 md:h-[44px] px-5 rounded-[12px] bg-black text-white text-sm md:text-[15px] font-medium hover:bg-black/85 transition"
+                  className="relative z-10 inline-flex items-center justify-center self-start h-10 md:h-[44px] px-5 rounded-[12px] bg-white text-black text-sm md:text-[15px] font-medium hover:bg-white/90 transition"
                 >
                   {c.button}
                 </a>
