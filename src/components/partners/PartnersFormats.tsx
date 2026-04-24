@@ -5,25 +5,26 @@ const cards = [
   {
     num: "01",
     title: "Аренда Атома",
-    desc: "Автомобиль под вашу активность: ивент, промо, контент. Брендирование и логистика — на нас",
+    // Non-breaking space before "нас" removes the orphan preposition.
+    desc: "Автомобиль под вашу активность: ивент, промо, контент. Брендирование и логистика — на\u00A0нас.",
     img: "/figma/partners/comm-rent.webp",
   },
   {
     num: "02",
     title: "Интеграция продукта",
-    desc: "Мы придумываем механику под ваше сообщество, создаём контент и обеспечиваем PR",
+    desc: "Мы придумываем механику под ваше сообщество, создаём контент и обеспечиваем\u00A0PR.",
     img: "/figma/partners/comm-integration.webp",
   },
   {
     num: "03",
     title: "Брендированный автопробег",
-    desc: "Авто становятся мобильными медиа-носителями — по городу или между точками вашего комьюнити",
+    desc: "Авто становятся мобильными медиа-носителями — по городу или между точками вашего комьюнити.",
     img: "/figma/partners/comm-autorun.webp",
   },
   {
     num: "04",
     title: "Событие под ключ",
-    desc: "Организуем мероприятие, выставку или фан-зону с Атом как центральным объектом",
+    desc: "Организуем мероприятие, выставку или фан-зону с Атом как центральным объектом.",
     img: "/figma/partners/comm-event.webp",
   },
 ];
@@ -35,11 +36,11 @@ export default function PartnersFormats() {
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[657px]">
             <span className="text-teal">Всё за наш счёт. </span>
-            Серьёзно
+            Серьёзно.
           </SectionHeading>
           <p className="max-w-[328px] text-base md:text-lg lg:text-xl leading-[1.4]">
             Четыре формата сотрудничества. Мы подберём подходящий — или
-            придумаем новый для вас
+            придумаем новый для вас.
           </p>
         </div>
 
