@@ -5,48 +5,51 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const cards = [
   {
     title: "Твоя история",
-    text: "Девятый слот ждёт сообщество, готовое написать следующую главу вместе с нами",
+    // Non-breaking spaces around the prepositions ("с нами") to prevent
+    // the trailing "с" from becoming an orphan on a new line.
+    text: "Девятый слот ждёт сообщество, готовое написать следующую главу вместе\u00A0с\u00A0нами.",
     accent: true,
     img: { src: "/figma/product/atom-transparent.webp", w: 298, h: 217 },
+    button: "Подать заявку",
   },
   {
     title: "Первый в мире тест-драйв EV в Арктике",
-    text: "АТОМ добрался до Северного полюса на атомном ледоколе «50 лет Победы». 10 дней под арктическими ветрами, спуск на лёд, езда по рыхлому снегу — батарея израсходовала всего 10% заряда",
+    text: "Атом добрался до Северного полюса на атомном ледоколе «50 лет Победы». 10 дней под арктическими ветрами, спуск на лёд, езда по рыхлому снегу — батарея израсходовала всего 10% заряда.",
     logo: { src: "/figma/partners/event-arctic.webp", w: 136, h: 52 },
   },
   {
     title: "Тест-драйв с чемпионом «24 часов Ле-Мана»",
-    text: "Алексей Басов — победитель Ле-Мана 2015 и чемпион мира по гонкам на выносливость — тестировал АТОМ на картодроме с отключенной ESP. Вердикт: «собранный, уверенно проходит повороты, динамика на высоком уровне»",
+    text: "Алексей Басов — победитель Ле-Мана 2015 и чемпион мира по гонкам на выносливость — тестировал Атом на картодроме с отключенной ESP. Вердикт: «собранный, уверенно проходит повороты, динамика на высоком уровне».",
     logo: { src: "/figma/partners/event-lemans.webp", w: 72, h: 47 },
   },
   {
     title: "Инсталляция с «Силой Света» на основе ИИ",
-    text: "Медиафестиваль NUR в Казани. Арт-директор Илья Балакин создал ИИ-инсталляцию вокруг АТОМа. Для большинства из 6 000 гостей это был первый контакт с брендом",
+    text: "Медиафестиваль NUR в Казани. Арт-директор Илья Балакин создал ИИ-инсталляцию вокруг Атома. Для большинства из 6 000 гостей это был первый контакт с брендом.",
     logo: { src: "/figma/partners/event-nur.svg", w: 171, h: 18 },
   },
   {
     title: "Атом на Играх Будущего в Казани",
-    text: "Международный мультиспортивный турнир, 100 000 гостей. АТОМ стоял как арт-объект на площадке — и собирал очереди на фото",
+    text: "Международный мультиспортивный турнир, 100 000 гостей. Атом стоял как арт-объект на площадке — и собирал очереди на фото.",
     logo: { src: "/figma/partners/event-games.webp", w: 129, h: 52 },
   },
   {
     title: "Атом на экранах московского транспорта",
-    text: "Через контакты с Департаментом транспорта — ролик с АТОМом появился на медиаэкранах метро и наземного транспорта столицы",
+    text: "Через контакты с Департаментом транспорта — ролик с Атомом появился на медиаэкранах метро и наземного транспорта столицы.",
     logo: { src: "/figma/partners/event-metro.webp", w: 133, h: 50 },
   },
   {
     title: "Ливрея от художника Need for Speed",
-    text: "Художник Ciay, создающий скины для NFS, разработал кастомную ливрею для АТОМа. Показ на фестивале дрифта Grounded в Сочи и на выставке Дептранса в Манеже",
+    text: "Художник Ciay, создающий скины для NFS, разработал кастомную ливрею для Атома. Показ на фестивале дрифта Grounded в Сочи и на выставке Дептранса в Манеже.",
     logo: { src: "/figma/partners/event-nfs.webp", w: 127, h: 38 },
   },
   {
     title: "Центральный объект форума Касперского",
-    text: "Крупнейший форум по кибербезопасности. Логичная связка: Атом ОС работает на базе шлюза Касперского — совместная история, а не рекламная интеграция",
+    text: "Крупнейший форум по кибербезопасности. Логичная связка: Атом ОС работает на базе шлюза Касперского — совместная история, а не рекламная интеграция.",
     logo: { src: "/figma/partners/event-kaspersky.svg", w: 130, h: 25 },
   },
   {
     title: "Фестиваль DDX в парке Коломенское",
-    text: "40 000 гостей, городская культура, музыка и арт. АТОМ вписался как объект среди инсталляций — минимальные затраты, максимальный контакт",
+    text: "40 000 гостей, городская культура, музыка и арт. Атом вписался как объект среди инсталляций — минимальные затраты, максимальный контакт.",
     logo: { src: "/figma/partners/event-ddx.svg", w: 140, h: 46 },
   },
 ];
@@ -63,21 +66,24 @@ export default function PartnersEvents() {
           sizes="100vw"
           className="object-cover object-center"
         />
+        {/* Per Figma: 40 % black overlay across the whole image */}
+        <div aria-hidden className="absolute inset-0 bg-black/40" />
+        {/* Bottom fade into the section background */}
         <div
           aria-hidden
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(10,26,32,1) 100%)",
+              "linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(10,26,32,1) 100%)",
           }}
         />
 
         {/* Heading overlaid on the image */}
         <div className="absolute inset-x-0 top-0 z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:pt-[60px]">
-          <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white max-w-[615px]">
-            С Атом
+          <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white max-w-[720px]">
+            С&nbsp;Атом никогда
             <br />
-            никогда не скучно
+            не&nbsp;скучно
           </SectionHeading>
         </div>
       </div>
@@ -114,6 +120,14 @@ export default function PartnersEvents() {
                   {c.text}
                 </p>
               </div>
+              {c.button && (
+                <a
+                  href="#apply"
+                  className="relative z-10 inline-flex items-center justify-center self-start h-10 md:h-[44px] px-5 rounded-[12px] bg-black text-white text-sm md:text-[15px] font-medium hover:bg-black/85 transition"
+                >
+                  {c.button}
+                </a>
+              )}
               {c.logo && (
                 <Image
                   src={c.logo.src}
@@ -142,7 +156,7 @@ export default function PartnersEvents() {
           href="#apply"
           className="h-12 md:h-[71px] w-full max-w-[442px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
         >
-          Занять место
+          Подать заявку
         </GradientButton>
       </div>
     </section>
