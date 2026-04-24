@@ -5,7 +5,7 @@ import {
   IconTelegram,
   IconVK,
 } from "./SocialIcons";
-import { SOCIALS } from "@/content/site";
+import { SOCIALS, URLS } from "@/content/site";
 
 const socials = [
   { ...SOCIALS.vk, Icon: IconVK },
@@ -56,15 +56,22 @@ export default function PartnersFooter() {
           </div>
         </div>
 
-        <div className="mt-10 md:mt-16 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[#7b7473] text-sm md:text-lg">
-          <a href="#" className="hover:text-white transition">
+        <div className="mt-10 md:mt-16 flex flex-col md:flex-row md:items-center gap-4 md:gap-12 text-[#7b7473] text-sm md:text-lg">
+          <a
+            href={URLS.consent}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition"
+          >
+            Согласие на обработку персональных данных
+          </a>
+          <a
+            href={URLS.privacyPolicy}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition"
+          >
             Политика конфиденциальности
-          </a>
-          <a href="#" className="hover:text-white transition">
-            Пользовательские соглашения
-          </a>
-          <a href="#" className="hover:text-white transition">
-            Оферта
           </a>
         </div>
       </div>
