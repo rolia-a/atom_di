@@ -44,7 +44,7 @@ export default function PartnersCountdown() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 160% 260% at 78% 50%, rgba(0,170,160,0.5) 0%, rgba(0,120,135,0.3) 35%, rgba(0,70,90,0.15) 60%, transparent 85%)",
+            "radial-gradient(ellipse 160% 260% at 78% 50%, rgba(0,220,210,0.85) 0%, rgba(0,170,180,0.5) 30%, rgba(0,90,110,0.2) 60%, transparent 85%)",
         }}
       />
 
