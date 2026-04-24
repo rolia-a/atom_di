@@ -25,8 +25,12 @@ export default function PartnersHero() {
           <p className="mt-4 md:mt-5 font-display text-[20px] md:text-[24px] lg:text-[28px] font-medium leading-[1.2] text-white">
             До&nbsp;официальных продаж. В&nbsp;вашем сообществе.
           </p>
-          <p className="mt-4 md:mt-5 max-w-[500px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
-            Закрытые мероприятия с&nbsp;ранним доступом к&nbsp;электромобилю Атом&nbsp;— для сообществ, формирующих культуру нового. Если это о&nbsp;вас&nbsp;— листайте дальше.
+          <p className="mt-4 md:mt-5 max-w-[544px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
+            Закрытые мероприятия с&nbsp;ранним доступом
+            <br />
+            к&nbsp;электромобилю Атом&nbsp;— для сообществ, формирующих
+            <br />
+            культуру нового. Если это о&nbsp;вас&nbsp;— листайте дальше.
           </p>
           <div className="mt-8 md:mt-10 flex flex-wrap gap-3">
             <GradientButton
