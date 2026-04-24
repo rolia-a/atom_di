@@ -37,14 +37,14 @@ export default function PartnersCountdown() {
 
   return (
     <section className="relative overflow-hidden bg-black">
-      {/* Wide cyan wash anchored at the right edge, covering roughly the
-          right half of the section — matches Figma "after" frame. */}
+      {/* Large muted-teal glow (ellipse 1574×643 in Figma, node 445:128439),
+          anchored near the timer — softer/darker than pure cyan. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(100% 130% at 100% 50%, rgba(0,230,220,0.55) 0%, rgba(0,150,150,0.28) 35%, rgba(0,80,90,0.1) 65%, transparent 85%)",
+            "radial-gradient(ellipse 105% 170% at 78% 50%, rgba(0,170,160,0.45) 0%, rgba(0,115,130,0.22) 35%, rgba(0,65,85,0.1) 60%, transparent 80%)",
         }}
       />
 
@@ -71,13 +71,7 @@ export default function PartnersCountdown() {
             ].map((c, i, arr) => (
               <div key={c.unit} className="flex items-start gap-2 md:gap-4">
                 <div className="flex flex-col items-center">
-                  <span
-                    className="text-5xl md:text-7xl lg:text-[86px] leading-none font-medium tabular-nums"
-                    style={{
-                      color: "transparent",
-                      WebkitTextStroke: "1px #ffffff",
-                    }}
-                  >
+                  <span className="font-body font-extralight text-5xl md:text-7xl lg:text-[86px] leading-none tabular-nums">
                     {c.v}
                   </span>
                   <span className="mt-2 text-xs md:text-sm lg:text-[16px] text-white/75 font-body">
@@ -85,13 +79,7 @@ export default function PartnersCountdown() {
                   </span>
                 </div>
                 {i < arr.length - 1 && (
-                  <span
-                    className="text-5xl md:text-7xl lg:text-[86px] leading-none font-medium"
-                    style={{
-                      color: "transparent",
-                      WebkitTextStroke: "1px rgba(255,255,255,0.6)",
-                    }}
-                  >
+                  <span className="font-body font-extralight text-5xl md:text-7xl lg:text-[86px] leading-none text-white/60">
                     :
                   </span>
                 )}
