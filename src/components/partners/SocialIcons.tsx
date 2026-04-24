@@ -81,21 +81,21 @@ export function IconRutube({ className }: Props) {
 }
 
 export function IconMax({ className }: Props) {
-  // Approximation of the MAX messenger glyph from Figma node 483:189361:
-  // round speech-bubble body, small curled tail at bottom-left, dot upper-right.
+  // Exact glyph path from Figma node 483:189361 (viewBox sized to the path).
   return (
     <svg
-      viewBox="0 0 64 64"
+      viewBox="42 42 53 53"
       fill="none"
       className={className}
       aria-hidden
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M34 6C19.088 6 7 18.088 7 33c0 4.76 1.232 9.232 3.392 13.12C10.12 50.448 8.64 54.52 6.24 57.76c-.72.96.128 2.272 1.312 2.032 3.744-.752 7.952-2.416 11.648-4.8A26.86 26.86 0 0 0 34 60c14.912 0 27-12.088 27-27S48.912 6 34 6Z"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M69.0694 94.8487C63.8681 94.8487 61.451 94.0861 57.2495 91.0357C54.5919 94.4674 46.1762 97.1493 45.8092 92.5609C45.8092 89.1165 45.0499 86.2059 44.1893 83.0283C43.1643 79.1136 42 74.754 42 68.4371C42 53.3501 54.3262 42 68.9302 42C83.5469 42 94.9998 53.9094 94.9998 68.5769C95.0489 83.0176 83.4475 94.7717 69.0694 94.8487ZM69.2845 55.0406C62.1724 54.672 56.6294 59.6163 55.4018 67.3695C54.3894 73.7881 56.1865 81.6048 57.7177 82.0115C58.4517 82.1895 60.2994 80.6897 61.451 79.5331C63.3553 80.8543 65.5728 81.6478 67.8799 81.8336C75.2492 82.1896 81.5462 76.5549 82.0409 69.1616C82.329 61.7526 76.655 55.4773 69.2845 55.0533V55.0406Z"
         fill="currentColor"
       />
-      <circle cx="44.5" cy="22.5" r="4" fill="#fff" />
     </svg>
   );
 }
