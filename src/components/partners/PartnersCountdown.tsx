@@ -37,13 +37,14 @@ export default function PartnersCountdown() {
 
   return (
     <section className="relative overflow-hidden bg-black">
-      {/* Brighter teal glow shifted toward the timer (right side) */}
+      {/* Wide cyan wash anchored at the right edge, covering roughly the
+          right half of the section — matches Figma "after" frame. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(55% 70% at 85% 50%, rgba(0,200,180,0.7) 0%, rgba(0,120,130,0.35) 40%, transparent 75%)",
+            "radial-gradient(100% 130% at 100% 50%, rgba(0,230,220,0.55) 0%, rgba(0,150,150,0.28) 35%, rgba(0,80,90,0.1) 65%, transparent 85%)",
         }}
       />
 
@@ -70,7 +71,7 @@ export default function PartnersCountdown() {
             ].map((c, i, arr) => (
               <div key={c.unit} className="flex items-start gap-2 md:gap-4">
                 <div className="flex flex-col items-center">
-                  <span className="text-5xl md:text-7xl lg:text-[86px] leading-none font-medium tabular-nums">
+                  <span className="text-5xl md:text-7xl lg:text-[86px] leading-none font-normal tabular-nums">
                     {c.v}
                   </span>
                   <span className="mt-2 text-xs md:text-sm lg:text-[16px] text-white/75 font-body">
@@ -78,7 +79,7 @@ export default function PartnersCountdown() {
                   </span>
                 </div>
                 {i < arr.length - 1 && (
-                  <span className="text-5xl md:text-7xl lg:text-[86px] leading-none text-white/60">
+                  <span className="text-5xl md:text-7xl lg:text-[86px] leading-none font-normal text-white/60">
                     :
                   </span>
                 )}
