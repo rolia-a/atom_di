@@ -71,7 +71,7 @@ export default function PartnersCountdown() {
             ].map((c, i, arr) => (
               <div key={c.unit} className="flex items-start gap-2 md:gap-4">
                 <div className="flex flex-col items-center">
-                  <span className="font-body font-extralight text-5xl md:text-7xl lg:text-[86px] leading-none tabular-nums">
+                  <span className="font-display font-light text-5xl md:text-7xl lg:text-[86px] leading-[1.05] tracking-[-0.01em] tabular-nums">
                     {c.v}
                   </span>
                   <span className="mt-2 text-xs md:text-sm lg:text-[16px] text-white/75 font-body">
@@ -79,7 +79,7 @@ export default function PartnersCountdown() {
                   </span>
                 </div>
                 {i < arr.length - 1 && (
-                  <span className="font-body font-extralight text-5xl md:text-7xl lg:text-[86px] leading-none text-white/60">
+                  <span className="font-display font-light text-5xl md:text-7xl lg:text-[86px] leading-[1.05] tracking-[-0.01em] text-white/60">
                     :
                   </span>
                 )}
