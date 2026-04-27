@@ -191,14 +191,26 @@ export default function PartnersEvents() {
         </ul>
       </div>
 
-      {/* iPhone-style scroll dots — visible on mobile only, scroll position
-          maps to active dot via the carousel ref above. */}
-      <div className="md:hidden flex justify-center gap-2 pb-6" aria-hidden>
+      {/* iPhone-style scroll dots — visible on mobile only, click to scroll
+          to the corresponding card. */}
+      <div className="md:hidden flex justify-center gap-2 pb-6">
         {cards.map((_, i) => (
-          <span
+          <button
             key={i}
-            className={`h-1.5 w-1.5 rounded-full transition-colors ${
-              i === activeIdx ? "bg-white" : "bg-white/30"
+            type="button"
+            aria-label={`Слайд ${i + 1}`}
+            aria-current={i === activeIdx ? "true" : undefined}
+            onClick={() => {
+              const el = scrollerRef.current;
+              const li = el?.querySelectorAll<HTMLLIElement>("li")[i];
+              if (!el || !li) return;
+              el.scrollTo({
+                left: li.offsetLeft - (el.clientWidth - li.clientWidth) / 2,
+                behavior: "smooth",
+              });
+            }}
+            className={`h-2 w-2 rounded-full transition-colors ${
+              i === activeIdx ? "bg-white" : "bg-white/30 hover:bg-white/50"
             }`}
           />
         ))}
