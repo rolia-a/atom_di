@@ -43,6 +43,11 @@ export const CONTACTS = {
     /** RFC 3966 form for `tel:` URLs */
     tel: "+78003019395",
   },
+  /** Partners-programme dedicated contact (shown in /partners footer) */
+  partners: {
+    phone: { display: "8 (495) 320-20-30", tel: "+74953202030" },
+    email: "partners@atom.team",
+  },
   emails: [
     {
       address: "support@atom.auto",
@@ -70,5 +75,5 @@ export const SOCIALS = {
   vk: { label: "VK", href: "https://vk.com/atomauto" },
   telegram: { label: "Telegram", href: "https://t.me/atomauto" },
   dzen: { label: "Dzen", href: "https://dzen.ru/atomauto" },
-  rutube: { label: "Rutube", href: "https://rutube.ru/atomauto" },
+  max: { label: "MAX", href: "https://max.ru/atomauto" },
 } as const;

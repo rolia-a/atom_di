@@ -1,17 +1,17 @@
 import Image from "next/image";
 import {
   IconDzen,
-  IconRutube,
+  IconMax,
   IconTelegram,
   IconVK,
 } from "./SocialIcons";
-import { SOCIALS, URLS } from "@/content/site";
+import { CONTACTS, SOCIALS, URLS } from "@/content/site";
 
 const socials = [
   { ...SOCIALS.vk, Icon: IconVK },
   { ...SOCIALS.telegram, Icon: IconTelegram },
   { ...SOCIALS.dzen, Icon: IconDzen },
-  { ...SOCIALS.rutube, Icon: IconRutube },
+  { ...SOCIALS.max, Icon: IconMax },
 ];
 
 export default function PartnersFooter() {
@@ -40,19 +40,38 @@ export default function PartnersFooter() {
             </p>
           </div>
 
-          <div className="flex gap-3">
-            {socials.map(({ label, href, Icon }) => (
+          <div className="flex flex-col gap-5 lg:items-end">
+            <div className="flex gap-3">
+              {socials.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="h-[56px] w-[56px] md:h-[67px] md:w-[67px] rounded-2xl bg-white text-black flex items-center justify-center hover:brightness-110 transition"
+                >
+                  <Icon className="w-[58%] h-[58%]" />
+                </a>
+              ))}
+            </div>
+            <div className="text-white text-sm md:text-base lg:text-right">
               <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="h-[56px] w-[56px] md:h-[67px] md:w-[67px] rounded-2xl bg-white text-black flex items-center justify-center hover:brightness-110 transition"
+                href={`tel:${CONTACTS.partners.phone.tel}`}
+                className="font-display text-lg md:text-xl hover:text-teal transition"
               >
-                <Icon className="w-[58%] h-[58%]" />
+                {CONTACTS.partners.phone.display}
               </a>
-            ))}
+              <p className="mt-3 text-xs md:text-sm text-[#7b7473]">
+                По срочным вопросам:
+              </p>
+              <a
+                href={`mailto:${CONTACTS.partners.email}`}
+                className="text-sm md:text-base hover:text-teal transition"
+              >
+                {CONTACTS.partners.email}
+              </a>
+            </div>
           </div>
         </div>
 
