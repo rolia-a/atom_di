@@ -81,7 +81,7 @@ export default function PartnersEvents() {
 
         {/* Heading overlaid on the image. */}
         <div className="absolute inset-x-0 top-0 z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:pt-[60px] text-left">
-          <SectionHeading className="text-[32px] md:text-[48px] lg:text-[56px] text-white md:max-w-[720px]">
+          <SectionHeading className="text-[32px] md:text-[48px] lg:text-[56px] leading-[1.15] md:leading-[1.05] text-white md:max-w-[720px]">
             С&nbsp;Атомом никогда
             <br />
             не&nbsp;скучно
