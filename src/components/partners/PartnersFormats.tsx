@@ -23,19 +23,20 @@ const cards: Card[] = [
     title: "Интеграция продукта",
     desc: "Мы придумываем механику под ваше сообщество, создаём контент и\u00A0обеспечиваем\u00A0PR.",
     img: "/figma/partners/comm-integration.webp",
-    // Show the woman-and-car area — not fully left, not fully right.
-    imgPosition: "72% center",
+    // Show the woman-and-car area — not fully left, not fully right;
+    // shifted 10px down per mobile review.
+    imgPosition: "72% calc(50% + 10px)",
   },
   {
     num: "03",
-    title: "Брендированный автопробег",
-    desc: "Авто становятся мобильными медиа-носителями — по\u00A0городу или между точками вашего комьюнити.",
+    title: "Брендированный\nавтопробег",
+    desc: "Авто становятся мобильными медиа-носителями — по\u00A0городу\nили между точками вашего\nкомьюнити.",
     img: "/figma/partners/comm-autorun.webp",
   },
   {
     num: "04",
     title: "Событие под ключ",
-    desc: "Организуем мероприятие, выставку или фан-зону с Атом как центральным объектом.",
+    desc: "Организуем мероприятие,\nвыставку или фан-зону с Атом\nкак центральным объектом.",
     img: "/figma/partners/comm-event.webp",
   },
 ];
@@ -46,12 +47,16 @@ export default function PartnersFormats() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[657px]">
-            <span className="text-teal">Всё за наш счёт. </span>
+            <span className="text-teal">Всё за наш счёт.</span>
+            <br />
             Серьёзно.
           </SectionHeading>
           <p className="max-w-[328px] text-base md:text-lg lg:text-xl leading-[1.4]">
-            Четыре формата сотрудничества. Мы подберём подходящий — или
-            придумаем новый для вас.
+            Четыре формата сотрудничества.
+            <br />
+            Мы подберём подходящий —
+            <br />
+            или придумаем новый для вас.
           </p>
         </div>
 
@@ -79,11 +84,11 @@ export default function PartnersFormats() {
                   <p className="text-[13px] tracking-[0.08em] uppercase font-medium">
                     {c.num}
                   </p>
-                  <h3 className="font-display text-xl md:text-2xl font-medium leading-tight">
+                  <h3 className="font-display text-xl md:text-2xl font-medium leading-tight whitespace-pre-line">
                     {c.title}
                   </h3>
                 </div>
-                <p className="text-base md:text-lg lg:text-xl leading-[1.4]">
+                <p className="text-base md:text-lg lg:text-xl leading-[1.4] whitespace-pre-line">
                   {c.desc}
                 </p>
               </div>
