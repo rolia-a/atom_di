@@ -65,11 +65,22 @@ export default function PartnersEvents() {
     const el = scrollerRef.current;
     if (!el) return;
     const onScroll = () => {
-      const cardWidth = el.firstElementChild?.firstElementChild?.clientWidth ?? 1;
-      const gap = 16; // gap-4 ≈ 16px
-      const idx = Math.round(el.scrollLeft / (cardWidth + gap));
-      setActiveIdx(Math.min(Math.max(idx, 0), cards.length - 1));
+      // Pick the card whose centre is closest to the viewport centre.
+      const items = el.querySelectorAll<HTMLLIElement>("li");
+      const center = el.scrollLeft + el.clientWidth / 2;
+      let bestIdx = 0;
+      let bestDist = Infinity;
+      items.forEach((li, i) => {
+        const c = li.offsetLeft + li.clientWidth / 2;
+        const d = Math.abs(c - center);
+        if (d < bestDist) {
+          bestDist = d;
+          bestIdx = i;
+        }
+      });
+      setActiveIdx(bestIdx);
     };
+    onScroll();
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
@@ -129,7 +140,7 @@ export default function PartnersEvents() {
                 <h3
                   className={`font-display leading-tight font-medium ${
                     c.accent
-                      ? "text-white text-2xl md:text-2xl lg:text-[28px]"
+                      ? "text-white text-[22px] md:text-2xl lg:text-[28px]"
                       : "text-[#16272d] text-lg md:text-xl lg:text-[24px]"
                   }`}
                 >
@@ -138,7 +149,7 @@ export default function PartnersEvents() {
                 <p
                   className={`leading-[1.35] ${
                     c.accent
-                      ? "text-white text-lg md:text-base lg:text-[20px] whitespace-pre-line"
+                      ? "text-white text-[17px] md:text-base lg:text-[20px] whitespace-pre-line"
                       : "text-black text-sm md:text-base lg:text-[18px]"
                   }`}
                 >
