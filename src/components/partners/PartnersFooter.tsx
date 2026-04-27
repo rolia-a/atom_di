@@ -27,7 +27,7 @@ export default function PartnersFooter() {
           />
         </div>
 
-        <div className="mt-12 md:mt-20 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end">
+        <div className="mt-12 md:mt-20 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-start">
           <div className="space-y-4 max-w-[735px]">
             <p className="font-body text-lg md:text-xl text-gray-4 leading-snug">
               2023, АО «Кама» образовано 5 августа 2021
@@ -40,7 +40,10 @@ export default function PartnersFooter() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-5 lg:items-end">
+          {/* Right column nudged down so the top of the social-icons row
+              lines up with the start of the "АККРЕДИТОВАНО..." paragraph
+              on the left. */}
+          <div className="flex flex-col gap-5 lg:items-end lg:mt-12">
             <div className="flex gap-3">
               {socials.map(({ label, href, Icon }) => (
                 <a
