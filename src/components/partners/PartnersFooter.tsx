@@ -27,17 +27,39 @@ export default function PartnersFooter() {
           />
         </div>
 
-        <div className="mt-12 md:mt-20 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-start">
-          <div className="space-y-4 max-w-[735px]">
-            <p className="font-body text-lg md:text-xl text-gray-4 leading-snug">
-              2023, АО «Кама» образовано 5 августа 2021
-            </p>
-            <p className="text-xs md:text-[13px] tracking-normal uppercase text-[#7b7473] leading-relaxed">
-              Аккредитовано в Минцифры РФ на основании решения о предоставлении
-              государственной аккредитации организации, осуществляющей
-              деятельность в области информационных технологий от 27 апреля
-              2022 года № АО-20 220 427–4 340 137 495–3
-            </p>
+        <div className="mt-12 md:mt-20 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-stretch">
+          <div className="flex flex-col gap-8 max-w-[735px]">
+            <div className="space-y-4">
+              <p className="font-body text-lg md:text-xl text-gray-4 leading-snug">
+                2023, АО «Кама» образовано 5 августа 2021
+              </p>
+              <p className="text-xs md:text-[13px] tracking-normal uppercase text-[#7b7473] leading-relaxed">
+                Аккредитовано в Минцифры РФ на основании решения о предоставлении
+                государственной аккредитации организации, осуществляющей
+                деятельность в области информационных технологий от 27 апреля
+                2022 года № АО-20 220 427–4 340 137 495–3
+              </p>
+            </div>
+            {/* Legal links pinned to the bottom of the left column so their
+                baseline lines up with the email on the right. */}
+            <div className="mt-auto flex flex-col md:flex-row md:items-center gap-4 md:gap-12 text-[#7b7473] text-sm md:text-lg">
+              <a
+                href={URLS.consent}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition"
+              >
+                Согласие на обработку персональных данных
+              </a>
+              <a
+                href={URLS.privacyPolicy}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition"
+              >
+                Политика конфиденциальности
+              </a>
+            </div>
           </div>
 
           <div className="flex flex-col gap-5 lg:items-end lg:mt-[3px]">
@@ -73,25 +95,6 @@ export default function PartnersFooter() {
               </a>
             </div>
           </div>
-        </div>
-
-        <div className="mt-10 md:mt-16 flex flex-col md:flex-row md:items-center gap-4 md:gap-12 text-[#7b7473] text-sm md:text-lg">
-          <a
-            href={URLS.consent}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition"
-          >
-            Согласие на обработку персональных данных
-          </a>
-          <a
-            href={URLS.privacyPolicy}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition"
-          >
-            Политика конфиденциальности
-          </a>
         </div>
       </div>
     </footer>
