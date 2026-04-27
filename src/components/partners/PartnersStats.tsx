@@ -29,13 +29,14 @@ export default function PartnersStats() {
           className="object-cover object-center"
         />
 
-        {/* Brownish gradient fade from #292929 at the bottom to transparent */}
+        {/* Grey gradient fade — denser at the bottom so the stats sit on a
+            solid surface instead of overlapping the car image. */}
         <div
           aria-hidden
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(41,41,41,0) 35%, rgba(41,41,41,0.6) 65%, rgba(41,41,41,0.95) 100%)",
+              "linear-gradient(180deg, rgba(41,41,41,0) 35%, rgba(41,41,41,0.85) 55%, rgba(41,41,41,1) 65%)",
           }}
         />
 
