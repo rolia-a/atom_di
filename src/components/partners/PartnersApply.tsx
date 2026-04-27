@@ -83,12 +83,14 @@ export default function PartnersApply() {
           }}
         />
       </div>
+      {/* Desktop: small top-to-transparent fade so the section opens from
+          black at the very top and clears quickly. */}
       <div
         aria-hidden
-        className="absolute inset-0 hidden lg:block"
+        className="absolute inset-x-0 top-0 hidden lg:block h-[180px]"
         style={{
           background:
-            "linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 25%, rgba(0,0,0,0) 55%)",
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%)",
         }}
       />
       {/* Mobile: top-to-transparent fade so the title + description stay
