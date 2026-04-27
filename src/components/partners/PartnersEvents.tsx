@@ -18,7 +18,7 @@ const cards = [
     logo: { src: "/figma/partners/event-arctic.webp", w: 136, h: 52 },
   },
   {
-    title: "Тест-драйв с чемпионом «24 часов Ле-Мана»",
+    title: "Тест-драйв с чемпионом «24 часа Ле-Мана»",
     text: "Алексей Басов — победитель Ле-Мана 2015 и чемпион мира по гонкам на выносливость — тестировал Атом на картодроме с отключенной ESP. Вердикт: «собранный, уверенно проходит повороты, динамика на высоком уровне».",
     logo: { src: "/figma/partners/event-lemans.webp", w: 72, h: 47 },
   },
@@ -81,7 +81,7 @@ export default function PartnersEvents() {
         {/* Heading overlaid on the image */}
         <div className="absolute inset-x-0 top-0 z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:pt-[60px]">
           <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white max-w-[720px]">
-            С&nbsp;Атом никогда
+            С&nbsp;Атомом никогда
             <br />
             не&nbsp;скучно
           </SectionHeading>

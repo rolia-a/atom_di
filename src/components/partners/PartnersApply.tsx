@@ -109,7 +109,7 @@ export default function PartnersApply() {
               <div>
                 <p className="font-display text-2xl font-medium">Заявка отправлена</p>
                 <p className="mt-2 text-sm text-black/60">
-                  Мы получили вашу заявку и ответим в течение 24 часов.
+                  Мы получили вашу заявку и ответим в течение 24 часа.
                 </p>
                 <p className="mt-4 text-sm text-black/60">
                   По срочным вопросам:
