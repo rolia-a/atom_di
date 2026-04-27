@@ -78,9 +78,10 @@ export default function PartnersEvents() {
           }}
         />
 
-        {/* Heading overlaid on the image */}
-        <div className="absolute inset-x-0 top-0 z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:pt-[60px]">
-          <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white max-w-[720px]">
+        {/* Heading overlaid on the image — centred on mobile, left-aligned
+            on md+ to match the desktop layout. */}
+        <div className="absolute inset-x-0 top-0 z-10 mx-auto max-w-[1440px] px-5 md:px-10 py-12 md:py-16 lg:pt-[60px] text-center md:text-left">
+          <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white md:max-w-[720px]">
             С&nbsp;Атомом никогда
             <br />
             не&nbsp;скучно
