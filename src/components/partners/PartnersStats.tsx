@@ -10,7 +10,7 @@ const stats = [
 export default function PartnersStats() {
   return (
     <section className="relative bg-black overflow-hidden">
-      <div className="relative w-full min-h-[660px] md:min-h-[800px]">
+      <div className="relative w-full min-h-[820px] md:min-h-[800px]">
         {/* Background per Figma: bridge-cam composite (base + overlay).
             On mobile we drop the cover-zoom so the whole car/tunnel
             fits inside the viewport instead of being cropped. */}
