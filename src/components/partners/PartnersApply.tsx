@@ -44,54 +44,72 @@ export default function PartnersApply() {
         We reproduce those proportions as percentages of the live section so
         the composition scales with the actual rendered section height.
       */}
-      <div
-        className="absolute inset-0 pointer-events-none overflow-hidden"
-        style={{
-          // Fade the top of the section into pure black so the rear of the car
-          // dissolves out (Figma: only the front half "emerges" from darkness).
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 30%, black 80%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 30%, black 80%)",
-        }}
-      >
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Mobile placement — car visible behind the form, with its own
+            top fade so the rear of the car dissolves out wherever it sits. */}
         <img
           src="/figma/product/top-atom.webp"
           alt=""
           aria-hidden
           draggable={false}
-          className="absolute max-w-none select-none"
+          className="lg:hidden absolute max-w-none select-none"
           style={{
-            left: "72%",
-            // Slightly smaller per second-round Figma changelog — leave more
-            // breathing room around the car in the right half.
-            top: "calc(-5% + 40px)",
-            height: "170%",
+            left: "50%",
+            top: "calc(30% - 300px)",
+            height: "90%",
             width: "auto",
             transform: "translate(-50%, -50%) rotate(-90deg)",
             transformOrigin: "center",
           }}
         />
+        {/* Desktop placement (Figma node 483:188902) */}
+        <img
+          src="/figma/product/top-atom.webp"
+          alt=""
+          aria-hidden
+          draggable={false}
+          className="hidden lg:block absolute max-w-none select-none"
+          style={{
+            left: "72%",
+            top: "calc(-5% + 40px)",
+            height: "170%",
+            width: "auto",
+            transform: "translate(-50%, -50%) rotate(-90deg)",
+            transformOrigin: "center",
+            maskImage:
+              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 30%, black 80%)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 30%, black 80%)",
+          }}
+        />
       </div>
       <div
         aria-hidden
-        className="absolute inset-0"
+        className="absolute inset-0 hidden lg:block"
         style={{
-          // Mild horizontal fade for the form side — kept subtle so it doesn't
-          // fight the vertical mask above.
           background:
             "linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 25%, rgba(0,0,0,0) 55%)",
         }}
       />
+      {/* Mobile: top-to-transparent fade so the title + description stay
+          legible against the car render, then opens up below them. */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-[330px] lg:hidden"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.75) 55%, rgba(0,0,0,0) 100%)",
+        }}
+      />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-10 md:py-10 lg:py-10 h-[600px] md:h-[821px] flex flex-col">
-        <div className="max-w-[701px]">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 lg:pl-[156px] py-10 md:py-10 lg:py-10 min-h-[600px] lg:h-[821px] flex flex-col">
+        <div className="max-w-[701px] text-center lg:text-left">
           <SectionHeading className="text-[36px] md:text-[48px] lg:text-[56px] text-white">
             Подайте заявку
             <br />
             на&nbsp;отбор
           </SectionHeading>
-          <p className="mt-5 max-w-[615px] text-lg md:text-xl lg:text-[24px] text-ink-soft leading-[32px]">
+          <p className="mt-2 lg:mt-5 max-w-[615px] mx-auto lg:mx-0 text-lg md:text-xl lg:text-[24px] text-ink-soft leading-tight lg:leading-[32px]">
             Расскажите о сообществе
             <br />
             и мы ответим за 24 часа
@@ -134,7 +152,7 @@ export default function PartnersApply() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="mt-10 md:mt-[80px] max-w-[444px] flex flex-col gap-5"
+            className="mt-[230px] md:mt-[80px] max-w-[444px] mx-auto lg:mx-0 w-full flex flex-col gap-5"
           >
             <Input name="name" placeholder="Имя" required />
             <Input name="community" placeholder="Сообщество, канал или клуб" required />

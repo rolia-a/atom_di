@@ -15,12 +15,12 @@ const reasons = [
   {
     num: "03",
     title: "Автомобиль-контент",
-    desc: "Распашные двери, руль с\u00A0экраном, проекция дополненной реальности на\u00A0лобовом стекле, голосовой ассистент — каждая деталь привлекает интерес.",
+    desc: "Распашные двери, руль\nс экраном, проекция дополненной реальности на лобовом стекле, голосовой ассистент — каждая деталь привлекает интерес.",
   },
   {
     num: "04",
     title: "Вы — про аудиторию, остальное на нас",
-    desc: "Концепция, продакшн, логистика, съёмка, информационная поддержка — мы закрываем всю цепочку. Вы фокусируетесь на\u00A0своих людях.",
+    desc: "Концепция, продакшн, логистика, съёмка, информационная поддержка — мы закрываем всю цепочку. Вы фокусируетесь\nна своих людях.",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function PartnersReasons() {
               <h3 className="font-display text-xl md:text-2xl font-medium leading-tight text-black">
                 {r.title}
               </h3>
-              <p className="mt-auto text-sm md:text-base lg:text-[20px] text-black/80 leading-[1.4]">
+              <p className="mt-3 text-[17px] md:text-lg lg:text-[20px] text-black/80 leading-[1.4] whitespace-pre-line">
                 {r.desc}
               </p>
             </FrostedCard>
