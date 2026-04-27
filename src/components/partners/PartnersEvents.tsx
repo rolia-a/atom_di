@@ -9,8 +9,8 @@ const cards = [
     // the trailing "с" from becoming an orphan on a new line.
     text: "Девятый слот ждёт сообщество, готовое написать следующую главу вместе\u00A0с\u00A0нами.",
     accent: true,
-    img: { src: "/figma/product/atom-transparent.webp", w: 340, h: 248 },
-    button: "Подать заявку",
+    img: { src: "/figma/product/atom-transparent.webp", w: 280, h: 200 },
+    button: "Записаться",
   },
   {
     title: "Первый в мире тест-драйв EV в Арктике",
@@ -89,7 +89,7 @@ export default function PartnersEvents() {
       </div>
 
       {/* Cards carousel — positioned below the image so the car stays visible */}
-      <div className="relative z-10 -mt-[120px] md:-mt-[150px] lg:-mt-[165px] pb-12 md:pb-16 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth">
+      <div className="relative z-10 -mt-[120px] md:-mt-[150px] lg:-mt-[165px] pb-8 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth">
         <ul className="flex gap-3 md:gap-4 w-max pl-5 md:pl-10 pr-5 md:pr-10">
           {cards.map((c, i) => (
             <li
@@ -138,12 +138,16 @@ export default function PartnersEvents() {
                 />
               )}
               {c.img && (
-                <Image
+                // Plain <img> so the asset is unoptimised and renders even when
+                // the Next/Image pipeline trips on the transparent webp.
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
                   src={c.img.src}
                   alt=""
                   width={c.img.w}
                   height={c.img.h}
-                  className="absolute bottom-0 right-[-40px] pointer-events-none"
+                  className="absolute bottom-0 right-[-20px] pointer-events-none select-none"
+                  draggable={false}
                 />
               )}
             </li>
@@ -151,13 +155,24 @@ export default function PartnersEvents() {
         </ul>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 pb-12 md:pb-16 flex justify-center">
-        <GradientButton
-          href="#apply"
-          className="h-12 md:h-[71px] w-full max-w-[442px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
-        >
-          Подать заявку
-        </GradientButton>
+      {/* Black gradient under the CTA button per Figma */}
+      <div className="relative">
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(10,26,32,0) 0%, rgba(0,0,0,1) 70%)",
+          }}
+        />
+        <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-10 pb-12 md:pb-16 flex justify-center">
+          <GradientButton
+            href="#apply"
+            className="h-12 md:h-[71px] w-full max-w-[442px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
+          >
+            Подать заявку
+          </GradientButton>
+        </div>
       </div>
     </section>
   );
