@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const steps = [
   { num: "01", title: "Заявка", desc: "Расскажите о своём сообществе и целях. Мы вернёмся с обратной связью в течение 24 часа." },
   { num: "02", title: "Стратегия", desc: "Вместе определяем, какой результат важен для вашей аудитории." },
-  { num: "03", title: "Формат", desc: "Предлагаем конкретные идеи и механику — адаптированные под ваше сообщество." },
+  { num: "03", title: "Формат", desc: "Предлагаем конкретные идеи и механику — адаптированные\nпод ваше сообщество." },
   { num: "04", title: "Продакшн", desc: "Воплощаем проект. Вы занимаетесь аудиторией — всё остальное на нас." },
   { num: "05", title: "Результат", desc: "Фиксируем итоги. Вы получаете контент и историю для своего комьюнити." },
 ];
@@ -80,18 +80,46 @@ export default function PartnersTimeline() {
             ))}
           </ol>
 
-          {/* Mobile: vertical list */}
+          {/* Mobile: vertical list with dashed line connecting the circles */}
           <ol className="md:hidden space-y-6">
-            {steps.map((s) => (
-              <li key={s.num} className="flex gap-4">
-                <div className="shrink-0 h-10 w-10 rounded-full bg-teal text-white font-medium flex items-center justify-center text-sm">
+            {steps.map((s, i) => (
+              <li key={s.num} className="relative flex gap-4">
+                <span
+                  aria-hidden
+                  className={`absolute left-5 top-10 w-px -translate-x-1/2 ${
+                    i < steps.length - 1 ? "bottom-[-24px]" : "h-10"
+                  }`}
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, #c4c9d0 50%, transparent 50%)",
+                    backgroundSize: "1px 8px",
+                    backgroundRepeat: "repeat-y",
+                  }}
+                />
+                {i === steps.length - 1 && (
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 32 14"
+                    className="absolute left-5 top-[80px] -translate-x-1/2 w-5 h-3"
+                  >
+                    <polyline
+                      points="2,2 16,12 30,2"
+                      fill="none"
+                      stroke="#c4c9d0"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
+                <div className="relative shrink-0 h-10 w-10 rounded-full bg-teal text-white font-medium flex items-center justify-center text-sm">
                   {s.num}
                 </div>
                 <div>
                   <h3 className="font-display text-2xl font-medium leading-tight">
                     {s.title}
                   </h3>
-                  <p className="mt-2 text-sm text-black/70 leading-snug">{s.desc}</p>
+                  <p className="mt-2 text-sm text-black/70 leading-snug whitespace-pre-line">{s.desc}</p>
                 </div>
               </li>
             ))}
