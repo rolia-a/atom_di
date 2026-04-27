@@ -75,5 +75,6 @@ export const SOCIALS = {
   vk: { label: "VK", href: "https://vk.com/atomauto" },
   telegram: { label: "Telegram", href: "https://t.me/atomauto" },
   dzen: { label: "Dzen", href: "https://dzen.ru/atomauto" },
+  rutube: { label: "Rutube", href: "https://rutube.ru/atomauto" },
   max: { label: "MAX", href: "https://max.ru/atomauto" },
 } as const;
