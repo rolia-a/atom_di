@@ -7,7 +7,7 @@ const cards = [
     title: "Твоя история",
     // Non-breaking spaces around the prepositions ("с нами") to prevent
     // the trailing "с" from becoming an orphan on a new line.
-    text: "Девятый слот ждёт сообщество, готовое написать следующую главу вместе\u00A0с\u00A0нами.",
+    text: "Девятый слот ждёт сообщество,\nготовое написать следующую\nглаву вместе с нами.",
     accent: true,
     img: { src: "/figma/product/atom-transparent.webp", w: 340, h: 244 },
     button: "Записаться",
@@ -116,7 +116,7 @@ export default function PartnersEvents() {
                 <p
                   className={`leading-[1.35] ${
                     c.accent
-                      ? "text-white text-sm md:text-base lg:text-[20px]"
+                      ? "text-white text-base md:text-base lg:text-[20px] whitespace-pre-line"
                       : "text-black text-sm md:text-base lg:text-[18px]"
                   }`}
                 >
@@ -149,7 +149,7 @@ export default function PartnersEvents() {
                   alt=""
                   width={c.img.w}
                   height={c.img.h}
-                  className="absolute bottom-0 right-[-36px] pointer-events-none select-none"
+                  className="absolute bottom-0 right-[-86px] pointer-events-none select-none"
                   draggable={false}
                 />
               )}
