@@ -98,16 +98,76 @@ export default function PartnersApply() {
           </p>
         </div>
 
-        {done ? (
-          <div className="mt-12 max-w-[444px] rounded-[32px] bg-white p-8 text-black">
-            <div className="flex flex-col items-center gap-6 text-center">
+        <form
+          onSubmit={handleSubmit}
+          className="mt-10 md:mt-[80px] max-w-[444px] flex flex-col gap-5"
+        >
+          <Input name="name" placeholder="Имя" required />
+          <Input name="community" placeholder="Сообщество, канал или клуб" required />
+          <Input name="contact" placeholder="Telegram или email" required />
+          <Input name="about" placeholder="Расскажите о вашей аудитории и идее" />
+
+          <p className="text-[13px] text-white/70 leading-snug">
+            Нажимая кнопку «Подать заявку», я даю{" "}
+            <a
+              href={URLS.consent}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              Согласие на обработку персональных данных
+            </a>
+            {" "}в соответствии с{" "}
+            <a
+              href={URLS.privacyPolicy}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white"
+            >
+              политикой конфиденциальности
+            </a>
+          </p>
+          <GradientButton
+            type="submit"
+            disabled={submitting}
+            className="mt-2 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] text-base md:text-[24px] disabled:opacity-60"
+          >
+            {submitting ? "Отправляем…" : "Подать заявку"}
+          </GradientButton>
+          {error && (
+            <p className="mt-2 text-sm text-red-400 text-center">{error}</p>
+          )}
+          <p className="mt-2 text-center text-[12px] text-white/35 font-display font-light">
+            Без спама, без рассылок
+          </p>
+        </form>
+      </div>
+
+      {/* Success modal — true overlay centred on the section, form stays
+          visible behind. */}
+      {done && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="apply-success-title"
+          className="absolute inset-0 z-20 flex items-center justify-center px-5"
+        >
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"
+            onClick={() => setDone(false)}
+          />
+          <div className="relative w-full max-w-[440px] rounded-[28px] bg-white p-8 text-black shadow-2xl">
+            <div className="flex flex-col items-center gap-5 text-center">
               <div className="h-[72px] w-[72px] rounded-full bg-teal/15 flex items-center justify-center">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                   <path d="M8 16l5 5 11-11" stroke="#00b2b2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <div>
-                <p className="font-display text-2xl font-medium">Заявка отправлена</p>
+                <p id="apply-success-title" className="font-display text-2xl font-medium">
+                  Заявка отправлена
+                </p>
                 <p className="mt-2 text-sm text-black/60">
                   Мы получили вашу заявку и ответим в течение 24 часов.
                 </p>
@@ -125,58 +185,14 @@ export default function PartnersApply() {
               <button
                 type="button"
                 onClick={() => setDone(false)}
-                className="w-full h-14 rounded-2xl bg-black text-white font-medium hover:brightness-110 transition"
+                className="w-full h-12 rounded-[14px] bg-black text-white font-medium hover:brightness-110 transition"
               >
                 Хорошо
               </button>
             </div>
           </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="mt-10 md:mt-[80px] max-w-[444px] flex flex-col gap-5"
-          >
-            <Input name="name" placeholder="Имя" required />
-            <Input name="community" placeholder="Сообщество, канал или клуб" required />
-            <Input name="contact" placeholder="Telegram или email" required />
-            <Input name="about" placeholder="Расскажите о вашей аудитории и идее" />
-
-            <p className="text-[13px] text-white/70 leading-snug">
-              Нажимая кнопку «Подать заявку», я даю{" "}
-              <a
-                href={URLS.consent}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-white"
-              >
-                Согласие на обработку персональных данных
-              </a>
-              {" "}в соответствии с{" "}
-              <a
-                href={URLS.privacyPolicy}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-white"
-              >
-                политикой конфиденциальности
-              </a>
-            </p>
-            <GradientButton
-              type="submit"
-              disabled={submitting}
-              className="mt-2 h-[60px] md:h-[71px] rounded-2xl md:rounded-[20px] text-base md:text-[24px] disabled:opacity-60"
-            >
-              {submitting ? "Отправляем…" : "Подать заявку"}
-            </GradientButton>
-            {error && (
-              <p className="mt-2 text-sm text-red-400 text-center">{error}</p>
-            )}
-            <p className="mt-2 text-center text-[12px] text-white/35 font-display font-light">
-              Без спама, без рассылок
-            </p>
-          </form>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }
