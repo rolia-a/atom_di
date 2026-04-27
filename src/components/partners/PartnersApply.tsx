@@ -63,10 +63,10 @@ export default function PartnersApply() {
           className="absolute max-w-none select-none"
           style={{
             left: "72%",
-            // Larger (2×) per Figma — car fills most of the right half.
-            // Shifted up so the hood aligns vertically with the consent disclaimer.
-            top: "-10%",
-            height: "200%",
+            // Slightly smaller per second-round Figma changelog — leave more
+            // breathing room around the car in the right half.
+            top: "-5%",
+            height: "170%",
             width: "auto",
             transform: "translate(-50%, -50%) rotate(-90deg)",
             transformOrigin: "center",
