@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const stats = [
-  { value: "100+", label: "млн человек узнали\nоб Атом через СМИ" },
-  { value: ">105К", label: "предзаказов до начала\nсерийного производства" },
-  { value: "1 600", label: "инженеров и специалистов\nв команде" },
-  { value: "8", label: "партнёрских проектов\nза 2024-2025" },
+  { value: "100+", label: "млн человек\nузнали об Атоме\nчерез СМИ" },
+  { value: ">105К", label: "предзаказов\nдо начала серийного\nпроизводства" },
+  { value: "1 600", label: "инженеров\nи специалистов\nв команде" },
+  { value: "8", label: "партнёрских\nпроектов\nза 2024-2025" },
 ];
 
 export default function PartnersStats() {
@@ -27,7 +27,7 @@ export default function PartnersStats() {
           fill
           sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: "center calc(35% - 60px)" }}
+          style={{ objectPosition: "center calc(35% - 120px)" }}
         />
 
         {/* Grey gradient fade — denser at the bottom so the stats sit on a
@@ -49,7 +49,7 @@ export default function PartnersStats() {
                 <dt className="font-display text-4xl md:text-5xl lg:text-[56px] font-light leading-none tracking-[-0.01em] text-white">
                   {s.value}
                 </dt>
-                <dd className="mt-3 text-[18px] text-white/80 whitespace-pre-line leading-snug">
+                <dd className="mt-3 text-[14px] md:text-[18px] text-white/80 whitespace-pre-line leading-snug">
                   {s.label}
                 </dd>
               </div>
