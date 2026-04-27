@@ -10,7 +10,7 @@ const stats = [
 export default function PartnersStats() {
   return (
     <section className="relative bg-black overflow-hidden">
-      <div className="relative w-full min-h-[820px] md:min-h-[800px]">
+      <div className="relative w-full min-h-[720px] md:min-h-[800px]">
         {/* Background per Figma: bridge-cam composite (base + overlay).
             On mobile we drop the cover-zoom so the whole car/tunnel
             fits inside the viewport instead of being cropped. */}
@@ -26,7 +26,8 @@ export default function PartnersStats() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover"
+          style={{ objectPosition: "center 35%" }}
         />
 
         {/* Grey gradient fade — denser at the bottom so the stats sit on a
