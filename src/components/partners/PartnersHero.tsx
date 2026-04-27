@@ -32,16 +32,18 @@ export default function PartnersHero() {
             <br />
             культуру нового. Если это о&nbsp;вас&nbsp;— листайте дальше.
           </p>
-          <div className="mt-8 md:mt-10 flex flex-wrap gap-3">
+          <div className="mt-8 md:mt-10 flex gap-3">
+            {/* Side-by-side on mobile (each takes ~half width); on md+ they
+                shrink to content width like in the desktop design. */}
             <GradientButton
               href="#apply"
-              className="h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
+              className="flex-1 md:flex-initial h-12 md:h-[71px] px-4 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
             >
               Подать заявку
             </GradientButton>
             <a
               href="#events"
-              className="inline-flex items-center justify-center h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] bg-white text-black text-base md:text-[24px] hover:bg-white/90 transition"
+              className="flex-1 md:flex-initial inline-flex items-center justify-center h-12 md:h-[71px] px-4 md:px-10 rounded-2xl md:rounded-[20px] bg-white text-black text-base md:text-[24px] hover:bg-white/90 transition"
             >
               Узнать больше
             </a>
