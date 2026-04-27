@@ -24,8 +24,8 @@ export default function PartnersQuote() {
         className="absolute pointer-events-none select-none"
         style={{
           left: "39%",
-          top: "46%",
-          width: "22%",
+          top: "60%",
+          width: "26%",
           transform: "translate(-50%, -50%)",
         }}
       />
