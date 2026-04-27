@@ -57,15 +57,17 @@ const cards = [
 export default function PartnersEvents() {
   return (
     <section id="events" className="relative bg-[#0a1a20] overflow-hidden">
-      {/* Background: Atom on bridge at sunset. Covers the upper ~728px per Figma mockup */}
-      <div className="relative w-full h-[520px] md:h-[640px] lg:h-[728px]">
+      {/* Background: Atom on bridge at sunset. Tighter aspect on mobile so
+          the image sits closer to the previous block. */}
+      <div className="relative w-full h-[400px] md:h-[640px] lg:h-[728px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/figma/partners/events-bg.webp"
           alt=""
           aria-hidden
           draggable={false}
-          className="absolute inset-0 w-full h-full object-cover object-center select-none"
+          className="absolute inset-0 w-full h-full object-cover select-none"
+          style={{ objectPosition: "calc(50% - 10px) center" }}
         />
         {/* Per Figma: 40 % black overlay across the whole image */}
         <div aria-hidden className="absolute inset-0 bg-black/40" />
@@ -95,7 +97,7 @@ export default function PartnersEvents() {
           {cards.map((c, i) => (
             <li
               key={i}
-              className={`w-[300px] sm:w-[360px] md:w-[420px] h-[330px] rounded-[32px] p-5 relative overflow-hidden flex flex-col justify-between ${
+              className={`w-[300px] sm:w-[360px] md:w-[420px] aspect-square rounded-[32px] p-5 relative overflow-hidden flex flex-col justify-between ${
                 c.accent
                   ? "bg-[rgba(0,178,178,0.85)] text-white"
                   : "bg-white text-black"
