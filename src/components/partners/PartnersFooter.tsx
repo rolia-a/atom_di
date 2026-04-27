@@ -40,10 +40,7 @@ export default function PartnersFooter() {
             </p>
           </div>
 
-          {/* Right column nudged down so the top of the social-icons row
-              lines up with the start of the "АККРЕДИТОВАНО..." paragraph
-              on the left. */}
-          <div className="flex flex-col gap-5 lg:items-end lg:mt-12">
+          <div className="flex flex-col gap-5 lg:items-end lg:mt-[3px]">
             <div className="flex gap-3">
               {socials.map(({ label, href, Icon }) => (
                 <a
