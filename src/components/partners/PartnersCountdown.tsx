@@ -63,7 +63,7 @@ export default function PartnersCountdown() {
             </p>
           </div>
 
-          <div className="flex items-start gap-2 md:gap-4 text-white font-display">
+          <div className="flex items-start gap-2 md:gap-4 text-white font-display justify-center lg:justify-start">
             {[
               { unit: "d", v: pad(t.d), l: labelDays(t.d) },
               { unit: "h", v: pad(t.h), l: labelHours(t.h) },
@@ -96,7 +96,7 @@ export default function PartnersCountdown() {
 
         <GradientButton
           href="#apply"
-          className="mt-10 h-12 md:h-[71px] px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
+          className="mt-10 h-12 md:h-[71px] w-full md:w-auto px-6 md:px-10 rounded-2xl md:rounded-[20px] text-base md:text-[24px]"
         >
           Подать заявку
         </GradientButton>
