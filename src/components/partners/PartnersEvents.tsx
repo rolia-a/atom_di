@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { GradientButton } from "@/components/ui/GradientButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -55,6 +58,22 @@ const cards = [
 ];
 
 export default function PartnersEvents() {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const cardWidth = el.firstElementChild?.firstElementChild?.clientWidth ?? 1;
+      const gap = 16; // gap-4 ≈ 16px
+      const idx = Math.round(el.scrollLeft / (cardWidth + gap));
+      setActiveIdx(Math.min(Math.max(idx, 0), cards.length - 1));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section id="events" className="relative bg-[#0a1a20] overflow-hidden">
       {/* Background: Atom on bridge at sunset. Tighter aspect on mobile so
@@ -92,7 +111,10 @@ export default function PartnersEvents() {
       </div>
 
       {/* Cards carousel — positioned below the image so the car stays visible */}
-      <div className="relative z-10 -mt-[120px] md:-mt-[150px] lg:-mt-[165px] pb-8 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth">
+      <div
+        ref={scrollerRef}
+        className="relative z-10 -mt-[120px] md:-mt-[150px] lg:-mt-[165px] pb-6 overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth"
+      >
         <ul className="flex gap-3 md:gap-4 w-max pl-5 md:pl-10 pr-5 md:pr-10">
           {cards.map((c, i) => (
             <li
@@ -107,7 +129,7 @@ export default function PartnersEvents() {
                 <h3
                   className={`font-display leading-tight font-medium ${
                     c.accent
-                      ? "text-white text-xl md:text-2xl lg:text-[28px]"
+                      ? "text-white text-2xl md:text-2xl lg:text-[28px]"
                       : "text-[#16272d] text-lg md:text-xl lg:text-[24px]"
                   }`}
                 >
@@ -116,7 +138,7 @@ export default function PartnersEvents() {
                 <p
                   className={`leading-[1.35] ${
                     c.accent
-                      ? "text-white text-base md:text-base lg:text-[20px] whitespace-pre-line"
+                      ? "text-white text-lg md:text-base lg:text-[20px] whitespace-pre-line"
                       : "text-black text-sm md:text-base lg:text-[18px]"
                   }`}
                 >
@@ -156,6 +178,19 @@ export default function PartnersEvents() {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* iPhone-style scroll dots — visible on mobile only, scroll position
+          maps to active dot via the carousel ref above. */}
+      <div className="md:hidden flex justify-center gap-2 pb-6" aria-hidden>
+        {cards.map((_, i) => (
+          <span
+            key={i}
+            className={`h-1.5 w-1.5 rounded-full transition-colors ${
+              i === activeIdx ? "bg-white" : "bg-white/30"
+            }`}
+          />
+        ))}
       </div>
 
       {/* Black gradient under the CTA button per Figma */}
