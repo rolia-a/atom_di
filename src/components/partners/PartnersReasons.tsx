@@ -45,7 +45,7 @@ export default function PartnersReasons() {
             сказать&nbsp;— <span className="text-teal">да</span>
           </SectionHeading>
           <p className="max-w-[328px] text-base md:text-lg lg:text-[20px] leading-[1.4]">
-            Каждая интеграция с&nbsp;Атом — это готовый инфоповод, который
+            Каждая интеграция с&nbsp;Атомом — это готовый инфоповод, который
             работает на&nbsp;вас.
           </p>
         </div>
