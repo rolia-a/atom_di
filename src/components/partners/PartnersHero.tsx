@@ -26,9 +26,9 @@ export default function PartnersHero() {
             До&nbsp;официальных продаж. В&nbsp;вашем сообществе.
           </p>
           <p className="mt-4 md:mt-5 max-w-[544px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
-            Закрытые мероприятия с&nbsp;ранним доступом
+            Закрытые мероприятия с&nbsp;ранним
             <br />
-            к&nbsp;электромобилю Атом&nbsp;— для
+            доступом к&nbsp;электромобилю Атом&nbsp;— для
             <br />
             сообществ, формирующих культуру нового.
             <br />
