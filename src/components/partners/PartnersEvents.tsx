@@ -9,7 +9,7 @@ const cards = [
     // the trailing "с" from becoming an orphan on a new line.
     text: "Девятый слот ждёт сообщество, готовое написать следующую главу вместе\u00A0с\u00A0нами.",
     accent: true,
-    img: { src: "/figma/product/atom-transparent.webp", w: 280, h: 200 },
+    img: { src: "/figma/product/atom-transparent.webp", w: 340, h: 244 },
     button: "Записаться",
   },
   {
@@ -94,10 +94,10 @@ export default function PartnersEvents() {
           {cards.map((c, i) => (
             <li
               key={i}
-              className={`w-[300px] sm:w-[360px] md:w-[420px] h-[330px] rounded-[32px] p-5 relative overflow-hidden flex flex-col justify-between ${
+              className={`w-[300px] sm:w-[360px] md:w-[420px] h-[330px] rounded-[32px] p-5 relative flex flex-col justify-between ${
                 c.accent
-                  ? "bg-[rgba(0,178,178,0.85)] text-white"
-                  : "bg-white text-black"
+                  ? "bg-[rgba(0,178,178,0.85)] text-white overflow-visible"
+                  : "bg-white text-black overflow-hidden"
               }`}
             >
               <div className="relative z-10 space-y-3 md:space-y-4">
@@ -146,7 +146,7 @@ export default function PartnersEvents() {
                   alt=""
                   width={c.img.w}
                   height={c.img.h}
-                  className="absolute bottom-0 right-[-20px] pointer-events-none select-none"
+                  className="absolute bottom-0 right-[-40px] pointer-events-none select-none"
                   draggable={false}
                 />
               )}
