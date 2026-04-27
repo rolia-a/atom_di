@@ -3,13 +3,30 @@ import Image from "next/image";
 export default function PartnersQuote() {
   return (
     <section className="relative min-h-[500px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden bg-black">
-      {/* New BG asset already framed on the wheel — no extra zoom needed. */}
+      {/* Background photo of the steering wheel and interior. */}
       <Image
         src="/figma/partners/quote-bg.webp"
         alt=""
         fill
         sizes="100vw"
         className="object-cover object-center"
+      />
+      {/* Overlay: dashboard screen with the correct 3-widget UI
+          (perspective-distorted polygon from Figma — Vector 55). */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/figma/partners/wheel-screen.svg"
+        alt=""
+        aria-hidden
+        draggable={false}
+        className="absolute pointer-events-none select-none"
+        style={{
+          // Positioned over the steering-wheel screen area in the BG photo.
+          left: "50%",
+          top: "55%",
+          width: "23%",
+          transform: "translate(-50%, -50%)",
+        }}
       />
       <div
         aria-hidden
