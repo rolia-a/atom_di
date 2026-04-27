@@ -27,8 +27,10 @@ export default function PartnersHero() {
           </p>
           <p className="mt-4 md:mt-5 max-w-[544px] text-base md:text-lg lg:text-xl text-white leading-[1.4]">
             Закрытые мероприятия с&nbsp;ранним доступом
-            к&nbsp;электромобилю Атом&nbsp;— для сообществ, формирующих
-            культуру нового.
+            <br />
+            к&nbsp;электромобилю Атом&nbsp;— для сообществ,
+            <br />
+            формирующих культуру нового.
             <br />
             Если это о&nbsp;вас&nbsp;— листайте дальше.
           </p>
