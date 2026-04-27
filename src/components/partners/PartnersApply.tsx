@@ -65,7 +65,7 @@ export default function PartnersApply() {
             left: "72%",
             // Slightly smaller per second-round Figma changelog — leave more
             // breathing room around the car in the right half.
-            top: "-5%",
+            top: "calc(-5% + 15px)",
             height: "170%",
             width: "auto",
             transform: "translate(-50%, -50%) rotate(-90deg)",
