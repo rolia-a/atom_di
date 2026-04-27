@@ -23,9 +23,11 @@ export default function PartnersQuote() {
         draggable={false}
         className="absolute pointer-events-none select-none"
         style={{
-          left: "39%",
-          top: "60%",
-          width: "26%",
+          // The actual wheel screen in this photo sits in the lower-right
+          // (the photo is cropped/framed differently from the Figma reference).
+          left: "70%",
+          top: "72%",
+          width: "30%",
           transform: "translate(-50%, -50%)",
         }}
       />
