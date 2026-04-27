@@ -26,7 +26,7 @@ export default function PartnersQuote() {
           // The actual wheel screen in this photo sits in the lower-right
           // (the photo is cropped/framed differently from the Figma reference).
           left: "70%",
-          top: "72%",
+          top: "calc(72% + 15px)",
           width: "30%",
           transform: "translate(-50%, -50%)",
         }}
