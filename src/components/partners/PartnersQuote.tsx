@@ -3,14 +3,13 @@ import Image from "next/image";
 export default function PartnersQuote() {
   return (
     <section className="relative min-h-[500px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden bg-black">
-      {/* Zoom 2× into the wheel area (bottom-centre of the source image). */}
+      {/* New BG asset already framed on the wheel — no extra zoom needed. */}
       <Image
         src="/figma/partners/quote-bg.webp"
         alt=""
         fill
         sizes="100vw"
-        className="object-cover"
-        style={{ transform: "scale(2)", transformOrigin: "center 70%" }}
+        className="object-cover object-center"
       />
       <div
         aria-hidden
