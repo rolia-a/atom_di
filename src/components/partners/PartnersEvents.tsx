@@ -67,7 +67,7 @@ export default function PartnersEvents() {
           aria-hidden
           draggable={false}
           className="absolute inset-0 w-full h-full object-cover select-none"
-          style={{ objectPosition: "calc(50% - 10px) center" }}
+          style={{ objectPosition: "calc(50% - 10px) calc(50% - 25px)" }}
         />
         {/* Per Figma: 40 % black overlay across the whole image */}
         <div aria-hidden className="absolute inset-0 bg-black/40" />
