@@ -59,13 +59,13 @@ export default function PartnersEvents() {
     <section id="events" className="relative bg-[#0a1a20] overflow-hidden">
       {/* Background: Atom on bridge at sunset. Covers the upper ~728px per Figma mockup */}
       <div className="relative w-full h-[520px] md:h-[640px] lg:h-[728px]">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src="/figma/partners/events-bg.webp"
           alt=""
-          fill
-          sizes="100vw"
-          quality={90}
-          className="object-cover object-center"
+          aria-hidden
+          draggable={false}
+          className="absolute inset-0 w-full h-full object-cover object-center select-none"
         />
         {/* Per Figma: 40 % black overlay across the whole image */}
         <div aria-hidden className="absolute inset-0 bg-black/40" />
