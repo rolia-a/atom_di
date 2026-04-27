@@ -27,7 +27,7 @@ export default function PartnersStats() {
           fill
           sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: "center calc(35% - 120px)" }}
+          style={{ objectPosition: "center calc(35% - 180px)" }}
         />
 
         {/* Grey gradient fade — denser at the bottom so the stats sit on a
