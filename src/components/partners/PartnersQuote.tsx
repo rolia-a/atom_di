@@ -12,7 +12,9 @@ export default function PartnersQuote() {
         className="object-cover object-center"
       />
       {/* Overlay: dashboard screen with the correct 3-widget UI
-          (perspective-distorted polygon from Figma — Vector 55). */}
+          (perspective-distorted polygon from Figma — Vector 55).
+          Positioned per the 1440×800 BG frame coordinates from Figma:
+          screen polygon spans x≈400-720, y≈285-450 → center 39% / 46%. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/figma/partners/wheel-screen.svg"
@@ -21,10 +23,9 @@ export default function PartnersQuote() {
         draggable={false}
         className="absolute pointer-events-none select-none"
         style={{
-          // Positioned over the steering-wheel screen area in the BG photo.
-          left: "50%",
-          top: "55%",
-          width: "23%",
+          left: "39%",
+          top: "46%",
+          width: "22%",
           transform: "translate(-50%, -50%)",
         }}
       />
